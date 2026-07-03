@@ -1,0 +1,17 @@
+{
+  "id": "op_vestigio_discrepante",
+  "code": "VS-OP-02",
+  "name": "Vestígio Discrepante",
+  "type": "campanha",
+  "sublocal": "Câmara das Vigas Cantantes",
+  "risk_level": "medio",
+  "objective_primary": "Estabilizar o segundo incidente e recuperar vestígios incompatíveis com a leitura institucional inicial.",
+  "rewards_guaranteed": [
+    "recurso_de_campo_garantido",
+    "evidencia_principal_para_codex",
+    "segunda_melhoria_perceptivel_de_build_ou_et",
+    "desbloqueio_operacao_repetivel"
+  ],
+  "rewards_chase": [],
+  "unlocks_on_complete": ["op_varredura_estabilizacao"]
+}

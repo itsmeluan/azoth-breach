@@ -1,0 +1,16 @@
+{
+  "id": "op_varredura_estabilizacao",
+  "code": "VS-OP-R1",
+  "name": "Varredura de Estabilização",
+  "type": "repetivel",
+  "sublocal": "Túneis de Calor Baixo",
+  "risk_level": "medio",
+  "objective_primary": "Responder a incidentes menores persistentes na mesma região para coletar recurso e reduzir instabilidade local.",
+  "rewards_guaranteed": [
+    "recurso_comum_garantido",
+    "chance_de_runa_ou_catalisador",
+    "progresso_de_pesquisa_aplicavel"
+  ],
+  "rewards_chase": ["lente_de_vestigio"],
+  "unlocks_on_complete": []
+}

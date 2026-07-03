@@ -1,0 +1,17 @@
+{
+  "id": "op_primeira_fissura",
+  "code": "VS-OP-01",
+  "name": "Primeira Fissura",
+  "type": "campanha",
+  "sublocal": "Estação Ferrínea de Ensaios Estruturais",
+  "risk_level": "baixo",
+  "objective_primary": "Estabilizar uma fissura menor antes de sua expansão.",
+  "rewards_guaranteed": [
+    "recurso_de_campo_garantido",
+    "primeira_entrada_parcial_de_codex",
+    "desbloqueio_primeira_melhoria_simples_de_et",
+    "progresso_institucional_minimo"
+  ],
+  "rewards_chase": [],
+  "unlocks_on_complete": ["op_vestigio_discrepante"]
+}
