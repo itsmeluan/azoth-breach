@@ -17,6 +17,10 @@ const ET_CRISTALIZACAO := "et_cristalizacao_controlada"
 const ET_DECOMPOSICAO := "et_decomposicao_dirigida"
 const ET_ANALISE := "et_analise_vestigio"
 
+# Lente de Vestígio (05.9 §9.2), mesma regra usada em operation_field_screen.gd:
+# evita o pior resultado especificamente ao usar Análise de Vestígio.
+const CHASE_LOOT_ID := "lente_de_vestigio"
+
 var _operation: Dictionary = {}
 var _ets_by_id: Dictionary = {}
 var _max_rounds: int = DEFAULT_MAX_ROUNDS
@@ -198,11 +202,20 @@ func _apply_et_at(et_id: String, pos: Vector2i) -> void:
 				_ets_used.append(et_id)
 				_log_et_used(et_id, result.get("quality", ""))
 		ET_ANALISE:
-			if et_id == _dual_objective_et:
+			if not _dual_objective_et.is_empty() and et_id == _dual_objective_et:
 				_evidence += 1
-			_model.log_lines.append("Análise de Vestígio revelou informação sobre %s." % [pos])
-			_ets_used.append(et_id)
-			_log_et_used(et_id)
+				_model.log_lines.append("Análise de Vestígio revelou informação sobre %s." % [pos])
+				_ets_used.append(et_id)
+				_log_et_used(et_id)
+			else:
+				# Sem objetivo duplo (ex.: Varredura de Estabilização), Análise de
+				# Vestígio funciona como estabilização normal — senão a ET fica sem
+				# nenhum efeito mecânico nessas operações.
+				var avoid_weak := SliceState.has_chase_loot(CHASE_LOOT_ID)
+				var result := _model.apply_analise_instabilidade(upgrade_level, avoid_weak)
+				_instability = max(_instability - result["delta"], 0)
+				_ets_used.append(et_id)
+				_log_et_used(et_id, result.get("quality", ""))
 
 
 func _use_selagem_parcial() -> void:

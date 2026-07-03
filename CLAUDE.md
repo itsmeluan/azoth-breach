@@ -105,9 +105,11 @@ sem reescrever a arquitetura base (princípio 2.5 do Documento 06.1).
 - Campo de operação simples (`scenes/operations/operation_field_screen.tscn`,
   origem em M2 `BL-012`/`BL-013`/`BL-005`) implementa um loop **mínimo por
   rodadas** contra uma barra única de Instabilidade — sem grid, inimigos ou
-  catálogo de estados. Serve **Primeira Fissura** (`max_rounds=4`) e
-  **Varredura de Estabilização** (`max_rounds=3`, resolução curta — `BL-008`).
-  Cada tentativa passa por `scripts/services/et_resolution.gd` (qualidade
+  catálogo de estados. Serve só **Primeira Fissura** (`max_rounds=4`) —
+  Varredura de Estabilização migrou para o grid tático (ver abaixo), então
+  esta tela hoje tem uma única operação cliente; mantida como está porque
+  nada indica que valha a pena colapsá-la na tela de grid. Cada tentativa
+  passa por `scripts/services/et_resolution.gd` (qualidade
   fraca/normal/precisa/extraordinária, conceito simplificado de `04.2 §11.2`,
   sem "falha" dura, recebe `SliceState.et_upgrade_level` e desloca a
   rolagem pra cima) e opcionalmente soma `dual_objective_et`/`evidence_target`
@@ -116,10 +118,13 @@ sem reescrever a arquitetura base (princípio 2.5 do Documento 06.1).
   `04.3 §10.3` recomenda vitória parcial). Navega para
   `scenes/reports/report_screen.tscn`.
 - **Grid tático** (`scenes/operations/operation_grid_screen.tscn` +
-  `scripts/services/grid_combat_model.gd`) serve só **Vestígio Discrepante**
-  (`combat_mode: "grid"` nos dados da operação) — reabertura de escopo
-  pedida explicitamente pelo usuário depois de testar a build e sentir que
-  a mecânica simples não passava sensação de combate tático. Grid 6x6
+  `scripts/services/grid_combat_model.gd`) serve **Vestígio Discrepante** e
+  **Varredura de Estabilização** (`combat_mode: "grid"` nos dados de ambas)
+  — reabertura de escopo pedida explicitamente pelo usuário depois de
+  testar a build e sentir que a mecânica simples não passava sensação de
+  combate tático. Varredura entrou depois, no mesmo pedido: como é a única
+  operação `repetivel`, é o único jeito de re-testar o grid depois que as
+  operações de campanha ficam `COMPLETED` e travam (`BL-020`). Grid 6x6
   (`04.3 §6.1`), agente jogável único (HP 100 — `BL-009` já define agente
   único, não os 3 personagens de `04.3 §15.1`, que é MVP completo), 2
   inimigos "Criatura Deslocada" fixos no script (`04.3 §16.1`, espelha o
@@ -129,19 +134,24 @@ sem reescrever a arquitetura base (princípio 2.5 do Documento 06.1).
   nunca tinha sido usado de fato): Selagem Parcial reduz Instabilidade;
   Cristalização Controlada cria obstáculo/cobertura (reduz dano em 50% pra
   quem está adjacente); Decomposição Dirigida dana inimigo adjacente;
-  Análise de Vestígio soma vestígio. Derrotar inimigos não é obrigatório —
-  o objetivo continua sendo Instabilidade ≤ 0, inimigos são pressão tática
-  (`04.3 §4`). Novo outcome `retirada forçada` (vida a 0) ainda concede
-  recompensa garantida (`04.3 §23.3`). Simplificações explícitas: sem fog
-  of war/linha de efeito, sem estados de campo além do obstáculo, sem
-  telegraphing visual dedicado, inimigos hardcoded (não viraram tipo de
-  conteúdo em `/data` — `06.1` não define esse modelo, criar um formato
-  novo pra 2 instâncias fixas seria abstração prematura). Dois bugs reais
-  de IA corrigidos durante a validação: inimigo travava permanentemente
-  atrás de obstáculo (só tentava os 2 passos "diretos"); a correção
-  ingênua causava oscilação entre 2 células. Resolvido com busca gulosa
-  entre todas as adjacentes livres + memória da célula anterior pra não
-  retroceder.
+  Análise de Vestígio soma vestígio **só quando a operação define
+  `dual_objective_et`** (só Vestígio Discrepante) — em operações sem
+  objetivo duplo (Varredura), Análise de Vestígio reduz Instabilidade
+  como Selagem Parcial (`GridCombatModel.apply_analise_instabilidade`),
+  senão a ET ficaria sem nenhum efeito mecânico ali; o bônus da Lente de
+  Vestígio (evita "fraca") se aplica igual nos dois casos. Derrotar
+  inimigos não é obrigatório — o objetivo continua sendo Instabilidade ≤ 0,
+  inimigos são pressão tática (`04.3 §4`). Novo outcome `retirada forçada`
+  (vida a 0) ainda concede recompensa garantida (`04.3 §23.3`).
+  Simplificações explícitas: sem fog of war/linha de efeito, sem estados
+  de campo além do obstáculo, sem telegraphing visual dedicado, inimigos
+  hardcoded (não viraram tipo de conteúdo em `/data` — `06.1` não define
+  esse modelo, criar um formato novo pra 2 instâncias fixas seria
+  abstração prematura). Dois bugs reais de IA corrigidos durante a
+  validação: inimigo travava permanentemente atrás de obstáculo (só
+  tentava os 2 passos "diretos"); a correção ingênua causava oscilação
+  entre 2 células. Resolvido com busca gulosa entre todas as adjacentes
+  livres + memória da célula anterior pra não retroceder.
 - Relatório e recompensa (`scenes/reports/report_screen.tscn`, origem em
   M2 `BL-014`/`BL-006`, generalizado em M3 `BL-016`/`BL-018`): mostra
   resultado/rodadas/ETs usadas, evidência coletada vs. meta quando

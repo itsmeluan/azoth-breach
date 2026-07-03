@@ -13,5 +13,6 @@
   ],
   "rewards_chase": ["lente_de_vestigio"],
   "unlocks_on_complete": [],
+  "combat_mode": "grid",
   "max_rounds": 3
 }

@@ -102,6 +102,12 @@ func apply_selagem_parcial(upgrade_level: int) -> Dictionary:
 	return result
 
 
+func apply_analise_instabilidade(upgrade_level: int, avoid_weak: bool) -> Dictionary:
+	var result := ETResolution.resolve_attempt(upgrade_level, avoid_weak)
+	log_lines.append("Análise de Vestígio (%s): -%d Instabilidade." % [result["quality"], result["delta"]])
+	return result
+
+
 func apply_cristalizacao(target: Vector2i) -> bool:
 	if not adjacent_cells(player_position).has(target):
 		return false
