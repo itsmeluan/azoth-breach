@@ -51,6 +51,14 @@ func _ready() -> void:
 
 	return_button.pressed.connect(_on_return_pressed)
 
+	TelemetryLogger.log_event("reward_granted", {
+		"operation_id": _context.get("operation_id", ""),
+		"rewards": rewards,
+		"resources_granted": SliceState.RESOURCE_GRANT_PER_OPERATION,
+		"chase_loot": _context.get("chase_loot_this_run", []),
+	})
+	TelemetryLogger.log_event("report_viewed", {"operation_id": _context.get("operation_id", "")})
+
 
 func _build_chase_loot_notice() -> String:
 	var chase_loot_this_run: Array = _context.get("chase_loot_this_run", [])

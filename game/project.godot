@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 SliceState="*res://scripts/state/slice_state.gd"
+TelemetryLogger="*res://scripts/services/telemetry_logger.gd"
 
 [display]
 

@@ -10,6 +10,7 @@ func _ready() -> void:
 
 
 func go_to_scene(scene_path: String, context: Dictionary = {}) -> void:
+	TelemetryLogger.log_event("screen_opened", {"scene": scene_path})
 	for child in screen_host.get_children():
 		screen_host.remove_child(child)
 		child.queue_free()
