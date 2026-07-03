@@ -1,5 +1,7 @@
 extends Node
 
+const OperationLoader = preload("res://scripts/services/operation_loader.gd")
+
 const INITIAL_STATE_PATH := "res://data/state_templates/slice_state_initial.json"
 
 var current_phase: String = ""
@@ -39,3 +41,14 @@ func is_operation_unlocked(operation_id: String) -> bool:
 
 func is_operation_completed(operation_id: String) -> bool:
 	return operations_completed.has(operation_id)
+
+
+func complete_operation(operation_id: String) -> void:
+	if not operations_completed.has(operation_id):
+		operations_completed.append(operation_id)
+	for operation in OperationLoader.load_all():
+		if operation.get("id") == operation_id:
+			for unlocked_id in operation.get("unlocks_on_complete", []):
+				if not operations_unlocked.has(unlocked_id):
+					operations_unlocked.append(unlocked_id)
+			break
