@@ -102,35 +102,48 @@ sem reescrever a arquitetura base (princípio 2.5 do Documento 06.1).
   aplicando o princípio de Estado Explícito de `06.1` §2.3). "Confirmar e
   entrar em campo" navega para `scenes/operations/operation_field_screen.tscn`
   repassando `operation_id` e `loadout_id`.
-- Campo de operação (`BL-012`/`BL-013`/`BL-005`, M2,
-  `scenes/operations/operation_field_screen.tscn`) implementa um loop
-  **mínimo por rodadas** contra uma barra única de Instabilidade (início
-  `100`, máximo `4` rodadas) — deliberadamente sem grid, inimigos ou
-  catálogo de estados. `04.3` (Combate) descreve uma visão bem mais
-  ambiciosa (grid 6x6, movimento, fases de inimigo) que é escopo do MVP
-  completo, não da fatia vertical; `BL-012` pede explicitamente um sistema
-  "mínimo". Grid e combate real só entram quando `BL-007` (Operação 02)
-  pedir "combate tático real" de fato. Cada rodada: o jogador escolhe uma
-  ET do preset ativo, `scripts/services/et_resolution.gd` sorteia uma
-  qualidade de execução (fraca/normal/precisa/extraordinária — conceito
-  simplificado de `04.2 §11.2`, sem "falha" dura) e reduz a Instabilidade;
-  log de cada tentativa fica visível na tela. Encerra em sucesso
-  (Instabilidade chega a 0) ou estabilização parcial (rodadas esgotadas —
-  não é derrota; `04.3 §10.3` recomenda vitória parcial em vez de game
-  over). Navega para `scenes/reports/report_screen.tscn` com o resultado.
-- Relatório e recompensa (`BL-014`/`BL-006`, M2,
-  `scenes/reports/report_screen.tscn`): mostra resultado/rodadas/ETs
-  usadas e a lista de `rewards_guaranteed` da operação (sempre concedida,
-  independente do desfecho — `BL-014`: "nenhuma run termina sem
-  progresso"). Chama `SliceState.complete_operation(operation_id)`, que
-  marca a operação como concluída e aplica `unlocks_on_complete` — o
-  `OperationBoard` do Hub já lê isso dinamicamente, então a próxima
-  operação some desbloqueada automaticamente ao voltar. **Conflito
-  documental resolvido com o usuário:** `BL-006` lista `BL-015` (Mesa de
-  Pesquisa) como dependência, mas `05.12` só coloca `BL-015` em `M3` —
-  o item "notificação de melhoria disponível" virou um aviso textual
-  estático na tela, sem sistema funcional de pesquisa (isso é `M3` de
-  verdade).
+- Campo de operação (`scenes/operations/operation_field_screen.tscn`,
+  origem em M2 `BL-012`/`BL-013`/`BL-005`, generalizado em M3
+  `BL-007`/`BL-010`) implementa um loop **mínimo por rodadas** contra uma
+  barra única de Instabilidade — deliberadamente sem grid, inimigos ou
+  catálogo de estados (`04.3` descreve uma visão de MVP completo bem mais
+  ambiciosa; `BL-012` pede explicitamente um sistema "mínimo"). Tudo
+  data-driven pela operação: `max_rounds` (Primeira Fissura=4, Vestígio
+  Discrepante=5, mais intensa), e opcionalmente `dual_objective_et` +
+  `evidence_target` — quando presentes (só em Vestígio Discrepante), usar
+  aquela ET soma evidência mas reduz a Instabilidade a 80% do normal
+  (`DUAL_OBJECTIVE_INSTABILITY_FACTOR`), traduzindo o trade-off "eficiência
+  tática vs. coleta contextual" de `05.9 §7.2`. Cada tentativa passa por
+  `scripts/services/et_resolution.gd` (qualidade fraca/normal/precisa/
+  extraordinária, conceito simplificado de `04.2 §11.2`, sem "falha" dura),
+  que agora também recebe o nível de melhoria da ET
+  (`SliceState.et_upgrade_level`) e desloca a rolagem para cima. Encerra em
+  sucesso (Instabilidade chega a 0) ou estabilização parcial (rodadas
+  esgotadas — não é derrota; `04.3 §10.3` recomenda vitória parcial).
+  Navega para `scenes/reports/report_screen.tscn`.
+- Relatório e recompensa (`scenes/reports/report_screen.tscn`, origem em
+  M2 `BL-014`/`BL-006`, generalizado em M3 `BL-016`/`BL-018`): mostra
+  resultado/rodadas/ETs usadas, evidência coletada vs. meta quando
+  aplicável, e a lista de `rewards_guaranteed` da operação (sempre
+  concedida, independente do desfecho — `BL-014`). Chama
+  `SliceState.complete_operation(operation_id, report_data)`, que marca a
+  operação como concluída, aplica `unlocks_on_complete`, concede recursos
+  (`RESOURCE_GRANT_PER_OPERATION = 20`), desbloqueia `codex_unlocks` e
+  registra `report_data` em `reports_resolved` — tudo lido de volta
+  dinamicamente pelo Hub/Codex/Mesa de Pesquisa, sem estado duplicado. Se
+  a operação tiver `recontextualization_notice` (só Vestígio Discrepante),
+  o texto aparece no relatório — parafraseia diretamente `05.9 §7.2`
+  ("vestígios incompatíveis com a leitura institucional inicial"), nenhuma
+  lore nova.
+- Mesa de Pesquisa (`BL-015`, `scenes/research/research_screen.tscn`,
+  acessível pelo Hub) mostra `SliceState.resources` e as 4 ETs com nível
+  atual; melhorar custa `ET_UPGRADE_COST = 20`, nível máximo `3`, efeito
+  imediato na próxima resolução tática (ver acima). Codex (`BL-017`, sem
+  cena própria — `scenes/` não reserva pasta `codex` em `06.1`, só
+  `scripts/features/codex`) abre como `PopupPanel` a partir de um botão no
+  Hub, listando `data/codex/*.json` filtradas por
+  `SliceState.codex_entries_unlocked` via `codex_loader.gd`. Uma entrada
+  por operação, desbloqueada junto com a recompensa.
 - Autoload `SliceState` (`scripts/state/slice_state.gd`, `TK-M1-005`) carrega
   `data/state_templates/slice_state_initial.json` no boot (antes do `_ready()`
   do App Shell) e expõe os campos mínimos de `06.1` 4.4. Estado inicial:
@@ -154,7 +167,7 @@ sem reescrever a arquitetura base (princípio 2.5 do Documento 06.1).
   foram criados — dados pessoais/de conta não estão documentados em `/docs`
   e não devem ser inventados. Configurar em Editor → Export quando necessário.
 
-## M1 e M2: fechados
+## M1, M2 e M3: fechados
 
 `M1 — Primeira Build Navegável` (`TK-M1-001` a `TK-M1-012`, `06.2` §5):
 projeto abre localmente, hub funciona, quadro de operações funciona,
@@ -164,18 +177,32 @@ de nó.
 
 `M2 — Primeiro Loop Completo` (`BL-012`, `BL-013`, `BL-005`, `BL-014`,
 `BL-006`, `05.12` §5): a Primeira Fissura já pode ser jogada de ponta a
-ponta (loop mínimo por rodadas, ver seção de Campo de Operação acima),
-gera relatório e recompensa reais, e o retorno ao hub já muda o estado do
-jogo de verdade — `op_vestigio_discrepante` aparece desbloqueada no quadro
-de operações automaticamente após concluir a Primeira Fissura, sem
-nenhuma mudança necessária no Hub/`OperationBoard` (já liam `SliceState`
-dinamicamente desde `TK-M1-007`).
+ponta (loop mínimo por rodadas), gera relatório e recompensa reais, e o
+retorno ao hub já muda o estado do jogo de verdade.
 
-Próximo é `M3 — Progressão e Segunda Operação` (`05.12` §6): Mesa de
-Pesquisa (`BL-015`), presets de build com efeito real (`BL-010`),
-Operação 02 com combate tático de verdade (`BL-007`, primeira vez que
-grid/inimigos entram em cena), relatório com consequência (`BL-016`) e
-Codex com impacto prático (`BL-017`).
+`M3 — Progressão e Segunda Operação` (`BL-015`, `BL-010`, `BL-016`,
+`BL-017`, `BL-007`, `BL-018`, `05.12` §6): Mesa de Pesquisa funcional com
+efeito imediato na resolução tática; Vestígio Discrepante jogável com
+objetivo duplo (estabilizar + coletar vestígio) e recontextualização;
+Codex acessível do Hub com uma entrada por operação; builds com
+diferenciação mecânica real (só Contenção/Investigação conseguem
+perseguir o objetivo secundário de Vestígio Discrepante, por incluírem
+Análise de Vestígio). **Decisão de escopo mantida consistente com M2:**
+"combate tático de verdade" de `BL-007` continua sem grid/inimigos —
+mesma leitura minimalista aplicada à Primeira Fissura, generalizando o
+loop por rodadas em vez de construir um sistema novo. Se isso for
+insuficiente quando a campanha completa (fora da vertical slice) exigir
+o grid de `04.3`, essa é uma reabertura de arquitetura consciente, não
+um esquecimento.
+
+Todos os milestones da vertical slice (`M1`–`M6`, `05.12`) estão
+concluídos até `M3`. Próximo é `M4 — Repetição, Estado e Persistência`
+(`05.12` §7): persistência real em disco (`BL-019`, hoje só em memória),
+máquina de estados formal das operações (`BL-020`) e a operação
+repetível Varredura de Estabilização (`BL-008`) — que já está tecnicamente
+jogável desde o fim de `M3` (mesma tela de campo genérica, desbloqueada
+via `unlocks_on_complete` de Vestígio Discrepante), mas sem a resolução
+curta e variações específicas que `BL-008` pede.
 
 ### Bug de navegação corrigido em M2
 
