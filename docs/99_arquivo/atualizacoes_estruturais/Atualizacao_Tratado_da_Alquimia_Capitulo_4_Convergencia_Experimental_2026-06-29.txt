@@ -1,0 +1,71 @@
+Atualização do Tratado da Alquimia — Capítulo 4
+
+Data: 2026-06-29
+Status: Aprovada para incorporação documental
+
+Objetivo
+
+Atualizar o Capítulo 4 — Avaliação de Desempenho das Transmutações do Documento 01.1 — Tratado da Alquimia.
+
+Além da atualização do capítulo, revisar a documentação canônica para incorporar o conceito de Convergência Experimental sempre que apropriado, unificando conceitos redundantes ou conflitantes.
+
+Conceito Canônico
+
+Convergência Experimental representa o estado no qual uma Especificação de Transmutação (ET) produz resultados suficientemente consistentes, reproduzíveis e previsíveis para que seu comportamento seja considerado cientificamente estabelecido.
+
+Ela constitui um conceito metodológico da Ciência Alquímica.
+
+Não representa um fenômeno físico.
+
+Não representa uma propriedade da realidade.
+
+Não representa uma manifestação da Convergência multiversal.
+
+Representa exclusivamente o grau de consolidação científica de uma ET.
+
+Relação com a MAA
+
+Uma ET pode atingir Convergência Experimental mesmo permanecendo sujeita à Incerteza Fundamental da Transmutação.
+
+A Convergência Experimental não elimina a IFT.
+
+Ela apenas demonstra que a distribuição dos resultados tornou-se suficientemente compreendida para que o comportamento da ET possa ser previsto dentro dos limites estabelecidos pela MAA.
+
+Critérios para Convergência Experimental
+
+Uma ET somente pode ser considerada experimentalmente convergente quando satisfizer simultaneamente:
+
+* reproduzibilidade consistente;
+* comportamento compatível com a MAA;
+* estabilidade estatística dos resultados;
+* ausência de inconsistências conhecidas;
+* documentação técnica completa;
+* validação independente por múltiplas execuções equivalentes.
+
+Esses critérios representam consolidação científica.
+
+Não representam perfeição da ET.
+
+Relação com a Convergência Cosmológica
+
+A expressão Convergência Experimental compartilha apenas o termo "Convergência" com o fenômeno cosmológico.
+
+Os dois conceitos pertencem a domínios completamente distintos.
+
+Convergência Experimental representa um conceito metodológico da ciência.
+
+Convergência Cosmológica representa um fenômeno físico do universo.
+
+Não existe relação causal entre ambos.
+
+Diretrizes
+
+Convergência Experimental deve tornar-se o termo oficial utilizado pela Ciência Alquímica para indicar maturidade científica de uma ET.
+
+Esse conceito deverá servir de fundamento para documentos futuros relacionados a Pesquisa Alquímica, Academias, Engenharia Alquímica, Catalogação de ETs, Publicações científicas e Desenvolvimento tecnológico.
+
+Não criar mecânicas de gameplay.
+
+Não criar sistemas de balanceamento.
+
+O conceito deve permanecer estritamente científico e metodológico.

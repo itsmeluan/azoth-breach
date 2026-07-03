@@ -1,0 +1,65 @@
+AZOTH: BREACH ESTRUTURA MESTRE DA DOCUMENTAÇÃO
+
+AZOTH/
+
+00 - CONSTITUIÇÃO DO UNIVERSO ├── 00.1 Constitution of Reality │ (A
+verdade absoluta do universo) ├── 00.2 Glossário Canônico │ (Definições
+oficiais de todos os termos) ├── 00.3 Leis Fundamentais │ (Leis
+imutáveis do universo) └── 00.4 Convenções do Universo (Padrões,
+nomenclaturas e restrições canônicas)
+
+01 - CODEX VERITATIS (Enciclopédia Oficial do Universo) ├── 01.001 A
+Verdade ├── 01.002 Aletheia ├── 01.003 Azoth ├── 01.004 Matéria ├──
+01.005 Energia ├── 01.006 Informação ├── 01.007 Ruído Informacional ├──
+01.008 Memória da Matéria ├── 01.009 Véu ├── 01.010 Breach ├── 01.011
+Multiverso ├── 01.012 Realidade ├── 01.013 Universo ├── 01.014 Caos ├──
+01.015 Sincronias Ômni-Temporais ├── 01.016 Inteligência ├── 01.017
+Consciência ├── 01.018 Vida ├── 01.019 Morte ├── 01.020 Tempo └── …
+
+02 - TRATADO DE ALQUIMIA (A Ciência da Alquimia) ├── 02.001 Fundamentos
+da Alquimia ├── 02.002 Princípio da Equivalência ├── 02.003
+Transmutações ├── 02.004 Círculos de Transmutação ├── 02.005
+Catalisadores ├── 02.006 Azoth Aplicado ├── 02.007 Energia ├── 02.008
+Reações Endotérmicas ├── 02.009 Reações Exotérmicas ├── 02.010
+Biomodificação ├── 02.011 Homúnculos ├── 02.012 Artefatos ├── 02.013
+Pedra Filosofal ├── 02.014 Materiais ├── 02.015 Pesquisa Científica ├──
+02.016 Descobertas └── …
+
+03 - HISTÓRIA ├── 03.001 Cronologia Geral ├── 03.002 Origem do
+Multiverso ├── 03.003 Primeira Civilização ├── 03.004 Nicolau Flamel ├──
+03.005 Grande Transmutação Planetária ├── 03.006 A Grande Ruína ├──
+03.007 Era das Academias ├── 03.008 História Moderna ├── 03.009 Linha do
+Tempo Completa └── …
+
+04 - COMPÊNDIO DAS ACADEMIAS ├── 04.001 Biomancia ├── 04.002
+Homunculogia ├── 04.003 Filosofia Hermética ├── 04.004 Metalurgia Arcana
+├── 04.005 Medicina Oriental ├── 04.006 Alquimia Natural ├── 04.007
+Escolas Futuras └── …
+
+05 - PERSONAGENS ├── 05.001 Nicolau Flamel ├── 05.002 Fundador da
+Biomancia ├── 05.003 Fundador da Homunculogia ├── 05.004 Fundador
+Hermético └── …
+
+06 - BESTIÁRIO ├── 06.001 Criaturas de Aletheia ├── 06.002 Seres
+Interdimensionais ├── 06.003 Civilizações Extradimensionais ├── 06.004
+Chefes ├── 06.005 Fauna ├── 06.006 Flora └── …
+
+07 - CAMPANHA ├── 07.001 Estrutura Geral ├── 07.002 Prólogo ├── 07.003
+Capítulo 1 ├── 07.004 Capítulo 2 ├── … ├── 07.0XX Final └── 07.Endgame
+
+08 - GAME DESIGN ├── 08.001 Core Loop ├── 08.002 Progressão ├── 08.003
+Combate ├── 08.004 Crafting ├── 08.005 Pesquisa ├── 08.006 Exploração
+├── 08.007 Coop ├── 08.008 PvP ├── 08.009 Economia ├── 08.010
+Monetização ├── 08.011 Live Ops ├── 08.012 UI ├── 08.013 UX └── …
+
+09 - DIREÇÃO DE ARTE ├── Identidade Visual ├── Pixel Art ├── Cenários
+├── Personagens ├── Efeitos ├── Interface └── …
+
+10 - DIREÇÃO DE ÁUDIO ├── Trilha Sonora ├── Ambiência ├── Interface ├──
+Combate ├── Bosses └── …
+
+11 - LIVE SERVICE ├── Temporadas ├── Eventos ├── Raids ├── Clusters ├──
+Rankings ├── Expansões └── …
+
+12 - ROADMAP ├── MVP ├── Early Access ├── Lançamento ├── Atualizações
+├── Novas Academias ├── Novos Universos └── Expansões

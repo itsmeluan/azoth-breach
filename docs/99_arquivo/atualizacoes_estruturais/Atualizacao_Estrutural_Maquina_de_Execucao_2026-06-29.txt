@@ -1,0 +1,262 @@
+Solicitação de Expansão da MAA — Máquina de Execução
+
+Objetivo
+
+Adicionar ao documento 01.0 — Máquina Abstrata da Alquimia (MAA) uma nova seção denominada:
+
+Máquina de Execução
+
+Esta seção descreve como uma transmutação é executada após a Grande Transmutação Planetária.
+
+Ela não descreve fenômenos históricos.
+
+Não descreve gameplay.
+
+Não descreve técnicas específicas.
+
+Define apenas o fluxo universal que toda transmutação válida percorre.
+
+⸻
+
+Princípio Geral
+
+Toda transmutação pós-GTP percorre obrigatoriamente um mesmo ciclo de execução.
+
+Esse ciclo é imutável.
+
+Nenhuma etapa pode ser ignorada.
+
+Nenhuma transmutação conhecida executa etapas adicionais.
+
+Apenas a complexidade de cada etapa varia conforme a especificação escrita pelo alquimista.
+
+⸻
+
+Fluxo de Execução
+
+Toda transmutação ocorre segundo a seguinte sequência:
+
+Intenção
+
+↓
+
+Validação
+
+↓
+
+Resolução
+
+↓
+
+Catalisação
+
+↓
+
+Transmutação
+
+↓
+
+Estabilização
+
+↓
+
+Encerramento
+
+Cada etapa possui uma única responsabilidade.
+
+⸻
+
+1. Intenção
+
+A transmutação inicia quando um ser consciente estabelece deliberadamente um objetivo e canaliza energia para um círculo de transmutação válido.
+
+A intenção não executa a transmutação.
+
+Ela apenas inicia o processo.
+
+Sem intenção consciente nenhuma transmutação pode começar.
+
+⸻
+
+2. Validação
+
+O Protocolo Flamel verifica se a especificação pode ser executada.
+
+Durante esta etapa são verificadas:
+
+* integridade geométrica do círculo;
+* consistência da linguagem alquímica;
+* compatibilidade entre as runas;
+* presença de uma circunferência válida;
+* existência de matéria e/ou energia de origem;
+* disponibilidade de Azoth.
+
+Caso qualquer requisito obrigatório não seja satisfeito, a transmutação falha antes de iniciar.
+
+Nenhuma transformação parcial ocorre durante a validação.
+
+⸻
+
+3. Resolução
+
+Após a validação, o Protocolo Flamel utiliza a intenção consciente do alquimista para resolver ambiguidades deliberadamente deixadas pela linguagem alquímica.
+
+A intenção nunca substitui a especificação escrita.
+
+Ela apenas complementa informações que a linguagem representa de forma abstrata.
+
+Quanto mais completa for a especificação, menor será a dependência da intenção.
+
+⸻
+
+4. Catalisação
+
+Após a resolução, o Azoth reage à especificação produzida pelo Protocolo Flamel.
+
+O Azoth não interpreta intenções.
+
+O Azoth não interpreta círculos.
+
+Ele reage exclusivamente à especificação válida produzida pelo protocolo.
+
+Durante esta etapa, a reação alquímica torna-se fisicamente possível.
+
+⸻
+
+5. Transmutação
+
+Nesta etapa ocorre efetivamente a transformação.
+
+Matéria, energia e informação sofrem as alterações descritas pela especificação.
+
+Toda transformação respeita integralmente as Leis Fundamentais.
+
+A transmutação permanece ativa apenas enquanto a reação estiver em andamento.
+
+⸻
+
+6. Estabilização
+
+Após concluída a transformação, o novo estado da matéria, energia e informação torna-se estável.
+
+O resultado deixa de depender do Azoth.
+
+A reação encerra naturalmente.
+
+Caso a estabilização não seja possível, a transmutação falha ou produz um resultado diferente do pretendido.
+
+⸻
+
+7. Encerramento
+
+Com a estabilização concluída, o fluxo de Azoth é interrompido.
+
+O círculo retorna ao estado inativo.
+
+Uma nova transmutação exige uma nova ativação consciente.
+
+Nenhuma transmutação permanece permanentemente em execução.
+
+⸻
+
+Falhas
+
+Falhas podem ocorrer em qualquer etapa anterior à estabilização.
+
+Entre as principais categorias:
+
+* especificação inválida;
+* círculo incompleto;
+* geometria incorreta;
+* runas incompatíveis;
+* intenção incompatível;
+* matéria insuficiente;
+* energia insuficiente;
+* Azoth insuficiente;
+* perda de estabilidade durante a reação.
+
+Outras categorias poderão ser adicionadas futuramente sem alteração da arquitetura da MAA.
+
+⸻
+
+Papel da Consciência
+
+A consciência participa apenas de duas etapas:
+
+* Intenção;
+* Resolução.
+
+Após iniciada a catalisação, a transmutação segue automaticamente conforme a especificação.
+
+O alquimista não controla diretamente a reação durante sua execução.
+
+Ele controla apenas sua preparação.
+
+⸻
+
+Papel do Protocolo Flamel
+
+O Protocolo Flamel participa exclusivamente das etapas:
+
+* Validação;
+* Resolução.
+
+Sua função é transformar a intenção consciente em uma especificação formal executável.
+
+Ele nunca produz matéria.
+
+Nunca produz energia.
+
+Nunca catalisa a reação.
+
+⸻
+
+Papel do Azoth
+
+O Azoth participa exclusivamente das etapas:
+
+* Catalisação;
+* Transmutação.
+
+Ele não possui vontade.
+
+Não interpreta linguagem.
+
+Não realiza escolhas.
+
+Sua função é exclusivamente catalisar a reação descrita pela especificação produzida pelo Protocolo Flamel.
+
+⸻
+
+Papel da Linguagem Alquímica
+
+A Linguagem Universal da Alquimia participa exclusivamente das etapas de:
+
+* Validação;
+* Resolução.
+
+Ela constitui o meio formal pelo qual a intenção pode ser convertida em uma especificação executável.
+
+Sem linguagem não existe Protocolo Flamel.
+
+Sem Protocolo Flamel não existe transmutação pós-GTP.
+
+⸻
+
+Consequências Arquiteturais
+
+Esta arquitetura estabelece uma separação clara de responsabilidades.
+
+Consciência cria intenção.
+
+O Protocolo Flamel interpreta.
+
+A Linguagem descreve.
+
+O Azoth catalisa.
+
+A matéria, energia e informação transformam-se.
+
+Nenhum desses componentes executa funções pertencentes aos demais.
+
+Essa separação constitui um princípio fundamental da Máquina Abstrata da Alquimia e deve ser respeitada por toda a documentação futura.

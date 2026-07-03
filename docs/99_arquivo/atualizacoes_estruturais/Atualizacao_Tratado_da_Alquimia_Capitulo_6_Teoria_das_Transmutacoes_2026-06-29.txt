@@ -1,0 +1,161 @@
+Atualização do Tratado da Alquimia — Capítulo 6
+
+Data: 2026-06-29
+Status: Aprovada para incorporação documental
+
+Objetivo
+
+Adicionar ao Documento 01.1 — Tratado da Alquimia o Capítulo 6 — Teoria das Transmutações.
+
+Conteúdo fonte
+
+Capítulo 6 — Teoria das Transmutações
+
+6.1 Definição
+
+Uma transmutação constitui a execução física de uma Especificação de Transmutação (ET) pela Máquina Abstrata da Alquimia (MAA).
+
+Ela corresponde ao processo pelo qual um estado inicial é transformado em um estado final por meio da interação coordenada entre:
+
+* consciência;
+* Protocolo Flamel;
+* Azoth;
+* matéria;
+* energia;
+* informação.
+
+Toda transmutação representa uma instância particular da mesma arquitetura fundamental definida pela MAA.
+
+As diferenças observadas entre transmutações decorrem exclusivamente das diferenças entre suas ETs e das condições de execução.
+
+6.2 Estrutura Geral
+
+Toda transmutação pode ser descrita por uma mesma estrutura lógica composta por cinco elementos.
+
+Estado Inicial
+
+Conjunto de recursos, condições e informações existentes antes da execução.
+
+Especificação de Transmutação (ET)
+
+Descrição formal da transformação desejada.
+
+Execução
+
+Processo pelo qual o Protocolo Flamel interpreta a ET e o Azoth catalisa a reação.
+
+Estado Final
+
+Resultado produzido pela transmutação.
+
+Avaliação
+
+Comparação entre o resultado obtido e o comportamento esperado pela ET.
+
+Essa estrutura permanece válida para qualquer transmutação, independentemente de sua complexidade ou finalidade.
+
+6.3 Estado Inicial
+
+O estado inicial representa todas as condições relevantes existentes antes da execução.
+
+Entre elas:
+
+* matéria disponível;
+* energia disponível;
+* informação presente;
+* disponibilidade de Azoth;
+* condições ambientais;
+* restrições impostas pela ET.
+
+Toda transmutação depende integralmente do estado inicial sobre o qual será executada.
+
+Nenhuma ET é independente das condições em que será aplicada.
+
+6.4 Estado Final
+
+O estado final corresponde ao conjunto de condições produzidas após o término da transmutação.
+
+Ele representa o resultado físico efetivamente obtido.
+
+Sua proximidade em relação ao comportamento previsto depende de diversos fatores já definidos neste Tratado, incluindo:
+
+* Precisão Alquímica;
+* Proficiência Alquímica;
+* Complexidade da ET;
+* qualidade dos recursos;
+* influência da Incerteza Fundamental da Transmutação.
+
+6.5 Operações Fundamentais
+
+Toda transmutação é construída exclusivamente pela combinação das Operações Fundamentais definidas pela MAA.
+
+Essas operações constituem os elementos básicos da Linguagem Universal da Alquimia.
+
+Nenhuma técnica alquímica utiliza princípios diferentes.
+
+Toda complexidade observada na alquimia resulta apenas da combinação progressiva dessas operações.
+
+Consequentemente, diferentes ETs podem produzir resultados semelhantes utilizando arquiteturas distintas.
+
+6.6 Composição
+
+Transmutações complexas são obtidas pela composição organizada de múltiplas operações fundamentais.
+
+Essa composição permite que problemas progressivamente mais sofisticados sejam descritos sem necessidade de introduzir novos princípios de funcionamento.
+
+A diversidade da alquimia emerge da capacidade praticamente ilimitada de combinar um conjunto finito de operações fundamentais.
+
+6.7 Classificação Científica
+
+Toda transmutação pode ser classificada segundo critérios científicos.
+
+Esses critérios podem considerar, entre outros aspectos:
+
+* finalidade;
+* arquitetura da ET;
+* operações empregadas;
+* comportamento observado;
+* domínio de aplicação;
+* requisitos de execução.
+
+A classificação científica possui finalidade exclusivamente descritiva.
+
+Ela não altera o funcionamento da transmutação nem cria categorias distintas de alquimia.
+
+A taxonomia formal das transmutações será definida em documento próprio.
+
+6.8 Especialização Científica
+
+A diversidade das transmutações conduz naturalmente ao surgimento de especializações científicas.
+
+Cada especialização concentra seus estudos em determinados conjuntos de problemas, arquiteturas ou domínios de aplicação.
+
+Entretanto, todas permanecem integralmente subordinadas à mesma Máquina Abstrata da Alquimia.
+
+Não existem formas diferentes de alquimia.
+
+Existem apenas diferentes áreas de estudo sobre uma mesma ciência.
+
+6.9 Evolução das Transmutações
+
+Novas transmutações não surgem pela descoberta de novas leis.
+
+Surgem pela criação de novas Especificações de Transmutação capazes de organizar, de maneira inédita, princípios já existentes.
+
+Toda evolução da alquimia corresponde ao aumento da capacidade de descrever, combinar e executar transformações compatíveis com a MAA.
+
+Assim, a inovação alquímica consiste na expansão contínua do conjunto de ETs conhecidas.
+
+6.10 Princípio Fundamental da Teoria das Transmutações
+
+Toda transmutação constitui uma manifestação particular da mesma arquitetura universal definida pela Máquina Abstrata da Alquimia.
+
+A diversidade observada na alquimia não resulta da existência de múltiplos sistemas de transmutação.
+
+Ela resulta da enorme quantidade de Especificações de Transmutação que podem ser construídas utilizando um conjunto comum de princípios fundamentais.
+
+Esse princípio estabelece a unidade conceitual da alquimia em todo o universo AZOTH.
+
+Normalização aplicada na incorporação
+
+O termo "Especificação de Transmutação" deve ser normalizado para "Especificação da Transmutação", conforme terminologia canônica vigente.

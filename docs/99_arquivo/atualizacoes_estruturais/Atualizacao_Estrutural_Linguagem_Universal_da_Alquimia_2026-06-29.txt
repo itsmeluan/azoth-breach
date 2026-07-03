@@ -1,0 +1,343 @@
+Solicitação de Expansão da MAA — Linguagem Universal da Alquimia
+
+Objetivo
+
+Adicionar ao documento 01.0 — Máquina Abstrata da Alquimia (MAA) uma nova seção denominada:
+
+Linguagem Universal da Alquimia
+
+Esta seção define formalmente a linguagem utilizada pelo Protocolo Flamel para traduzir a intenção consciente do alquimista em uma especificação executável pelo Azoth.
+
+Esta linguagem constitui o fundamento de toda a alquimia pós-Grande Transmutação Planetária.
+
+Ela não representa um idioma humano.
+
+Não representa escrita comum.
+
+Não representa magia.
+
+Ela representa uma linguagem formal de especificação da realidade.
+
+Toda transmutação pós-GTP corresponde à escrita de um programa nessa linguagem.
+
+⸻
+
+Objetivos da Linguagem
+
+A Linguagem Universal da Alquimia possui apenas três objetivos fundamentais:
+
+1. Definir sobre o que a transmutação atuará.
+2. Definir qual transformação deverá ocorrer.
+3. Definir como essa transformação deverá ser executada.
+
+Todo círculo de transmutação válido pode ser descrito utilizando apenas esses três componentes.
+
+⸻
+
+Estrutura Geral
+
+Toda especificação alquímica válida é composta por três grupos fundamentais de runas.
+
+Runas de Domínio
+
+↓
+
+Runas de Operação
+
+↓
+
+Runas Modificadoras
+
+Essa estrutura é obrigatória.
+
+Toda transmutação válida deve possuir pelo menos uma runa pertencente a cada grupo.
+
+⸻
+
+Runas de Domínio
+
+Definição
+
+Runas de Domínio definem sobre qual aspecto da realidade a transmutação atuará.
+
+Elas nunca representam materiais específicos.
+
+Nunca representam objetos.
+
+Nunca representam substâncias individuais.
+
+Representam apenas categorias fundamentais da realidade.
+
+O detalhamento específico é fornecido pela intenção consciente do alquimista.
+
+⸻
+
+Domínios Fundamentais
+
+A documentação canônica passa a reconhecer apenas quatro domínios fundamentais.
+
+Matéria
+
+Atua sobre estrutura física da matéria.
+
+Permite alterar composição, organização, estado físico e propriedades materiais.
+
+⸻
+
+Energia
+
+Atua sobre estados energéticos.
+
+Permite converter, redistribuir ou estabilizar energia.
+
+⸻
+
+Vida
+
+Atua sobre sistemas biológicos.
+
+Inclui organismos, tecidos, células e demais estruturas vivas.
+
+⸻
+
+Informação
+
+Atua sobre propriedades intrínsecas da matéria e da energia.
+
+Não representa conhecimento.
+
+Não representa memória psicológica.
+
+Representa exclusivamente a informação física que define o estado do universo.
+
+⸻
+
+Runas de Operação
+
+Definição
+
+Runas de Operação definem qual transformação será realizada.
+
+Elas representam os verbos fundamentais da alquimia.
+
+Toda transmutação pertence obrigatoriamente a uma dessas operações.
+
+Essas operações são chamadas de Operações Fundamentais.
+
+Toda técnica alquímica existente constitui uma combinação dessas operações.
+
+⸻
+
+Operações Fundamentais
+
+Conversão
+
+Altera um estado em outro mantendo continuidade física.
+
+Exemplos conceituais:
+
+* alteração de estado físico;
+* conversão entre formas de energia;
+* transformação de um material em outro.
+
+⸻
+
+Reorganização
+
+Mantém os mesmos componentes fundamentais, alterando apenas sua organização.
+
+Exemplos conceituais:
+
+* remodelagem estrutural;
+* conformação de objetos;
+* reorganização molecular.
+
+⸻
+
+Separação
+
+Divide um conjunto em componentes menores.
+
+Permite isolar partes anteriormente unificadas.
+
+⸻
+
+Síntese
+
+Combina múltiplos conjuntos em uma nova estrutura.
+
+Permite produzir sistemas mais complexos a partir de componentes distintos.
+
+⸻
+
+Transferência
+
+Move propriedades entre sistemas.
+
+Pode transferir matéria, energia, informação ou características específicas.
+
+Não cria novas propriedades.
+
+Apenas altera sua distribuição.
+
+⸻
+
+Estabilização
+
+Mantém um estado contra alterações naturais.
+
+Pode preservar estruturas, impedir degradação ou sustentar condições específicas durante determinado período.
+
+⸻
+
+Runas Modificadoras
+
+Definição
+
+Runas Modificadoras refinam a execução da operação.
+
+Nunca executam transmutações isoladamente.
+
+Sempre modificam outra operação.
+
+⸻
+
+Categorias Fundamentais
+
+Escala
+
+Define a extensão espacial da transmutação.
+
+Quanto maior a escala, maior a complexidade da especificação.
+
+⸻
+
+Precisão
+
+Define quanto da especificação será resolvido pelo círculo.
+
+Especificações mais precisas reduzem a dependência da intenção consciente do alquimista.
+
+Especificações menos precisas exigem maior participação da consciência durante a execução.
+
+⸻
+
+Intensidade
+
+Define o grau da transformação desejada.
+
+Não altera a natureza da operação.
+
+Apenas sua magnitude.
+
+⸻
+
+Persistência
+
+Define por quanto tempo o estado resultante deverá permanecer estável.
+
+Não implica permanência absoluta.
+
+Apenas determina o comportamento esperado da transmutação.
+
+⸻
+
+Estabilidade
+
+Define a tolerância da especificação a pequenas imperfeições.
+
+Especificações mais estáveis tendem a consumir mais recursos, porém apresentam menor probabilidade de falha.
+
+⸻
+
+Estrutura de uma Especificação
+
+Toda especificação alquímica pode ser representada pela seguinte estrutura lógica.
+
+Entrada
+
+↓
+
+Domínio
+
+↓
+
+Operação Fundamental
+
+↓
+
+Modificadores
+
+↓
+
+Resultado Esperado
+
+A intenção consciente do alquimista fornece apenas os detalhes específicos necessários para resolver ambiguidades permitidas pela especificação.
+
+Ela nunca substitui o círculo.
+
+Ela apenas complementa informações que a linguagem deliberadamente representa de forma abstrata.
+
+⸻
+
+Relação entre Linguagem e Geometria
+
+A linguagem alquímica é abstrata.
+
+Os círculos representam apenas sua forma gráfica.
+
+As runas correspondem ao vocabulário.
+
+A geometria corresponde à gramática.
+
+A organização espacial corresponde à sintaxe.
+
+O significado físico corresponde à semântica.
+
+A reação catalisada pelo Azoth corresponde à execução.
+
+⸻
+
+Relação com as Academias
+
+As Academias não representam diferentes formas de alquimia.
+
+Todas utilizam exatamente a mesma Linguagem Universal.
+
+O que diferencia uma Academia de outra é sua especialização.
+
+Cada Academia desenvolve maior domínio sobre determinados Domínios, Operações Fundamentais, Modificadores ou padrões de composição.
+
+Assim, toda evolução científica da alquimia corresponde à descoberta de formas mais sofisticadas de utilizar a mesma linguagem universal.
+
+Nenhuma Academia cria novas leis da alquimia.
+
+Nenhuma Academia cria novas operações fundamentais.
+
+Toda inovação consiste em novas combinações dos elementos já existentes.
+
+⸻
+
+Relação com a Complexidade
+
+A complexidade de uma transmutação não depende do tamanho físico do círculo.
+
+Ela depende da quantidade de operações executadas, da profundidade das camadas de composição e da sofisticação da especificação.
+
+Círculos simples podem produzir resultados complexos quando utilizados por alquimistas experientes.
+
+Círculos extremamente elaborados podem produzir resultados simples de forma muito eficiente.
+
+Complexidade e poder não constituem conceitos equivalentes.
+
+⸻
+
+Extensibilidade
+
+Esta linguagem foi deliberadamente projetada para ser pequena.
+
+Novas técnicas, habilidades, escolas, Academias, artefatos e sistemas de gameplay jamais deverão adicionar novos Domínios ou novas Operações Fundamentais sem alteração oficial da MAA.
+
+Toda expansão futura da franquia deverá surgir como combinação dos elementos definidos nesta especificação.
+
+Caso futuramente seja identificada a necessidade de novos conceitos fundamentais, essa alteração deverá ocorrer exclusivamente por meio de atualização oficial da Máquina Abstrata da Alquimia.

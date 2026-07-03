@@ -1,0 +1,205 @@
+AZOTH: BREACH
+
+Documento 00.1 — THE TRUTH
+
+Versão 0.1 — Parte II
+
+Física da Verdade
+
+CLASSIFICAÇÃO: Ultra Restrito
+
+Objetivo
+
+Este documento define a física objetiva do universo. As Academias
+conhecem apenas parte destas leis. Toda mecânica futura deve ser
+compatível com este documento.
+
+------------------------------------------------------------------------
+
+TR-021 — Conservação da Massa-Energia
+
+Toda transmutação preserva a quantidade total de massa-energia do
+sistema.
+
+Forma simplificada adotada pelas Academias:
+
+Matéria ± Energia = Matéria ± Energia
+
+Essa lei nunca é violada.
+
+------------------------------------------------------------------------
+
+TR-022 — A Informação
+
+Informação não é um reagente.
+
+Informação é uma grandeza física que descreve completamente o estado de
+um sistema.
+
+Toda matéria possui informação.
+
+Toda transformação altera a informação da matéria.
+
+------------------------------------------------------------------------
+
+TR-023 — Transmutação
+
+Transmutação é o processo de alterar o estado informacional de um
+sistema físico preservando sua massa-energia.
+
+------------------------------------------------------------------------
+
+TR-024 — Energia
+
+Energia pode assumir diferentes formas.
+
+-   térmica
+-   química
+-   elétrica
+-   cinética
+-   potencial
+-   radiante
+-   biológica
+
+Todas obedecem às mesmas leis fundamentais.
+
+------------------------------------------------------------------------
+
+TR-025 — Reações Endotérmicas
+
+Algumas transmutações exigem fornecimento de energia.
+
+Essa energia é retirada do ambiente ou do alquimista.
+
+No gameplay representa o principal recurso utilizado para habilidades.
+
+------------------------------------------------------------------------
+
+TR-026 — Reações Exotérmicas
+
+Algumas transmutações liberam energia.
+
+A energia liberada pode:
+
+-   dissipar-se;
+-   ser armazenada;
+-   provocar explosões;
+-   alimentar outras transmutações;
+-   restaurar reservas energéticas.
+
+------------------------------------------------------------------------
+
+TR-027 — Azoth
+
+Azoth não participa da conservação da massa-energia.
+
+Azoth é um catalisador cosmológico.
+
+Sua função é permitir que uma transformação possível torne-se realidade.
+
+------------------------------------------------------------------------
+
+TR-028 — Fluxo de Azoth
+
+Quando Azoth não é fornecido localmente, a realidade estabelece
+automaticamente um fluxo através do Véu.
+
+Esse fluxo não altera o balanço de massa-energia.
+
+Entretanto, degrada lentamente a estabilidade entre realidades.
+
+------------------------------------------------------------------------
+
+TR-029 — O Véu
+
+O Véu é o tecido físico que separa universos.
+
+Não possui consciência.
+
+Sua única função é impedir troca espontânea entre realidades.
+
+------------------------------------------------------------------------
+
+TR-030 — Breaches
+
+Breaches surgem pela acumulação de milhões de fluxos de Azoth.
+
+Sua evolução ocorre em estágios:
+
+1.  Fluxo apenas de Azoth.
+2.  Fluxo de informação.
+3.  Fluxo de energia.
+4.  Fluxo de matéria.
+5.  Trânsito de organismos vivos.
+
+------------------------------------------------------------------------
+
+TR-031 — Ruído Informacional
+
+Nenhuma transmutação reconstrói perfeitamente um estado informacional.
+
+Sempre existe uma pequena perda ou variação.
+
+Esse fenômeno explica:
+
+-   qualidade de equipamentos;
+-   raridade;
+-   afixos;
+-   diferenças entre homúnculos;
+-   otimização contínua.
+
+------------------------------------------------------------------------
+
+TR-032 — Memória da Matéria
+
+Alguns materiais preservam parte de estados informacionais anteriores.
+
+Essa memória pode influenciar transmutações futuras.
+
+É a base dos artefatos lendários.
+
+------------------------------------------------------------------------
+
+TR-033 — Círculos de Transmutação
+
+Círculos não armazenam energia.
+
+Não armazenam Azoth.
+
+Eles representam restrições matemáticas sobre a transformação permitida.
+
+Funcionam como algoritmos físicos.
+
+------------------------------------------------------------------------
+
+TR-034 — Limites
+
+Nenhuma transmutação pode:
+
+-   violar a conservação da massa-energia;
+-   criar Azoth;
+-   destruir Azoth;
+-   ignorar o Véu;
+-   eliminar o Ruído Informacional.
+
+------------------------------------------------------------------------
+
+TR-035 — Implicações Canônicas
+
+Toda habilidade do jogo é uma transmutação.
+
+Todo crafting é uma transmutação.
+
+Toda evolução altera estados informacionais.
+
+Toda alquimia utiliza Azoth, ainda que seus praticantes desconheçam esse
+fato.
+
+------------------------------------------------------------------------
+
+Estado do Documento
+
+As leis aqui descritas são permanentes.
+
+A cosmologia, o multiverso, o Caos e as Sincronias Ômni-Temporais serão
+tratados na Parte III.

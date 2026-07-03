@@ -1,0 +1,27 @@
+Atualização Estrutural — Pasta 01 Alquimia
+
+Solicitação recebida em 2026-06-29:
+
+Alterar a pasta 01 da documentação para `01 — Alquimia`.
+
+Estrutura desejada:
+
+- 01.0 — Máquina Abstrata da Alquimia (MAA)
+  - Modelo computacional da transmutação.
+- 01.1 — Tratado da Alquimia
+  - Ciência e engenharia da alquimia.
+- 01.2 — Engenharia dos Círculos
+  - Projeto, otimização e composição de especificações.
+- 01.3 — Taxonomia das Transmutações
+  - Classificação formal das operações e técnicas.
+- 01.4 — Pesquisa Alquímica
+  - Método científico, validação e evolução da alquimia.
+- 01.5 — Academias de Alquimia
+  - Instituições, especializações e linhas de pesquisa.
+
+Decisão estrutural aplicada:
+
+- A pasta ativa `/docs/01_tratados_tecnicos` passa a ser `/docs/01_alquimia`.
+- A MAA permanece como Documento 01.0 e conserva precedência técnica dentro da pasta.
+- Os documentos 01.1 a 01.5 são criados como bases estruturais canônicas subordinadas à MAA.
+- Documentos 01.1 a 01.5 não introduzem lore, técnicas, sistemas de gameplay, personagens ou eventos novos.

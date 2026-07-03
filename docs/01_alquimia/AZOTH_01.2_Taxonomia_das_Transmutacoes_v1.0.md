@@ -1,0 +1,1797 @@
+# AZOTH: BREACH — Documento 01.2 — Taxonomia das Transmutações
+
+## Classificação Formal das Operações e Técnicas
+
+- Versão: 1.0
+- Classificação: Interno de Desenvolvimento
+- Status: CANÔNICO DE BASE
+- Precedência técnica: subordinado ao Documento 01.0 — Máquina Abstrata da Alquimia
+- Precedência científica: subordinado ao Documento 01.1 — Tratado da Alquimia
+- Precedência geral: subordinado aos Documentos 00.0, 00.1, 00.2 e 00.3
+
+## Finalidade
+
+Este documento estabelece a taxonomia formal das transmutações no universo AZOTH: BREACH.
+
+Seu objetivo é classificar transmutações, técnicas, famílias de aplicação e padrões de uso sem alterar os fundamentos da alquimia.
+
+A Taxonomia das Transmutações organiza o que a Máquina Abstrata da Alquimia permite, mas não amplia seus princípios.
+
+Ela deriva diretamente da Teoria das Transmutações definida no Documento 01.1 — Tratado da Alquimia.
+
+## Princípio Fundamental da Taxonomia
+
+Toda transmutação pertence a uma única ciência alquímica.
+
+Não existem múltiplas alquimias.
+
+Não existem sistemas independentes de transmutação.
+
+Existem apenas diferentes formas de classificar, estudar, ensinar, catalogar e aplicar Especificações da Transmutação compatíveis com a Máquina Abstrata da Alquimia.
+
+A taxonomia é descritiva.
+
+Ela não é fundacional.
+
+Ela não cria leis.
+
+Ela não cria Domínios Fundamentais.
+
+Ela não cria Operações Fundamentais.
+
+Ela não cria exceções à Incerteza Fundamental da Transmutação.
+
+## Fontes Superiores
+
+- Documento 00.0 — Leis Fundamentais
+- Documento 00.1 — The Truth
+- Documento 00.2 — Glossário Canônico
+- Documento 00.3 — Estrutura Mestre da Documentação
+- Documento 01.0 — Máquina Abstrata da Alquimia
+- Documento 01.1 — Tratado da Alquimia
+
+## Escopo
+
+Este documento define:
+
+- critérios formais de classificação das transmutações;
+- classes por Domínio Fundamental;
+- classes por Operação Fundamental;
+- classes por arquitetura de ET;
+- classes por finalidade aplicada;
+- classes por comportamento observado;
+- famílias técnicas;
+- padrões de aplicação;
+- nomenclatura taxonômica;
+- critérios para técnicas híbridas ou compostas;
+- relação entre taxonomia, Academias, pesquisa e gameplay.
+
+## Restrições
+
+Este documento não pode:
+
+- adicionar Domínios Fundamentais;
+- adicionar Operações Fundamentais;
+- redefinir a Máquina Abstrata da Alquimia;
+- redefinir a Teoria das Transmutações;
+- transformar famílias técnicas em tipos independentes de alquimia;
+- tratar Academias como fontes de leis alquímicas;
+- classificar efeitos impossíveis como técnicas válidas;
+- eliminar ou reduzir conceitualmente a Incerteza Fundamental da Transmutação;
+- tratar nomenclatura narrativa como estrutura física da realidade.
+
+## Capítulo 1 — Natureza da Classificação Taxonômica
+
+### 1.1 Definição
+
+A Taxonomia das Transmutações é o sistema formal de classificação das transmutações conhecidas, possíveis, hipotéticas ou inválidas segundo critérios derivados da Máquina Abstrata da Alquimia.
+
+Ela organiza transmutações a partir de múltiplos eixos classificatórios.
+
+Esses eixos descrevem aspectos diferentes da mesma transmutação.
+
+Uma transmutação pode, portanto, possuir múltiplas classificações simultâneas.
+
+Exemplo conceitual:
+
+Uma mesma transmutação pode ser classificada como:
+
+- material, por atuar primariamente sobre Matéria;
+- reorganizativa, por utilizar Reorganização como Operação Fundamental dominante;
+- composta, por empregar múltiplas operações;
+- restaurativa, por sua finalidade aplicada;
+- instável, por seu comportamento observado;
+- experimental, por seu grau de maturidade científica.
+
+Essas classificações não representam sistemas distintos.
+
+Elas representam apenas perspectivas taxonômicas diferentes sobre a mesma transmutação.
+
+### 1.2 Unidade Conceitual da Transmutação
+
+Toda transmutação é a execução física de uma Especificação da Transmutação pela Máquina Abstrata da Alquimia.
+
+A diversidade das transmutações não decorre da existência de diferentes naturezas alquímicas.
+
+Ela decorre da variação entre:
+
+- Estado Inicial;
+- Especificação da Transmutação;
+- Domínios envolvidos;
+- Operações utilizadas;
+- Modificadores empregados;
+- arquitetura da ET;
+- condições de execução;
+- Proficiência Alquímica;
+- Precisão Alquímica;
+- disponibilidade de Azoth;
+- influência da Incerteza Fundamental da Transmutação.
+
+### 1.3 Função da Taxonomia
+
+A taxonomia possui quatro funções principais.
+
+#### Função Científica
+
+Permitir que pesquisadores, Academias e laboratórios classifiquem transmutações de forma consistente.
+
+#### Função Técnica
+
+Permitir que engenheiros alquímicos projetem, comparem e reutilizem ETs com maior clareza.
+
+#### Função Narrativa
+
+Permitir que personagens, instituições e culturas utilizem nomes, escolas e categorias sem contradizer a estrutura canônica da alquimia.
+
+#### Função de Gameplay
+
+Permitir que sistemas de jogo organizem habilidades, classes, árvores de progressão, afinidades, raridades, riscos e efeitos sem criar inconsistências canônicas.
+
+## Capítulo 2 — Eixos Taxonômicos Fundamentais
+
+### 2.1 Estrutura Geral
+
+Toda transmutação pode ser classificada segundo sete eixos fundamentais:
+
+1. Domínio de Atuação;
+2. Operação Dominante;
+3. Arquitetura da ET;
+4. Finalidade Aplicada;
+5. Comportamento Observado;
+6. Requisito de Execução;
+7. Maturidade Científica.
+
+Esses eixos são independentes entre si.
+
+Nenhum eixo substitui outro.
+
+Nenhum eixo possui precedência sobre a Máquina Abstrata da Alquimia.
+
+### 2.2 Eixo I — Domínio de Atuação
+
+O Domínio de Atuação classifica a transmutação segundo o aspecto fundamental da realidade sobre o qual ela atua.
+
+Os Domínios Fundamentais reconhecidos são:
+
+- Matéria;
+- Energia;
+- Vida;
+- Informação.
+
+Uma transmutação pode atuar sobre um único domínio ou sobre múltiplos domínios.
+
+A presença de múltiplos domínios não cria um novo Domínio Fundamental.
+
+Ela apenas indica composição.
+
+### 2.3 Eixo II — Operação Dominante
+
+A Operação Dominante classifica a transmutação segundo a Operação Fundamental que exerce maior peso estrutural na ET.
+
+As Operações Fundamentais reconhecidas são:
+
+- Conversão;
+- Reorganização;
+- Separação;
+- Síntese;
+- Transferência;
+- Estabilização.
+
+Transmutações complexas podem empregar múltiplas operações.
+
+Nesses casos, a Operação Dominante é aquela que define o núcleo funcional da ET.
+
+Operações auxiliares devem ser registradas como operações secundárias.
+
+### 2.4 Eixo III — Arquitetura da ET
+
+A arquitetura da ET classifica a transmutação segundo a organização interna de sua Especificação da Transmutação.
+
+Esse eixo considera:
+
+- simplicidade;
+- composição;
+- modularidade;
+- acoplamento;
+- coesão;
+- escalabilidade;
+- estabilidade;
+- reutilização de padrões;
+- dependência de condições externas.
+
+A arquitetura da ET não altera os fundamentos da transmutação.
+
+Ela descreve apenas a forma como a transmutação foi especificada.
+
+### 2.5 Eixo IV — Finalidade Aplicada
+
+A finalidade aplicada classifica a transmutação segundo o objetivo prático pretendido.
+
+Esse eixo é útil para ensino, pesquisa, combate, medicina, indústria, exploração, defesa, infraestrutura e gameplay.
+
+A finalidade aplicada não define o funcionamento físico da transmutação.
+
+Ela define apenas seu uso pretendido.
+
+### 2.6 Eixo V — Comportamento Observado
+
+O comportamento observado classifica a transmutação segundo seus resultados recorrentes em execução.
+
+Esse eixo considera:
+
+- previsibilidade;
+- estabilidade;
+- eficiência;
+- risco;
+- reversibilidade prática;
+- degradação;
+- efeitos colaterais;
+- sensibilidade ambiental;
+- convergência experimental.
+
+O comportamento observado pode variar conforme o alquimista, o ambiente, os recursos e a qualidade da ET.
+
+### 2.7 Eixo VI — Requisito de Execução
+
+O requisito de execução classifica a transmutação segundo as condições necessárias para sua realização.
+
+Esse eixo considera:
+
+- quantidade de matéria disponível;
+- disponibilidade de energia;
+- disponibilidade de Azoth;
+- precisão da ET;
+- Proficiência Alquímica exigida;
+- instrumentos necessários;
+- tempo de preparação;
+- estabilidade ambiental;
+- presença de catalisadores materiais;
+- restrições biológicas ou informacionais.
+
+### 2.8 Eixo VII — Maturidade Científica
+
+A maturidade científica classifica a transmutação segundo seu grau de estudo, validação e domínio institucional.
+
+Ela não mede poder.
+
+Ela mede compreensão, repetibilidade e confiabilidade experimental.
+
+As categorias de maturidade são:
+
+1. Hipotética;
+2. Experimental;
+3. Reproduzível;
+4. Validada;
+5. Padronizada;
+6. Acadêmica;
+7. Restrita;
+8. Obsoleta;
+9. Inválida.
+
+## Capítulo 3 — Classificação por Domínio de Atuação
+
+### 3.1 Transmutações Materiais
+
+Transmutações materiais atuam primariamente sobre o domínio Matéria.
+
+Elas envolvem alterações na estrutura física, composição, organização, estado físico ou propriedades materiais de um sistema.
+
+Exemplos conceituais:
+
+- remodelar pedra;
+- alterar liga metálica;
+- separar impurezas de um mineral;
+- sintetizar uma estrutura física composta;
+- reforçar temporariamente um material.
+
+Transmutações materiais não criam matéria a partir do nada.
+
+Elas continuam subordinadas à Conservação da Massa-Energia.
+
+### 3.2 Transmutações Energéticas
+
+Transmutações energéticas atuam primariamente sobre o domínio Energia.
+
+Elas envolvem conversão, redistribuição, dissipação, concentração, transferência ou estabilização de estados energéticos.
+
+Exemplos conceituais:
+
+- converter calor em movimento;
+- redistribuir energia térmica;
+- estabilizar uma descarga energética;
+- transferir energia entre sistemas;
+- conter uma reação exotérmica.
+
+Transmutações energéticas não tratam Azoth como energia comum.
+
+Azoth é catalisador cosmológico, não combustível energético convencional.
+
+### 3.3 Transmutações Vitais
+
+Transmutações vitais atuam primariamente sobre o domínio Vida.
+
+Elas envolvem sistemas biológicos, tecidos, células, organismos e estruturas vivas.
+
+Exemplos conceituais:
+
+- acelerar regeneração limitada;
+- estabilizar tecido danificado;
+- reorganizar estrutura biológica;
+- separar toxinas de um organismo;
+- transferir propriedades fisiológicas entre sistemas compatíveis.
+
+Vida não é uma substância independente.
+
+Vida é um domínio de atuação sobre matéria, energia e informação organizadas biologicamente.
+
+Transmutações vitais são particularmente sensíveis à Incerteza Fundamental da Transmutação, porque sistemas vivos possuem alta complexidade, instabilidade dinâmica e dependência informacional.
+
+### 3.4 Transmutações Informacionais
+
+Transmutações informacionais atuam primariamente sobre o domínio Informação.
+
+Elas envolvem a informação física que define o estado de sistemas materiais, energéticos ou biológicos.
+
+Exemplos conceituais:
+
+- alterar propriedades físicas codificadas em um sistema;
+- estabilizar padrões informacionais;
+- transferir informação estrutural entre materiais;
+- corrigir ruído informacional limitado;
+- preservar a configuração de uma estrutura.
+
+Informação não é conhecimento psicológico.
+
+Informação não é memória subjetiva.
+
+Informação não é pensamento.
+
+Informação, neste contexto, é uma propriedade física do estado do universo.
+
+### 3.5 Transmutações Monodomínio
+
+Uma transmutação monodomínio atua primariamente sobre apenas um Domínio Fundamental.
+
+Ela tende a ser mais simples do que uma transmutação multidomínio equivalente.
+
+Exemplo conceitual:
+
+- reorganizar a forma de um bloco metálico sem alterar suas propriedades energéticas, biológicas ou informacionais relevantes.
+
+### 3.6 Transmutações Multidomínio
+
+Uma transmutação multidomínio atua sobre dois ou mais Domínios Fundamentais.
+
+Ela tende a apresentar maior complexidade arquitetural, maior risco de falha e maior dependência de precisão.
+
+Exemplo conceitual:
+
+- reparar tecido vivo envolve Matéria, Vida, Energia e Informação em diferentes graus.
+
+Transmutações multidomínio não criam novos Domínios Fundamentais.
+
+Elas apenas combinam domínios existentes.
+
+## Capítulo 4 — Classificação por Operação Fundamental
+
+### 4.1 Transmutações Conversivas
+
+Transmutações conversivas têm Conversão como Operação Fundamental dominante.
+
+Elas alteram um estado em outro mantendo continuidade física.
+
+Exemplos conceituais:
+
+- converter estado físico;
+- alterar propriedade material;
+- converter energia térmica em outra forma energética;
+- transformar composição dentro dos limites de massa-energia disponíveis.
+
+#### Risco principal
+
+- perda de precisão na definição do estado final.
+
+### 4.2 Transmutações Reorganizativas
+
+Transmutações reorganizativas têm Reorganização como Operação Fundamental dominante.
+
+Elas preservam componentes fundamentais, mas alteram sua disposição, forma, estrutura ou configuração.
+
+Exemplos conceituais:
+
+- moldar uma parede;
+- reorganizar uma lâmina;
+- reposicionar fibras materiais;
+- reconfigurar estrutura molecular sem adicionar componentes externos.
+
+#### Risco principal
+
+- instabilidade estrutural por organização incompleta ou ambígua.
+
+### 4.3 Transmutações Separativas
+
+Transmutações separativas têm Separação como Operação Fundamental dominante.
+
+Elas dividem sistemas em componentes menores ou isolam partes anteriormente integradas.
+
+Exemplos conceituais:
+
+- purificar minério;
+- remover contaminantes;
+- separar energia acumulada de um sistema;
+- isolar tecido comprometido.
+
+#### Risco principal
+
+- separação excessiva, incompleta ou destrutiva.
+
+### 4.4 Transmutações Sintéticas
+
+Transmutações sintéticas têm Síntese como Operação Fundamental dominante.
+
+Elas combinam múltiplos elementos, sistemas ou estruturas em um novo arranjo integrado.
+
+Exemplos conceituais:
+
+- criar liga material;
+- combinar componentes em estrutura funcional;
+- sintetizar artefato;
+- unir fragmentos compatíveis.
+
+#### Risco principal
+
+- incompatibilidade entre componentes e falha de integração.
+
+### 4.5 Transmutações Translativas
+
+Transmutações translativas têm Transferência como Operação Fundamental dominante.
+
+Elas movem matéria, energia, informação ou propriedades entre sistemas.
+
+Exemplos conceituais:
+
+- transferir calor de um sistema para outro;
+- transferir carga estrutural;
+- mover propriedades materiais limitadas;
+- redistribuir energia em uma área.
+
+Transferência não cria propriedades novas.
+
+Ela apenas altera sua distribuição.
+
+#### Risco principal
+
+- perda, dispersão ou contaminação do que está sendo transferido.
+
+### 4.6 Transmutações Estabilizadoras
+
+Transmutações estabilizadoras têm Estabilização como Operação Fundamental dominante.
+
+Elas mantêm um estado contra alteração, degradação, colapso ou instabilidade.
+
+Exemplos conceituais:
+
+- preservar estrutura instável;
+- impedir degradação temporária;
+- manter uma reação sob controle;
+- estabilizar tecido vivo durante intervenção.
+
+Estabilização não garante permanência absoluta.
+
+Ela apenas sustenta uma condição dentro de limites definidos pela ET.
+
+#### Risco principal
+
+- consumo excessivo de recursos ou colapso ao fim da persistência especificada.
+
+## Capítulo 5 — Classificação por Arquitetura de ET
+
+### 5.1 Transmutações Simples
+
+Transmutações simples utilizam uma arquitetura de ET com baixa complexidade, poucos módulos e relação direta entre operação e resultado.
+
+Elas costumam ser mais fáceis de executar, ensinar e reproduzir.
+
+Não são necessariamente fracas.
+
+Simplicidade mede arquitetura, não potência.
+
+### 5.2 Transmutações Compostas
+
+Transmutações compostas utilizam múltiplas operações, múltiplos domínios ou múltiplos módulos de ET.
+
+Elas permitem resultados mais sofisticados, mas aumentam complexidade, risco e custo de execução.
+
+### 5.3 Transmutações Sequenciais
+
+Transmutações sequenciais organizam operações em dependência lógica.
+
+Uma operação depende do resultado de outra.
+
+A sequência pertence à arquitetura da ET.
+
+Ela não deve ser confundida com as etapas universais da Máquina de Execução.
+
+### 5.4 Transmutações Paralelas
+
+Transmutações paralelas organizam múltiplas operações que devem ocorrer de forma coordenada sobre sistemas diferentes ou aspectos diferentes do mesmo sistema.
+
+Elas exigem alta precisão de sincronização.
+
+### 5.5 Transmutações Modulares
+
+Transmutações modulares utilizam blocos funcionais reutilizáveis dentro da ET.
+
+Elas favorecem ensino, manutenção, padronização e criação de ETs derivadas.
+
+### 5.6 Transmutações Acopladas
+
+Transmutações acopladas apresentam forte dependência entre seus módulos internos.
+
+Pequenas alterações em um módulo podem afetar significativamente o comportamento geral da ET.
+
+Elas podem ser poderosas, mas tendem a ser difíceis de modificar com segurança.
+
+### 5.7 Transmutações Elegantes
+
+Transmutações elegantes alcançam alta eficiência arquitetural com baixa ambiguidade, alta coesão e bom aproveitamento de recursos.
+
+Elegância não significa simplicidade estética.
+
+Elegância é uma propriedade de engenharia da ET.
+
+### 5.8 Transmutações Redundantes
+
+Transmutações redundantes utilizam estruturas adicionais para aumentar estabilidade, tolerância a falhas ou previsibilidade.
+
+Elas tendem a consumir mais recursos, mas podem ser preferíveis em contextos de alto risco.
+
+## Capítulo 6 — Classificação por Finalidade Aplicada
+
+### 6.1 Transmutações de Conformação
+
+Transmutações de conformação alteram forma, posição, estrutura ou geometria de um sistema sem alterar necessariamente sua composição fundamental.
+
+#### Uso comum
+
+- construção;
+- reparo;
+- fabricação;
+- combate;
+- exploração.
+
+#### Operações frequentes
+
+- Reorganização;
+- Síntese;
+- Estabilização.
+
+### 6.2 Transmutações de Purificação
+
+Transmutações de purificação removem, isolam ou reduzem componentes indesejados de um sistema.
+
+#### Uso comum
+
+- metalurgia;
+- medicina;
+- saneamento;
+- pesquisa material;
+- descontaminação.
+
+#### Operações frequentes
+
+- Separação;
+- Transferência;
+- Estabilização.
+
+### 6.3 Transmutações de Restauração
+
+Transmutações de restauração buscam devolver um sistema a uma condição funcional anterior ou aproximada.
+
+#### Uso comum
+
+- reparo material;
+- cura limitada;
+- reconstrução estrutural;
+- preservação de artefatos.
+
+#### Operações frequentes
+
+- Reorganização;
+- Síntese;
+- Estabilização;
+- Transferência.
+
+Restauração perfeita não é garantida.
+
+Ela depende do estado inicial, da informação disponível e da precisão da ET.
+
+### 6.4 Transmutações de Fortificação
+
+Transmutações de fortificação aumentam resistência, estabilidade ou capacidade de sustentação de um sistema.
+
+#### Uso comum
+
+- defesa;
+- arquitetura;
+- equipamentos;
+- proteção pessoal;
+- contenção.
+
+#### Operações frequentes
+
+- Reorganização;
+- Síntese;
+- Estabilização.
+
+### 6.5 Transmutações de Desestabilização
+
+Transmutações de desestabilização reduzem a estabilidade de um sistema.
+
+#### Uso comum
+
+- combate;
+- demolição;
+- sabotagem;
+- mineração;
+- ruptura controlada.
+
+#### Operações frequentes
+
+- Separação;
+- Conversão;
+- Transferência.
+
+Essas transmutações apresentam alto risco de propagação indesejada.
+
+### 6.6 Transmutações de Contenção
+
+Transmutações de contenção limitam, isolam ou restringem matéria, energia, informação ou efeitos de uma reação.
+
+#### Uso comum
+
+- segurança laboratorial;
+- combate defensivo;
+- controle de Breaches;
+- preservação de sistemas instáveis.
+
+#### Operações frequentes
+
+- Estabilização;
+- Separação;
+- Transferência.
+
+### 6.7 Transmutações de Propulsão
+
+Transmutações de propulsão produzem movimento por reorganização, transferência ou conversão de energia.
+
+#### Uso comum
+
+- mobilidade;
+- projéteis;
+- transporte;
+- máquinas;
+- combate.
+
+#### Operações frequentes
+
+- Conversão;
+- Transferência;
+- Reorganização.
+
+### 6.8 Transmutações de Interface
+
+Transmutações de interface facilitam interação entre sistemas diferentes.
+
+#### Uso comum
+
+- artefatos;
+- próteses;
+- máquinas alquímicas;
+- instrumentos científicos;
+- dispositivos de leitura ou controle.
+
+#### Operações frequentes
+
+- Transferência;
+- Estabilização;
+- Síntese.
+
+Interface não implica consciência artificial nem inteligência autônoma.
+
+### 6.9 Transmutações de Preservação
+
+Transmutações de preservação buscam retardar degradação, manter integridade ou conservar propriedades de um sistema.
+
+#### Uso comum
+
+- arquivos;
+- relíquias;
+- tecidos;
+- materiais raros;
+- artefatos;
+- amostras científicas.
+
+#### Operações frequentes
+
+- Estabilização;
+- Reorganização.
+
+### 6.10 Transmutações de Extração
+
+Transmutações de extração removem matéria, energia ou informação de um sistema para coleta, análise ou reaproveitamento.
+
+#### Uso comum
+
+- mineração;
+- pesquisa;
+- medicina;
+- arqueologia;
+- combate.
+
+#### Operações frequentes
+
+- Separação;
+- Transferência.
+
+Extração não cria recursos.
+
+Apenas os remove ou redistribui.
+
+## Capítulo 7 — Famílias Técnicas
+
+### 7.1 Definição
+
+Famílias técnicas são agrupamentos práticos de transmutações que compartilham finalidade, método, tradição, uso institucional ou campo de pesquisa.
+
+Famílias técnicas não são Domínios Fundamentais.
+
+Famílias técnicas não são Operações Fundamentais.
+
+Famílias técnicas não são sistemas independentes de alquimia.
+
+Elas são categorias práticas de estudo, ensino e aplicação.
+
+### 7.2 Alquimia Material Aplicada
+
+Família técnica voltada à manipulação, fabricação, reparo, transformação e análise de materiais.
+
+Inclui práticas associadas a:
+
+- metalurgia alquímica;
+- cerâmica alquímica;
+- construção;
+- armamentos;
+- ferramentas;
+- ligas;
+- materiais compostos;
+- restauração estrutural.
+
+#### Domínio frequente
+
+- Matéria.
+
+#### Operações frequentes
+
+- Reorganização;
+- Síntese;
+- Separação;
+- Conversão;
+- Estabilização.
+
+### 7.3 Alquimia Energética Aplicada
+
+Família técnica voltada à manipulação de estados energéticos.
+
+Inclui práticas associadas a:
+
+- calor;
+- luz;
+- movimento;
+- carga;
+- dissipação;
+- contenção;
+- propulsão;
+- estabilização de reações.
+
+#### Domínio frequente
+
+- Energia.
+
+#### Operações frequentes
+
+- Conversão;
+- Transferência;
+- Estabilização.
+
+### 7.4 Biomancia
+
+Família técnica voltada ao estudo e aplicação de transmutações sobre sistemas vivos.
+
+Inclui práticas associadas a:
+
+- cura limitada;
+- estabilização biológica;
+- reorganização tecidual;
+- análise vital;
+- extração de toxinas;
+- preservação orgânica.
+
+#### Domínio frequente
+
+- Vida.
+
+#### Operações frequentes
+
+- Reorganização;
+- Estabilização;
+- Separação;
+- Transferência;
+- Síntese.
+
+Biomancia não concede controle absoluto sobre a vida.
+
+Sistemas vivos permanecem altamente complexos, instáveis e sujeitos à Incerteza Fundamental da Transmutação.
+
+### 7.5 Biomodificação
+
+Família técnica especializada em alteração planejada de estruturas biológicas.
+
+Inclui práticas associadas a:
+
+- adaptação fisiológica;
+- reforço biológico;
+- modificação temporária;
+- integração entre tecido e artefato;
+- correção estrutural limitada.
+
+#### Domínio frequente
+
+- Vida.
+
+#### Operações frequentes
+
+- Reorganização;
+- Síntese;
+- Estabilização;
+
+Biomodificação possui risco elevado quando aplicada a organismos conscientes ou sistemas biológicos complexos.
+
+### 7.6 Alquimia Informacional Aplicada
+
+Família técnica voltada ao estudo da informação física de sistemas.
+
+Inclui práticas associadas a:
+
+- leitura estrutural;
+- preservação de padrões;
+- correção de ruído informacional;
+- transferência de propriedades codificadas;
+- estabilização de configuração;
+- análise de memória da matéria.
+
+#### Domínio frequente
+
+- Informação.
+
+#### Operações frequentes
+
+- Transferência;
+- Estabilização;
+- Reorganização;
+- Separação.
+
+Alquimia informacional não é telepatia, magia mental ou manipulação de memórias psicológicas.
+
+### 7.7 Artefaturia Alquímica
+
+Família técnica voltada à criação, manutenção e uso de artefatos.
+
+Inclui práticas associadas a:
+
+- instrumentos;
+- armas;
+- equipamentos;
+- catalisadores materiais;
+- mecanismos;
+- dispositivos de contenção;
+- interfaces alquímicas.
+
+#### Domínios frequentes
+
+- Matéria;
+- Energia;
+- Informação.
+
+#### Operações frequentes
+
+- Síntese;
+- Estabilização;
+- Reorganização;
+- Transferência.
+
+### 7.8 Alquimia de Contenção
+
+Família técnica voltada ao isolamento, estabilização e limitação de fenômenos perigosos.
+
+Inclui práticas associadas a:
+
+- contenção energética;
+- isolamento material;
+- estabilização de artefatos;
+- mitigação de falhas;
+- resposta a Breaches;
+- segurança laboratorial.
+
+#### Domínios frequentes
+
+- Matéria;
+- Energia;
+- Informação.
+
+#### Operações frequentes
+
+- Estabilização;
+- Separação;
+- Transferência.
+
+### 7.9 Alquimia de Campo
+
+Família técnica voltada à execução de transmutações em ambientes instáveis, hostis ou pouco controlados.
+
+Inclui práticas associadas a:
+
+- exploração;
+- combate;
+- resgate;
+- sobrevivência;
+- reparo emergencial;
+- resposta rápida.
+
+#### Domínios frequentes
+
+- variáveis.
+
+#### Operações frequentes
+
+- variáveis.
+
+A Alquimia de Campo se diferencia menos pela operação usada e mais pelas condições de execução.
+
+### 7.10 Alquimia Experimental
+
+Família técnica voltada à criação, teste e validação de novas ETs.
+
+Inclui práticas associadas a:
+
+- formulação de hipóteses;
+- prototipagem de ETs;
+- medição de Convergência Experimental;
+- análise de falhas;
+- padronização;
+- catalogação científica.
+
+A Alquimia Experimental não cria novas leis.
+
+Ela descobre novas formas de combinar princípios já existentes.
+
+## Capítulo 8 — Padrões de Aplicação
+
+### 8.1 Definição
+
+Padrões de aplicação são soluções recorrentes para problemas alquímicos comuns.
+
+Eles podem aparecer em diferentes famílias técnicas, domínios e operações.
+
+Um padrão de aplicação não é uma ET completa.
+
+Ele é uma estrutura reutilizável que pode compor ETs diferentes.
+
+### 8.2 Padrão de Moldagem
+
+#### Objetivo
+
+- alterar forma ou geometria de um sistema.
+
+#### Operação dominante
+
+- Reorganização.
+
+#### Domínio frequente
+
+- Matéria.
+
+#### Usos comuns
+
+- construção;
+- reparo;
+- fabricação;
+- combate.
+
+### 8.3 Padrão de Purga
+
+#### Objetivo
+
+- remover elemento indesejado de um sistema.
+
+#### Operação dominante
+
+- Separação.
+
+#### Domínios frequentes
+
+- Matéria;
+- Vida;
+- Informação.
+
+#### Usos comuns
+
+- purificação;
+- descontaminação;
+- medicina;
+- análise laboratorial.
+
+### 8.4 Padrão de União
+
+#### Objetivo
+
+- integrar componentes distintos em um sistema funcional.
+
+#### Operação dominante
+
+- Síntese.
+
+#### Domínios frequentes
+
+- Matéria;
+- Vida;
+- Informação.
+
+#### Usos comuns
+
+- artefatos;
+- reparos;
+- ligas;
+- estruturas compostas.
+
+### 8.5 Padrão de Canalização
+
+#### Objetivo
+
+- mover matéria, energia ou informação entre sistemas ou regiões.
+
+#### Operação dominante
+
+- Transferência.
+
+#### Domínios frequentes
+
+- Energia;
+- Informação;
+- Matéria.
+
+#### Usos comuns
+
+- circuitos alquímicos;
+- dispositivos;
+- propulsão;
+- drenagem;
+- redistribuição.
+
+### 8.6 Padrão de Fixação
+
+#### Objetivo
+
+- manter um estado contra alteração.
+
+#### Operação dominante
+
+- Estabilização.
+
+#### Domínios frequentes
+
+- Matéria;
+- Energia;
+- Vida;
+- Informação.
+
+#### Usos comuns
+
+- contenção;
+- preservação;
+- defesa;
+- segurança;
+- manutenção de artefatos.
+
+### 8.7 Padrão de Transição
+
+#### Objetivo
+
+- alterar um estado para outro estado compatível.
+
+#### Operação dominante
+
+- Conversão.
+
+#### Domínios frequentes
+
+- Matéria;
+- Energia.
+
+#### Usos comuns
+
+- transformação material;
+- mudança de estado físico;
+- manipulação energética;
+- reatividade controlada.
+
+### 8.8 Padrão de Reconstrução
+
+#### Objetivo
+
+- restaurar estrutura danificada a partir de informação e recursos disponíveis.
+
+#### Operações frequentes
+
+- Reorganização;
+- Síntese;
+- Estabilização.
+
+#### Domínios frequentes
+
+- Matéria;
+- Vida;
+- Informação.
+
+#### Usos comuns
+
+- reparo;
+- cura limitada;
+- restauração de artefatos;
+- recuperação estrutural.
+
+#### Limitação
+
+- depende fortemente da informação disponível sobre o estado desejado.
+
+### 8.9 Padrão de Amortecimento
+
+#### Objetivo
+
+- reduzir intensidade, dispersar energia ou impedir propagação.
+
+#### Operações frequentes
+
+- Transferência;
+- Estabilização;
+- Separação.
+
+#### Domínios frequentes
+
+- Energia;
+- Matéria.
+
+#### Usos comuns
+
+- defesa;
+- contenção;
+- segurança;
+- controle de impacto.
+
+### 8.10 Padrão de Amplificação
+
+#### Objetivo
+
+- aumentar intensidade de um efeito dentro de limites definidos.
+
+#### Operações frequentes
+
+- Transferência;
+- Conversão;
+- Estabilização.
+
+#### Domínios frequentes
+
+- Energia;
+- Matéria;
+- Informação.
+
+Amplificação não cria energia ou matéria.
+
+Ela concentra, redistribui ou reorganiza recursos disponíveis.
+
+## Capítulo 9 — Técnicas Híbridas e Compostas
+
+### 9.1 Definição
+
+Técnicas híbridas ou compostas são transmutações que combinam múltiplos domínios, operações, padrões ou finalidades.
+
+Elas devem ser classificadas de acordo com seus componentes, não como exceções à taxonomia.
+
+### 9.2 Critério de Dominância
+
+Toda técnica composta deve declarar:
+
+- Domínio Primário;
+- Domínios Secundários;
+- Operação Dominante;
+- Operações Auxiliares;
+- finalidade aplicada;
+- padrão principal;
+- padrões secundários, se houver.
+
+O Domínio Primário é aquele sem o qual a transmutação perde sua finalidade principal.
+
+A Operação Dominante é aquela que define o núcleo funcional da ET.
+
+### 9.3 Classificação de Técnicas Ambíguas
+
+Quando uma técnica puder ser classificada de mais de uma forma, a classificação deve seguir esta ordem:
+
+1. Identificar o resultado físico pretendido;
+2. Identificar o Domínio Fundamental mais afetado;
+3. Identificar a Operação Fundamental dominante;
+4. Identificar operações auxiliares;
+5. Identificar finalidade aplicada;
+6. Identificar comportamento observado;
+7. Registrar ambiguidades relevantes.
+
+Ambiguidade taxonômica não torna uma ET inválida.
+
+Ela apenas exige descrição mais precisa.
+
+### 9.4 Técnicas Sinérgicas
+
+Técnicas sinérgicas combinam operações ou domínios de forma que o resultado final seja mais eficiente, estável ou expressivo do que a soma simples dos componentes isolados.
+
+Sinergia não viola a Conservação da Massa-Energia.
+
+Sinergia não elimina custos.
+
+Sinergia não cria efeitos impossíveis.
+
+Ela indica apenas melhor organização dos recursos e operações disponíveis.
+
+### 9.5 Técnicas Instáveis
+
+Técnicas instáveis apresentam baixa previsibilidade, alta sensibilidade a condições externas ou grande variação entre execuções.
+
+Instabilidade pode decorrer de:
+
+- baixa Precisão Alquímica;
+- alta complexidade da ET;
+- Proficiência insuficiente;
+- recursos inadequados;
+- ruído informacional;
+- ambiente desfavorável;
+- interação entre múltiplos domínios;
+- falhas de estabilização.
+
+Técnicas instáveis podem ser úteis, mas exigem tratamento taxonômico cuidadoso.
+
+## Capítulo 10 — Maturidade Científica
+
+### 10.1 Transmutação Hipotética
+
+Uma transmutação hipotética é teoricamente proposta, mas ainda não executada ou validada.
+
+Ela pode ser compatível com a MAA, mas carece de demonstração experimental.
+
+### 10.2 Transmutação Experimental
+
+Uma transmutação experimental foi executada em condições controladas ou parciais, mas ainda apresenta resultados inconsistentes.
+
+### 10.3 Transmutação Reproduzível
+
+Uma transmutação reproduzível pode ser repetida com resultados semelhantes sob condições conhecidas.
+
+Ainda pode carecer de validação ampla.
+
+### 10.4 Transmutação Validada
+
+Uma transmutação validada passou por avaliação formal de desempenho e apresenta Convergência Experimental aceitável.
+
+### 10.5 Transmutação Padronizada
+
+Uma transmutação padronizada possui ET estável, documentação clara, parâmetros conhecidos e uso seguro dentro de limites definidos.
+
+### 10.6 Transmutação Acadêmica
+
+Uma transmutação acadêmica é reconhecida, ensinada, catalogada ou preservada por Academias de Alquimia.
+
+Esse reconhecimento não a transforma em Verdade absoluta.
+
+Ele apenas indica aceitação institucional.
+
+### 10.7 Transmutação Restrita
+
+Uma transmutação restrita é conhecida, mas seu uso é limitado por risco, ética, instabilidade, segredo institucional, escassez de recursos ou potencial destrutivo.
+
+Restrição não significa impossibilidade.
+
+### 10.8 Transmutação Obsoleta
+
+Uma transmutação obsoleta foi superada por ETs mais precisas, seguras, eficientes ou sustentáveis.
+
+Ela pode permanecer relevante historicamente.
+
+### 10.9 Transmutação Inválida
+
+Uma transmutação inválida contradiz a MAA, viola Leis Fundamentais ou depende de premissas falsas sobre a realidade.
+
+Transmutações inválidas não devem ser tratadas como técnicas raras, proibidas ou secretas.
+
+Elas simplesmente não funcionam como descritas.
+
+## Capítulo 11 — Nomenclatura Taxonômica
+
+### 11.1 Princípio de Nomenclatura
+
+A nomenclatura taxonômica deve permitir identificar uma transmutação sem transformá-la em categoria metafísica independente.
+
+Nomes comuns podem existir em lore, cultura e gameplay.
+
+Entretanto, nomes técnicos devem preservar a relação com Domínio, Operação, Arquitetura e Finalidade.
+
+### 11.2 Estrutura Recomendada
+
+A estrutura técnica recomendada é:
+
+`[Finalidade Aplicada] + [Domínio Primário] + [Operação Dominante] + [Qualificador Arquitetural]`
+
+Exemplos conceituais:
+
+- Restauração Material Reorganizativa
+- Contenção Energética Estabilizadora
+- Purificação Vital Separativa
+- Interface Informacional Translativa
+- Fortificação Material Sintética
+
+### 11.3 Código Taxonômico
+
+Para uso interno de desenvolvimento, uma transmutação pode receber código taxonômico no seguinte formato:
+
+`TT-[Domínio]-[Operação]-[Arquitetura]-[Finalidade]-[Maturidade]`
+
+Onde:
+
+#### Domínio
+
+- `MAT` = Matéria
+- `ENE` = Energia
+- `VID` = Vida
+- `INF` = Informação
+- `MUL` = Multidomínio
+
+#### Operação
+
+- `CON` = Conversão
+- `REO` = Reorganização
+- `SEP` = Separação
+- `SIN` = Síntese
+- `TRA` = Transferência
+- `EST` = Estabilização
+
+#### Arquitetura
+
+- `SIM` = Simples
+- `COM` = Composta
+- `SEQ` = Sequencial
+- `PAR` = Paralela
+- `MOD` = Modular
+- `ACO` = Acoplada
+- `RED` = Redundante
+
+#### Finalidade
+
+- `CONF` = Conformação
+- `PUR` = Purificação
+- `REST` = Restauração
+- `FORT` = Fortificação
+- `DEST` = Desestabilização
+- `CONT` = Contenção
+- `PROP` = Propulsão
+- `INTF` = Interface
+- `PRES` = Preservação
+- `EXTR` = Extração
+
+#### Maturidade
+
+- `HIP` = Hipotética
+- `EXP` = Experimental
+- `REP` = Reproduzível
+- `VAL` = Validada
+- `PAD` = Padronizada
+- `ACA` = Acadêmica
+- `RES` = Restrita
+- `OBS` = Obsoleta
+- `INV` = Inválida
+
+Exemplo:
+
+`TT-MAT-REO-SIM-CONF-PAD`
+
+Interpretação:
+
+Transmutação material, reorganizativa, simples, de conformação, padronizada.
+
+O código `CRIA`, usado em exemplo inválido posterior, não integra a taxonomia válida de finalidades. Ele aparece apenas para explicitar uma violação canônica.
+
+### 11.4 Nomes Narrativos
+
+Nomes narrativos podem ser usados por personagens, culturas, Academias, guildas ou tradições.
+
+Exemplos:
+
+- Mão do Ferreiro;
+- Selo de Contenção;
+- Pulso de Purga;
+- Sangria de Calor;
+- Pele de Pedra;
+- Costura Vital.
+
+Esses nomes são válidos como linguagem cultural.
+
+Eles não substituem classificação técnica.
+
+## Capítulo 12 — Relação com Academias
+
+### 12.1 Academias e Especialização
+
+Academias de Alquimia podem organizar suas linhas de estudo segundo famílias técnicas, padrões de aplicação ou eixos taxonômicos.
+
+Uma Academia pode se especializar em:
+
+- Biomancia;
+- Alquimia Energética;
+- Artefaturia;
+- Contenção;
+- Alquimia de Campo;
+- Pesquisa Experimental;
+- Alquimia Informacional;
+- Engenharia de ETs.
+
+Essas especializações não criam novas alquimias.
+
+Elas representam recortes institucionais da mesma ciência.
+
+### 12.2 Divergência entre Academias
+
+Academias diferentes podem usar terminologias diferentes para técnicas semelhantes.
+
+Essa divergência é aceitável desde que:
+
+- não contradiga a MAA;
+- não crie Domínios Fundamentais próprios;
+- não crie Operações Fundamentais próprias;
+- não transforme tradição local em Verdade absoluta;
+- preserve rastreabilidade técnica.
+
+### 12.3 Catálogos Acadêmicos
+
+Catálogos acadêmicos devem registrar, quando possível:
+
+- nome técnico;
+- nome narrativo ou tradicional;
+- código taxonômico;
+- Domínio Primário;
+- Domínios Secundários;
+- Operação Dominante;
+- Operações Auxiliares;
+- finalidade aplicada;
+- padrão de aplicação;
+- arquitetura da ET;
+- requisitos de execução;
+- riscos conhecidos;
+- grau de maturidade;
+- histórico experimental;
+- restrições éticas ou institucionais.
+
+## Capítulo 13 — Relação com Gameplay
+
+### 13.1 Função em Gameplay
+
+A Taxonomia das Transmutações pode ser utilizada em gameplay para organizar:
+
+- habilidades;
+- classes;
+- árvores de progressão;
+- afinidades;
+- raridades;
+- escolas;
+- efeitos;
+- riscos;
+- sinergias;
+- crafting;
+- equipamentos;
+- inimigos;
+- puzzles;
+- upgrades.
+
+Gameplay pode simplificar a taxonomia, desde que não contradiga seus princípios fundamentais.
+
+### 13.2 Classes Jogáveis e Famílias Técnicas
+
+Classes jogáveis podem se inspirar em famílias técnicas.
+
+Exemplos:
+
+- Transmutador Material;
+- Biomante;
+- Artífice Alquímico;
+- Contencionista;
+- Alquimista de Campo;
+- Engenheiro de ETs;
+- Especialista Energético.
+
+Essas classes são arquétipos de gameplay.
+
+Elas não são tipos ontológicos de alquimista.
+
+### 13.3 Afinidades
+
+Afinidades podem representar tendência, treinamento, estilo, facilidade técnica ou especialização.
+
+Afinidade não deve ser tratada como elemento natural, mana, classe metafísica ou destino fixo.
+
+Uma afinidade indica propensão prática, não limitação absoluta.
+
+### 13.4 Raridade
+
+A raridade de uma técnica pode decorrer de:
+
+- dificuldade de execução;
+- escassez de recursos;
+- risco elevado;
+- sigilo acadêmico;
+- baixa Convergência Experimental;
+- necessidade de alta Proficiência Alquímica;
+- complexidade da ET;
+- restrição institucional;
+- dependência de condições raras.
+
+Raridade não significa violação das Leis Fundamentais.
+
+### 13.5 Sinergias
+
+Sinergias de gameplay devem ser interpretadas como melhor coordenação entre Domínios, Operações, padrões de aplicação ou estados de execução.
+
+Uma sinergia pode aumentar eficiência, estabilidade, intensidade ou versatilidade.
+
+Ela não cria recursos do nada.
+
+Ela não elimina custo.
+
+Ela não garante sucesso absoluto.
+
+## Capítulo 14 — Relação com Narrativa e Lore
+
+### 14.1 Conhecimento Local
+
+Personagens, povos e instituições podem interpretar a taxonomia de forma incompleta.
+
+Eles podem acreditar em categorias erradas, nomes tradicionais ou explicações míticas.
+
+Essas interpretações são permitidas em lore desde que o documento canônico deixe claro que a realidade subjacente permanece subordinada à MAA.
+
+### 14.2 Erro Taxonômico
+
+Erro taxonômico ocorre quando uma cultura, Academia ou personagem classifica uma transmutação de forma tecnicamente incorreta.
+
+Esse erro pode ser usado narrativamente para representar:
+
+- ignorância;
+- tradição ultrapassada;
+- propaganda;
+- segredo institucional;
+- limitação científica;
+- arrogância acadêmica;
+- manipulação política;
+- conhecimento fragmentado.
+
+Erro taxonômico não altera a Verdade.
+
+### 14.3 Técnicas Lendárias
+
+Técnicas lendárias podem existir como relatos, mitos, lendas ou registros incompletos.
+
+Elas devem ser tratadas como uma das seguintes categorias:
+
+- técnica real mal compreendida;
+- técnica real exagerada;
+- técnica hipotética;
+- técnica inválida;
+- técnica perdida;
+- técnica restrita;
+- técnica parcialmente reproduzida.
+
+Uma técnica lendária não pode violar a MAA apenas por ser lendária.
+
+## Capítulo 15 — Relação com Pesquisa Aplicada e Catalogação
+
+### 15.1 Uso em Pesquisa
+
+A Taxonomia das Transmutações fornece a estrutura inicial para catalogação científica de ETs.
+
+Pesquisadores devem utilizar seus eixos para comparar transmutações, avaliar riscos e organizar famílias de estudo.
+
+### 15.2 Uso em Catalogação
+
+A catalogação alquímica deve registrar tanto a classificação técnica quanto o histórico experimental de cada ET.
+
+A taxonomia responde à pergunta:
+
+`Que tipo de transmutação é esta?`
+
+A pesquisa aplicada responde à pergunta:
+
+`Quão bem esta transmutação funciona, em quais condições e com quais riscos?`
+
+### 15.3 Relação com Documento 01.4
+
+O Documento 01.4 — Pesquisa Aplicada e Catalogação Alquímica deverá usar esta taxonomia como base para:
+
+- registro de ETs;
+- classificação de técnicas;
+- critérios de validação;
+- preservação de conhecimento;
+- compartilhamento institucional;
+- comparação entre Academias;
+- evolução de bibliotecas alquímicas.
+
+## Capítulo 16 — Casos de Classificação
+
+### 16.1 Exemplo A — Moldagem de Pedra
+
+#### Descrição
+
+- alterar a forma de uma estrutura de pedra.
+
+#### Classificação
+
+- Domínio Primário: Matéria;
+- Operação Dominante: Reorganização;
+- Arquitetura provável: Simples ou Modular;
+- Finalidade Aplicada: Conformação;
+- Família Técnica: Alquimia Material Aplicada;
+- Padrão de Aplicação: Moldagem;
+- Maturidade provável: Padronizada, se for técnica comum.
+
+#### Código exemplo
+
+`TT-MAT-REO-SIM-CONF-PAD`
+
+### 16.2 Exemplo B — Cura de Ferimento
+
+#### Descrição
+
+- estabilizar tecido danificado e reorganizar estruturas biológicas.
+
+#### Classificação
+
+- Domínio Primário: Vida;
+- Domínios Secundários: Matéria, Energia, Informação;
+- Operação Dominante: Estabilização ou Reorganização, conforme a ET;
+- Operações Auxiliares: Síntese, Transferência;
+- Arquitetura provável: Composta;
+- Finalidade Aplicada: Restauração;
+- Família Técnica: Biomancia;
+- Padrão de Aplicação: Reconstrução;
+- Maturidade: variável.
+
+#### Código exemplo
+
+`TT-MUL-EST-COM-REST-VAL`
+
+### 16.3 Exemplo C — Barreira de Contenção Energética
+
+#### Descrição
+
+- limitar propagação de descarga energética.
+
+#### Classificação
+
+- Domínio Primário: Energia;
+- Operação Dominante: Estabilização;
+- Operações Auxiliares: Transferência, Separação;
+- Arquitetura provável: Redundante;
+- Finalidade Aplicada: Contenção;
+- Família Técnica: Alquimia de Contenção;
+- Padrão de Aplicação: Fixação ou Amortecimento;
+- Maturidade: Padronizada ou Restrita.
+
+#### Código exemplo
+
+`TT-ENE-EST-RED-CONT-PAD`
+
+### 16.4 Exemplo D — Criação de Artefato Alquímico
+
+#### Descrição
+
+- combinar materiais, padrões informacionais e estrutura funcional em um instrumento.
+
+#### Classificação
+
+- Domínio Primário: Matéria;
+- Domínios Secundários: Informação, Energia;
+- Operação Dominante: Síntese;
+- Operações Auxiliares: Reorganização, Estabilização, Transferência;
+- Arquitetura provável: Modular ou Acoplada;
+- Finalidade Aplicada: Interface ou Fortificação;
+- Família Técnica: Artefaturia Alquímica;
+- Padrão de Aplicação: União;
+- Maturidade: variável.
+
+#### Código exemplo
+
+`TT-MUL-SIN-MOD-INTF-VAL`
+
+### 16.5 Exemplo E — Técnica Impossível
+
+#### Descrição
+
+- criar matéria do nada sem consumo equivalente de massa-energia.
+
+#### Classificação
+
+- Categoria: Inválida;
+- Motivo: viola Conservação da Massa-Energia;
+- Status: não catalogável como técnica funcional.
+
+#### Código exemplo
+
+`TT-MAT-CON-SIM-CRIA-INV`
+
+#### Observação
+
+Mesmo que uma cultura possua lendas sobre essa técnica, ela deve ser tratada como mito, erro, fraude, exagero ou interpretação incompleta.
+
+## Capítulo 17 — Princípio Final da Taxonomia
+
+A Taxonomia das Transmutações existe para organizar a diversidade alquímica sem fragmentar a unidade da alquimia.
+
+Toda técnica, escola, família, padrão, tradição ou especialização permanece subordinada à Máquina Abstrata da Alquimia.
+
+Classificar uma transmutação não muda sua natureza.
+
+Nomear uma técnica não cria uma lei.
+
+Agrupar práticas não cria uma nova alquimia.
+
+A taxonomia é uma ferramenta de ciência, engenharia, narrativa e gameplay.
+
+A Verdade permanece independente da classificação humana.
+
+## Pendências
+
+Nenhuma pendência estrutural aberta nesta versão.
+
+Expansões futuras devem ocorrer em documentos subordinados, catálogos acadêmicos, sistemas de gameplay ou registros de pesquisa aplicada, sem redefinir a MAA nem o Tratado da Alquimia.
+
+## Histórico de Versões
+
+- v0.1: criação estrutural do documento para classificação formal de transmutações.
+- v0.2: inclusão da Teoria das Transmutações como fundamento científico da futura taxonomia formal.
+- v0.3: renumeração de Documento 01.3 para Documento 01.2 na estrutura enxuta da série 01 — Alquimia.
+- v1.0: consolidação canônica de base com eixos taxonômicos, classificação por Domínio, Operação, Arquitetura, Finalidade, Comportamento, Requisito de Execução e Maturidade Científica; inclusão de famílias técnicas, padrões de aplicação, técnicas híbridas, nomenclatura, relação com Academias, gameplay, narrativa e pesquisa aplicada.
+- v1.0: consolidação canônica de base com eixos taxonômicos, classificação por Domínio, Operação, Arquitetura, Finalidade, Comportamento, Requisito de Execução e Maturidade Científica; inclusão de famílias técnicas, padrões de aplicação, técnicas híbridas, nomenclatura, relação com Academias, gameplay, narrativa e pesquisa aplicada; normalização de listas operacionais para manter `Informação` exclusivamente como Domínio Fundamental.

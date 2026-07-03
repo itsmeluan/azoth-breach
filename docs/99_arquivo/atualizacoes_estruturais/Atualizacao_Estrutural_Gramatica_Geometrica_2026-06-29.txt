@@ -1,0 +1,143 @@
+Solicitação de Expansão da MAA — Gramática Geométrica
+
+Objetivo
+
+Adicionar ao documento 01.0 — Máquina Abstrata da Alquimia (MAA) uma nova seção denominada:
+
+Gramática Geométrica
+
+Esta seção define as regras universais que governam a representação gráfica da Linguagem Universal da Alquimia.
+
+Ela não define estilos artísticos.
+
+Não define formatos específicos de runas.
+
+Não define convenções de escrita desenvolvidas pelas Academias.
+
+Define apenas os princípios geométricos que tornam um círculo de transmutação válido.
+
+Princípio Geral
+
+A Linguagem Universal da Alquimia é abstrata.
+
+Os círculos de transmutação constituem sua representação física.
+
+Assim como um texto pode ser escrito utilizando diferentes caligrafias sem alterar seu significado, uma especificação alquímica pode apresentar pequenas diferenças visuais sem alterar sua interpretação, desde que sua estrutura permaneça válida.
+
+Circunferência Externa
+
+Todo círculo de transmutação válido deve possuir uma circunferência externa completamente fechada.
+
+Essa circunferência delimita a fronteira física da transmutação.
+
+Toda matéria e energia que participarão diretamente da reação devem estar contidas dentro desse limite.
+
+Uma circunferência incompleta torna toda a especificação inválida.
+
+Organização Hierárquica
+
+Todo círculo é organizado de forma hierárquica.
+
+A estrutura mais externa representa a transmutação como um todo.
+
+Estruturas internas representam operações específicas necessárias para alcançar o resultado final.
+
+Cada camada interna complementa a camada imediatamente superior.
+
+Camadas
+
+Círculos podem conter múltiplas camadas concêntricas.
+
+Cada camada representa um nível adicional de detalhamento da especificação.
+
+Quanto maior o número de camadas, maior a capacidade de descrever transformações complexas.
+
+Não existe limite conhecido para o número de camadas.
+
+Na prática, a complexidade é limitada apenas pelo conhecimento do alquimista e pelos recursos disponíveis.
+
+Runas
+
+As runas constituem o vocabulário da Linguagem Universal da Alquimia.
+
+Sua posição dentro do círculo possui significado.
+
+Seu formato individual possui significado.
+
+Sua relação com outras runas possui significado.
+
+Nenhuma runa é decorativa.
+
+Toda runa presente em uma especificação deve participar diretamente de sua interpretação.
+
+Organização Espacial
+
+A posição relativa dos elementos geométricos faz parte da especificação.
+
+Alterar a disposição espacial pode alterar a interpretação da transmutação.
+
+Duas especificações contendo exatamente as mesmas runas podem produzir resultados diferentes caso sua organização geométrica seja distinta.
+
+Composição
+
+Especificações complexas são construídas pela composição de operações mais simples.
+
+Cada camada adiciona novos comportamentos sem substituir completamente as anteriores.
+
+Essa propriedade permite que círculos sejam progressivamente refinados, ampliados e especializados.
+
+Toda evolução da alquimia decorre do aperfeiçoamento dessa composição.
+
+Legibilidade
+
+Uma especificação deve permanecer geometricamente legível.
+
+Excesso de complexidade pode tornar a interpretação instável.
+
+Não existe relação obrigatória entre beleza estética e qualidade técnica.
+
+Um círculo visualmente simples pode representar uma especificação extremamente sofisticada.
+
+Um círculo altamente ornamentado pode representar uma transmutação trivial.
+
+Simetria
+
+A simetria não constitui requisito obrigatório.
+
+Ela representa apenas uma ferramenta frequentemente utilizada para organizar especificações complexas.
+
+Assimetrias podem existir sempre que possuírem significado dentro da linguagem.
+
+Escalabilidade
+
+A interpretação de uma especificação é independente de seu tamanho físico.
+
+Um mesmo círculo pode ser representado em diferentes escalas sem alterar seu significado.
+
+O tamanho influencia apenas aspectos práticos da execução, como a área de atuação e a quantidade de matéria ou energia que pode ser acomodada dentro de seus limites.
+
+Relação com a Linguagem Universal
+
+A Gramática Geométrica não define o significado das runas.
+
+Ela define apenas como essas runas podem ser organizadas.
+
+O significado pertence à Linguagem Universal da Alquimia.
+
+A geometria apenas fornece a estrutura necessária para que essa linguagem possa ser interpretada pelo Protocolo Flamel.
+
+Relação com a MAA
+
+A Gramática Geométrica constitui a representação visual da Máquina Abstrata da Alquimia.
+
+Ela não altera o funcionamento da MAA.
+
+Apenas materializa fisicamente sua linguagem.
+
+Toda transmutação pós-GTP deve respeitar simultaneamente:
+
+* a Arquitetura da MAA;
+* a Linguagem Universal da Alquimia;
+* a Gramática Geométrica.
+
+Qualquer violação de uma dessas três camadas torna a especificação inválida.

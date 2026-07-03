@@ -1,0 +1,324 @@
+Atualização Arquitetural da MAA — Incerteza Fundamental da Transmutação, Precisão e Progressão Alquímica
+
+Objetivo
+
+Atualizar o documento 01.0 — Máquina Abstrata da Alquimia (MAA) incorporando definitivamente os conceitos de:
+
+* Incerteza Fundamental da Transmutação (IFT);
+* Precisão Alquímica;
+* Proficiência Alquímica;
+* Complexidade Alquímica.
+
+Esta atualização substitui completamente qualquer conceito anterior relacionado à “Qualidade da Execução”.
+
+Todos esses conceitos passam a integrar a arquitetura fundamental da MAA.
+
+Eles não representam mecânicas de gameplay.
+
+Representam propriedades universais da alquimia.
+
+⸻
+
+Incerteza Fundamental da Transmutação (IFT)
+
+Adicionar à MAA um novo princípio denominado:
+
+Incerteza Fundamental da Transmutação
+
+Toda transmutação está sujeita a uma propriedade intrínseca da realidade denominada Incerteza Fundamental da Transmutação (IFT).
+
+A IFT estabelece que nenhuma transmutação possui resultado absolutamente determinístico.
+
+Toda transmutação produz uma distribuição limitada de resultados fisicamente possíveis.
+
+A IFT:
+
+* não representa erro;
+* não representa falha do Azoth;
+* não representa limitação do Protocolo Flamel;
+* não representa imperfeição da Linguagem Universal da Alquimia;
+* não representa incapacidade do alquimista.
+
+Ela constitui uma propriedade fundamental do universo.
+
+Assim como determinadas propriedades da natureza apresentam comportamento probabilístico, toda transmutação também apresenta.
+
+A IFT jamais pode ser eliminada.
+
+⸻
+
+Precisão Alquímica
+
+Precisão Alquímica passa a representar exclusivamente uma propriedade da especificação escrita no círculo de transmutação.
+
+Ela mede o quanto aquela especificação consegue reduzir a influência prática da Incerteza Fundamental.
+
+Precisão Alquímica:
+
+* pertence exclusivamente à especificação;
+* não pertence ao alquimista;
+* não pertence ao Azoth;
+* não pertence à matéria;
+* não pertence à energia.
+
+Quanto maior a Precisão Alquímica:
+
+* menor a influência prática da IFT;
+* menor a dispersão dos resultados possíveis;
+* menor a dependência da intenção para resolver ambiguidades;
+* maior a previsibilidade da transmutação.
+
+Mesmo a especificação mais precisa jamais elimina completamente a IFT.
+
+⸻
+
+Papel da Intenção
+
+A intenção consciente continua responsável apenas por resolver ambiguidades deliberadamente permitidas pela Linguagem Universal da Alquimia.
+
+Ela não determina diretamente o resultado.
+
+Ela apenas restringe a distribuição de resultados possíveis compatíveis com a especificação.
+
+⸻
+
+Papel do Azoth
+
+Atualizar a descrição do Azoth.
+
+Azoth jamais produz resultados aleatórios.
+
+Azoth executa exatamente a especificação produzida pelo Protocolo Flamel.
+
+A variabilidade observada nas transmutações decorre exclusivamente da existência da Incerteza Fundamental da Transmutação.
+
+O Azoth jamais viola:
+
+* a especificação;
+* a Linguagem Universal da Alquimia;
+* a Máquina Abstrata da Alquimia;
+* as Leis Fundamentais.
+
+⸻
+
+Determinismo Parcial
+
+Adicionar o seguinte princípio.
+
+A alquimia não é completamente determinística.
+
+Também não é completamente aleatória.
+
+Toda transmutação produz apenas resultados compatíveis com sua especificação.
+
+A Incerteza Fundamental determina apenas qual dos resultados permitidos será efetivamente obtido.
+
+Nenhuma transmutação pode produzir um resultado impossível apenas por influência da IFT.
+
+A IFT nunca cria novos resultados.
+
+Ela apenas seleciona um resultado dentro da distribuição permitida pela especificação.
+
+⸻
+
+Estados Fundamentais da Execução
+
+A MAA reconhece apenas três estados fundamentais.
+
+Falha Crítica
+
+A especificação não produz um resultado compatível com sua finalidade.
+
+Pode decorrer de:
+
+* especificação inválida;
+* recursos insuficientes;
+* instabilidade;
+* impossibilidade física da reação.
+
+⸻
+
+Falha Parcial
+
+A reação ocorre.
+
+Entretanto o resultado final não corresponde integralmente ao objetivo pretendido.
+
+Parte da especificação é executada corretamente.
+
+Outra parte permanece incompleta ou sofre desvios.
+
+⸻
+
+Execução Bem-Sucedida
+
+A especificação produz um resultado compatível com seu objetivo.
+
+Este constitui o estado esperado de uma transmutação.
+
+⸻
+
+Execução Extraordinária
+
+Execução Extraordinária não constitui um estado independente.
+
+Ela representa um caso excepcional de uma Execução Bem-Sucedida.
+
+Uma Execução Extraordinária ocorre quando a combinação entre:
+
+* Precisão Alquímica;
+* habilidade do alquimista;
+* clareza da intenção;
+* qualidade dos recursos;
+* condições da reação;
+* Incerteza Fundamental da Transmutação;
+
+produz um resultado situado no extremo superior da distribuição permitida.
+
+Uma Execução Extraordinária nunca:
+
+* viola as Leis Fundamentais;
+* cria matéria;
+* cria energia;
+* cria informação;
+* produz efeitos impossíveis.
+
+Ela apenas representa o melhor resultado fisicamente possível para aquela especificação.
+
+⸻
+
+Progressão Alquímica
+
+Adicionar um novo princípio arquitetural.
+
+Todo alquimista evolui segundo dois eixos independentes.
+
+Complexidade Alquímica
+
+Complexidade Alquímica representa o limite de sofisticação das transmutações que um alquimista consegue conceber, especificar e executar.
+
+Ela responde à pergunta:
+
+“O que este alquimista é capaz de realizar?”
+
+Quanto maior sua Complexidade Alquímica:
+
+* maior o número de operações que consegue combinar;
+* maior a profundidade das especificações;
+* maior a sofisticação dos círculos de transmutação;
+* mais elaboradas podem ser suas transmutações.
+
+Complexidade Alquímica não aumenta a previsibilidade da execução.
+
+Ela apenas amplia o conjunto de transmutações possíveis.
+
+⸻
+
+Proficiência Alquímica
+
+Proficiência Alquímica representa a capacidade do alquimista de produzir especificações com alta Precisão Alquímica.
+
+Ela responde à pergunta:
+
+“Com que qualidade este alquimista executa suas transmutações?”
+
+Quanto maior sua Proficiência:
+
+* melhor a qualidade das especificações;
+* menor a influência prática da IFT;
+* maior a estabilidade das transmutações;
+* maior a eficiência no uso de recursos;
+* menor a ocorrência de falhas;
+* maior a probabilidade de Execuções Extraordinárias.
+
+A Proficiência jamais altera a IFT.
+
+Ela apenas produz especificações capazes de limitar sua influência.
+
+⸻
+
+Independência dos Eixos
+
+Complexidade Alquímica e Proficiência Alquímica são independentes.
+
+É possível que um alquimista:
+
+* realize transmutações extremamente sofisticadas, porém instáveis;
+* execute transmutações simples com precisão excepcional.
+
+O domínio completo da alquimia exige evolução simultânea em ambos os eixos.
+
+⸻
+
+Consequências Arquiteturais
+
+A combinação entre:
+
+* Incerteza Fundamental da Transmutação;
+* Precisão Alquímica;
+* Complexidade Alquímica;
+* Proficiência Alquímica;
+
+explica naturalmente diversos fenômenos da franquia.
+
+Entre eles:
+
+* diferenças entre alquimistas utilizando o mesmo círculo;
+* qualidade variável de equipamentos;
+* crafting;
+* refinamento;
+* descobertas científicas;
+* pesquisas alquímicas;
+* itens de alta qualidade;
+* itens únicos;
+* Execuções Extraordinárias;
+* golpes críticos;
+* sucessos críticos;
+* falhas críticas.
+
+Esses fenômenos não constituem exceções.
+
+São consequências naturais da Máquina Abstrata da Alquimia.
+
+⸻
+
+Gameplay
+
+A MAA não define:
+
+* probabilidades;
+* porcentagens;
+* fórmulas;
+* atributos;
+* balanceamento.
+
+Ela estabelece apenas os princípios cosmológicos que tornam esses sistemas possíveis.
+
+O gameplay poderá utilizar esses princípios para implementar:
+
+* golpes críticos;
+* crafting;
+* refinamento;
+* raridade de equipamentos;
+* atributos variáveis;
+* progressão do personagem;
+* talentos;
+* especializações;
+* bônus de equipamentos.
+
+Toda implementação deverá permanecer integralmente compatível com a MAA.
+
+⸻
+
+Refatoração obrigatória
+
+Ao incorporar esta atualização:
+
+* eliminar completamente o conceito anterior de “Qualidade da Execução”;
+* integrar todos estes conceitos ao corpo principal da MAA;
+* revisar a terminologia de todo o documento;
+* remover redundâncias;
+* atualizar referências cruzadas;
+* garantir consistência com a Arquitetura Geral, a Linguagem Universal da Alquimia e a Máquina de Execução.
+
+A MAA deve apresentar estes conceitos como parte inseparável de sua arquitetura, e não como mecanismos adicionados posteriormente.

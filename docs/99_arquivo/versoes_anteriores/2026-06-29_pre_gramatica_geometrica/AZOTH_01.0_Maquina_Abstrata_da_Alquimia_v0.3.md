@@ -1,0 +1,853 @@
+# AZOTH: BREACH — Documento 01.0 — Máquina Abstrata da Alquimia
+
+## Modelo Computacional da Transmutação
+
+- Sigla: MAA
+- Versão: 0.3
+- Classificação: Interno de Desenvolvimento
+- Status: EM DESENVOLVIMENTO
+- Precedência técnica: superior ao futuro Tratado da Alquimia
+- Precedência geral: subordinado aos Documentos 00.0, 00.1, 00.2 e 00.3
+
+## Finalidade
+
+Este documento define o modelo computacional universal que torna qualquer transmutação pós-GTP possível.
+
+A Máquina Abstrata da Alquimia não representa conhecimento de nenhuma civilização. Não representa filosofia, religião ou teoria científica. Ela descreve objetivamente como toda transmutação ocorre no universo de AZOTH: BREACH.
+
+Da mesma forma que uma Máquina de Turing descreve um modelo computacional sem depender de uma linguagem específica, a MAA descreve o modelo universal de toda transmutação sem depender de uma Academia, técnica, cultura, tradição ou implementação visual específica.
+
+A MAA constitui a referência máxima para toda a ciência alquímica da franquia. O futuro Tratado da Alquimia deverá derivar da MAA e não poderá contradizê-la.
+
+## Relação com o Tratado da Alquimia
+
+O documento anteriormente previsto como primeiro documento técnico, `Tratado da Alquimia`, passa a ser subordinado à Máquina Abstrata da Alquimia.
+
+A MAA define como a alquimia funciona.
+
+O Tratado da Alquimia definirá como essa estrutura é estudada, descrita, ensinada e aplicada pelas civilizações.
+
+Nenhum conceito do Tratado da Alquimia poderá contradizer a MAA.
+
+## Objetivos
+
+A MAA define:
+
+- como uma transmutação acontece;
+- quais componentes participam dela;
+- quais informações fluem entre esses componentes;
+- qual linguagem formal é utilizada pelo Protocolo Flamel;
+- qual ciclo de execução toda transmutação percorre;
+- quais estados existem durante sua execução;
+- quais condições tornam uma transmutação válida;
+- quais condições provocam falhas;
+- quais propriedades são universais e imutáveis.
+
+Todo o restante da alquimia deve surgir como consequência lógica da MAA.
+
+## Arquitetura Geral Pós-GTP
+
+Toda transmutação pós-GTP ocorre obrigatoriamente segundo a seguinte arquitetura:
+
+```text
+Consciência
+↓
+Intenção
+↓
+Protocolo Flamel
+↓
+Especificação da Transmutação
+↓
+Azoth
+↓
+Transformação Física
+↓
+Resultado
+```
+
+Nenhuma transmutação pós-GTP pode ignorar qualquer uma dessas etapas.
+
+## Componentes Fundamentais
+
+A MAA é composta exatamente por cinco componentes fundamentais:
+
+1. Consciência
+2. Protocolo Flamel
+3. Especificação da Transmutação
+4. Azoth
+5. Matéria, Energia e Informação
+
+## 1. Consciência
+
+Consciência é a origem da intenção.
+
+A Consciência jamais cria matéria.
+
+A Consciência jamais cria energia.
+
+A Consciência jamais cria informação.
+
+Sua única função na MAA é produzir intenção.
+
+## Intenção
+
+Intenção representa o estado desejado da realidade.
+
+Ela nunca modifica diretamente o universo.
+
+Ela apenas inicia uma transmutação.
+
+A intenção fornece especificidade quando a Especificação da Transmutação contém classes conceituais amplas.
+
+## 2. Protocolo Flamel
+
+O Protocolo Flamel constitui a interface universal entre Consciência e Azoth.
+
+Ele foi criado durante a Grande Transmutação Planetária.
+
+Toda transmutação realizada após a GTP passa obrigatoriamente por esse protocolo.
+
+O Protocolo Flamel é representado fisicamente pelos círculos de transmutação.
+
+Os círculos não possuem poder próprio.
+
+Eles representam a linguagem formal utilizada pelo protocolo.
+
+O protocolo traduz a intenção da Consciência para uma especificação executável.
+
+## 3. Especificação da Transmutação
+
+A Especificação da Transmutação representa a descrição formal da transformação desejada.
+
+Ela contém:
+
+- estado inicial;
+- domínio;
+- restrições;
+- operações;
+- modificadores;
+- estado final esperado.
+
+Ela não contém energia.
+
+Ela não contém Azoth.
+
+Ela apenas descreve a transformação.
+
+## 4. Azoth
+
+Azoth constitui o catalisador universal da transmutação.
+
+Azoth não interpreta intenções.
+
+Azoth reage exclusivamente a especificações válidas produzidas pelo Protocolo Flamel.
+
+Sua função consiste em catalisar a transformação entre matéria, energia e informação.
+
+Azoth nunca viola as Leis Fundamentais.
+
+Ele apenas permite que reações ocorram em escalas impossíveis para processos naturais.
+
+## 5. Matéria, Energia e Informação
+
+Toda transmutação atua exclusivamente sobre matéria, energia e informação.
+
+Informação constitui propriedade intrínseca da matéria e da energia.
+
+Informação nunca é criada pela Consciência.
+
+Informação nunca existe separadamente do universo físico.
+
+A transmutação altera simultaneamente matéria, energia e informação.
+
+## Máquina de Execução
+
+A Máquina de Execução descreve como uma transmutação é executada após a Grande Transmutação Planetária.
+
+Ela não descreve fenômenos históricos.
+
+Ela não descreve gameplay.
+
+Ela não descreve técnicas específicas.
+
+Ela define apenas o fluxo universal que toda transmutação válida percorre.
+
+### Princípio Geral
+
+Toda transmutação pós-GTP percorre obrigatoriamente um mesmo ciclo de execução.
+
+Esse ciclo é imutável.
+
+Nenhuma etapa pode ser ignorada.
+
+Nenhuma transmutação conhecida executa etapas adicionais.
+
+Apenas a complexidade de cada etapa varia conforme a especificação escrita pelo alquimista.
+
+### Ciclo de Execução
+
+Toda transmutação pós-GTP ocorre segundo a seguinte sequência:
+
+```text
+Intenção
+↓
+Validação
+↓
+Resolução
+↓
+Catalisação
+↓
+Transmutação
+↓
+Estabilização
+↓
+Encerramento
+```
+
+Nenhuma etapa pode ser omitida.
+
+Cada etapa possui uma única responsabilidade.
+
+### 1. Intenção
+
+A transmutação inicia quando um ser consciente estabelece deliberadamente um objetivo e canaliza energia para um círculo de transmutação válido.
+
+A intenção não executa a transmutação.
+
+Ela apenas inicia o processo.
+
+Sem intenção consciente nenhuma transmutação pode começar.
+
+### 2. Validação
+
+O Protocolo Flamel verifica se a especificação pode ser executada.
+
+Durante esta etapa são verificadas:
+
+- integridade geométrica do círculo;
+- consistência da Linguagem Universal da Alquimia;
+- compatibilidade entre as runas;
+- presença de uma circunferência válida;
+- existência de matéria e/ou energia de origem;
+- disponibilidade de Azoth.
+
+Caso qualquer requisito obrigatório não seja satisfeito, a transmutação falha antes de iniciar.
+
+Nenhuma transformação parcial ocorre durante a validação.
+
+### 3. Resolução
+
+Após a validação, o Protocolo Flamel utiliza a intenção consciente do alquimista para resolver ambiguidades deliberadamente deixadas pela linguagem alquímica.
+
+A intenção nunca substitui a especificação escrita.
+
+Ela apenas complementa informações que a linguagem representa de forma abstrata.
+
+Quanto mais completa for a especificação, menor será a dependência da intenção.
+
+### 4. Catalisação
+
+Após a resolução, o Azoth reage à especificação produzida pelo Protocolo Flamel.
+
+O Azoth não interpreta intenções.
+
+O Azoth não interpreta círculos.
+
+Ele reage exclusivamente à especificação válida produzida pelo protocolo.
+
+Durante esta etapa, a reação alquímica torna-se fisicamente possível.
+
+### 5. Transmutação
+
+Nesta etapa ocorre efetivamente a transformação.
+
+Matéria, energia e informação sofrem as alterações descritas pela especificação.
+
+Toda transformação respeita integralmente as Leis Fundamentais.
+
+A transmutação permanece ativa apenas enquanto a reação estiver em andamento.
+
+### 6. Estabilização
+
+Após concluída a transformação, o novo estado da matéria, energia e informação torna-se estável.
+
+O resultado deixa de depender do Azoth.
+
+A reação encerra naturalmente.
+
+Caso a estabilização não seja possível, a transmutação falha ou produz um resultado diferente do pretendido.
+
+### 7. Encerramento
+
+Com a estabilização concluída, o fluxo de Azoth é interrompido.
+
+O círculo retorna ao estado inativo.
+
+Uma nova transmutação exige uma nova ativação consciente.
+
+Nenhuma transmutação permanece permanentemente em execução.
+
+### Falhas na Máquina de Execução
+
+Falhas podem ocorrer em qualquer etapa anterior à estabilização.
+
+Entre as principais categorias estão:
+
+- especificação inválida;
+- círculo incompleto;
+- geometria incorreta;
+- runas incompatíveis;
+- intenção incompatível;
+- matéria insuficiente;
+- energia insuficiente;
+- Azoth insuficiente;
+- perda de estabilidade durante a reação.
+
+Outras categorias poderão ser adicionadas futuramente sem alteração da arquitetura da MAA.
+
+### Papel da Consciência
+
+A Consciência participa apenas de duas etapas:
+
+- Intenção;
+- Resolução.
+
+Após iniciada a Catalisação, a transmutação segue automaticamente conforme a especificação.
+
+O alquimista não controla diretamente a reação durante sua execução.
+
+Ele controla apenas sua preparação.
+
+### Papel do Protocolo Flamel
+
+O Protocolo Flamel participa exclusivamente das etapas:
+
+- Validação;
+- Resolução.
+
+Sua função é transformar a intenção consciente em uma especificação formal executável.
+
+Ele nunca produz matéria.
+
+Ele nunca produz energia.
+
+Ele nunca catalisa a reação.
+
+### Papel do Azoth
+
+O Azoth participa exclusivamente das etapas:
+
+- Catalisação;
+- Transmutação.
+
+Ele não possui vontade.
+
+Ele não interpreta linguagem.
+
+Ele não realiza escolhas.
+
+Sua função é exclusivamente catalisar a reação descrita pela especificação produzida pelo Protocolo Flamel.
+
+### Papel da Linguagem Universal da Alquimia
+
+A Linguagem Universal da Alquimia participa exclusivamente das etapas:
+
+- Validação;
+- Resolução.
+
+Ela constitui o meio formal pelo qual a intenção pode ser convertida em uma especificação executável.
+
+Sem linguagem não existe Protocolo Flamel.
+
+Sem Protocolo Flamel não existe transmutação pós-GTP.
+
+### Consequências Arquiteturais
+
+Esta arquitetura estabelece uma separação clara de responsabilidades.
+
+A Consciência cria intenção.
+
+O Protocolo Flamel interpreta.
+
+A Linguagem Universal da Alquimia descreve.
+
+O Azoth catalisa.
+
+A matéria, energia e informação transformam-se.
+
+Nenhum desses componentes executa funções pertencentes aos demais.
+
+Essa separação constitui um princípio fundamental da Máquina Abstrata da Alquimia e deve ser respeitada por toda documentação futura.
+
+## Natureza dos Círculos
+
+Círculos de transmutação não são diagramas.
+
+Círculos de transmutação são programas executáveis.
+
+Cada círculo representa uma especificação formal.
+
+Sua geometria constitui gramática.
+
+Suas runas constituem vocabulário.
+
+Sua organização constitui sintaxe.
+
+Seu significado constitui semântica.
+
+Seu resultado constitui execução.
+
+## Natureza das Runas
+
+Runas não representam objetos específicos.
+
+Runas representam conceitos.
+
+Uma runa nunca significa "ferro".
+
+Ela pode representar "metal".
+
+Uma runa nunca significa "água".
+
+Ela pode representar "líquido".
+
+Uma runa nunca representa um objeto.
+
+Ela representa classes conceituais.
+
+A intenção da Consciência fornece a definição específica dentro do conjunto permitido pela especificação.
+
+Quanto melhor construída a especificação, menor a dependência da intenção para resolver ambiguidades.
+
+## Linguagem Universal da Alquimia
+
+A Linguagem Universal da Alquimia é a linguagem formal utilizada pelo Protocolo Flamel para traduzir a intenção consciente do alquimista em uma Especificação da Transmutação executável pelo Azoth.
+
+Ela constitui o fundamento de toda alquimia pós-Grande Transmutação Planetária.
+
+Ela não representa um idioma humano.
+
+Ela não representa escrita comum.
+
+Ela não representa magia.
+
+Ela representa uma linguagem formal de especificação da realidade.
+
+Toda transmutação pós-GTP corresponde à escrita de um programa nessa linguagem.
+
+### Objetivos da Linguagem
+
+A Linguagem Universal da Alquimia possui apenas três objetivos fundamentais:
+
+1. Definir sobre o que a transmutação atuará.
+2. Definir qual transformação deverá ocorrer.
+3. Definir como essa transformação deverá ser executada.
+
+Todo círculo de transmutação válido pode ser descrito utilizando apenas esses três componentes.
+
+### Estrutura Geral
+
+Toda especificação alquímica válida é composta por três grupos fundamentais de runas:
+
+```text
+Runas de Domínio
+↓
+Runas de Operação
+↓
+Runas Modificadoras
+```
+
+Essa estrutura é obrigatória.
+
+Toda transmutação válida deve possuir pelo menos uma runa pertencente a cada grupo.
+
+### Runas de Domínio
+
+Runas de Domínio definem sobre qual aspecto da realidade a transmutação atuará.
+
+Elas nunca representam materiais específicos.
+
+Elas nunca representam objetos.
+
+Elas nunca representam substâncias individuais.
+
+Elas representam apenas categorias fundamentais da realidade.
+
+O detalhamento específico é fornecido pela intenção consciente do alquimista.
+
+#### Domínios Fundamentais
+
+A documentação canônica reconhece apenas quatro domínios fundamentais:
+
+- Matéria
+- Energia
+- Vida
+- Informação
+
+##### Matéria
+
+Atua sobre estrutura física da matéria.
+
+Permite alterar composição, organização, estado físico e propriedades materiais.
+
+##### Energia
+
+Atua sobre estados energéticos.
+
+Permite converter, redistribuir ou estabilizar energia.
+
+##### Vida
+
+Atua sobre sistemas biológicos.
+
+Inclui organismos, tecidos, células e demais estruturas vivas.
+
+Vida não constitui um sexto componente fundamental da MAA.
+
+Ela é um domínio de atuação sobre matéria, energia e informação organizadas biologicamente.
+
+##### Informação
+
+Atua sobre propriedades intrínsecas da matéria e da energia.
+
+Não representa conhecimento.
+
+Não representa memória psicológica.
+
+Representa exclusivamente a informação física que define o estado do universo.
+
+### Runas de Operação
+
+Runas de Operação definem qual transformação será realizada.
+
+Elas representam os verbos fundamentais da alquimia.
+
+Toda transmutação pertence obrigatoriamente a uma Operação Fundamental.
+
+Toda técnica alquímica existente constitui uma combinação dessas operações.
+
+#### Operações Fundamentais
+
+A documentação canônica reconhece apenas seis Operações Fundamentais:
+
+- Conversão
+- Reorganização
+- Separação
+- Síntese
+- Transferência
+- Estabilização
+
+##### Conversão
+
+Altera um estado em outro mantendo continuidade física.
+
+Exemplos conceituais:
+
+- alteração de estado físico;
+- conversão entre formas de energia;
+- transformação de um material em outro.
+
+##### Reorganização
+
+Mantém os mesmos componentes fundamentais, alterando apenas sua organização.
+
+Exemplos conceituais:
+
+- remodelagem estrutural;
+- conformação de objetos;
+- reorganização molecular.
+
+##### Separação
+
+Divide um conjunto em componentes menores.
+
+Permite isolar partes anteriormente unificadas.
+
+##### Síntese
+
+Combina múltiplos conjuntos em uma nova estrutura.
+
+Permite produzir sistemas mais complexos a partir de componentes distintos.
+
+##### Transferência
+
+Move propriedades entre sistemas.
+
+Pode transferir matéria, energia, informação ou características específicas.
+
+Não cria novas propriedades.
+
+Apenas altera sua distribuição.
+
+##### Estabilização
+
+Mantém um estado contra alterações naturais.
+
+Pode preservar estruturas, impedir degradação ou sustentar condições específicas durante determinado período.
+
+### Runas Modificadoras
+
+Runas Modificadoras refinam a execução da operação.
+
+Elas nunca executam transmutações isoladamente.
+
+Elas sempre modificam outra operação.
+
+#### Categorias Fundamentais
+
+A documentação canônica reconhece cinco categorias fundamentais de Runas Modificadoras:
+
+- Escala
+- Precisão
+- Intensidade
+- Persistência
+- Estabilidade
+
+##### Escala
+
+Define a extensão espacial da transmutação.
+
+Quanto maior a escala, maior a complexidade da especificação.
+
+##### Precisão
+
+Define quanto da especificação será resolvido pelo círculo.
+
+Especificações mais precisas reduzem a dependência da intenção consciente do alquimista.
+
+Especificações menos precisas exigem maior participação da Consciência durante a execução.
+
+##### Intensidade
+
+Define o grau da transformação desejada.
+
+Não altera a natureza da operação.
+
+Apenas sua magnitude.
+
+##### Persistência
+
+Define por quanto tempo o estado resultante deverá permanecer estável.
+
+Não implica permanência absoluta.
+
+Apenas determina o comportamento esperado da transmutação.
+
+##### Estabilidade
+
+Define a tolerância da especificação a pequenas imperfeições.
+
+Especificações mais estáveis tendem a consumir mais recursos, porém apresentam menor probabilidade de falha.
+
+### Estrutura de uma Especificação
+
+Toda especificação alquímica pode ser representada pela seguinte estrutura lógica:
+
+```text
+Entrada
+↓
+Domínio
+↓
+Operação Fundamental
+↓
+Modificadores
+↓
+Resultado Esperado
+```
+
+A intenção consciente do alquimista fornece apenas os detalhes específicos necessários para resolver ambiguidades permitidas pela especificação.
+
+Ela nunca substitui o círculo.
+
+Ela apenas complementa informações que a linguagem deliberadamente representa de forma abstrata.
+
+### Relação entre Linguagem e Geometria
+
+A linguagem alquímica é abstrata.
+
+Os círculos representam apenas sua forma gráfica.
+
+As runas correspondem ao vocabulário.
+
+A geometria corresponde à gramática.
+
+A organização espacial corresponde à sintaxe.
+
+O significado físico corresponde à semântica.
+
+A reação catalisada pelo Azoth corresponde à execução.
+
+### Relação com as Academias
+
+As Academias não representam diferentes formas de alquimia.
+
+Todas utilizam exatamente a mesma Linguagem Universal da Alquimia.
+
+O que diferencia uma Academia de outra é sua especialização.
+
+Cada Academia desenvolve maior domínio sobre determinados Domínios, Operações Fundamentais, Modificadores ou padrões de composição.
+
+Toda evolução científica da alquimia corresponde à descoberta de formas mais sofisticadas de utilizar a mesma linguagem universal.
+
+Nenhuma Academia cria novas leis da alquimia.
+
+Nenhuma Academia cria novas Operações Fundamentais.
+
+Toda inovação consiste em novas combinações dos elementos já existentes.
+
+### Relação com a Complexidade
+
+A complexidade de uma transmutação não depende do tamanho físico do círculo.
+
+Ela depende da quantidade de operações executadas, da profundidade das camadas de composição e da sofisticação da especificação.
+
+Círculos simples podem produzir resultados complexos quando utilizados por alquimistas experientes.
+
+Círculos extremamente elaborados podem produzir resultados simples de forma muito eficiente.
+
+Complexidade e poder não constituem conceitos equivalentes.
+
+### Extensibilidade
+
+A Linguagem Universal da Alquimia foi deliberadamente projetada para ser pequena.
+
+Novas técnicas, habilidades, escolas, Academias, artefatos e sistemas de gameplay jamais deverão adicionar novos Domínios ou novas Operações Fundamentais sem alteração oficial da MAA.
+
+Toda expansão futura da franquia deverá surgir como combinação dos elementos definidos nesta especificação.
+
+Caso futuramente seja identificada a necessidade de novos conceitos fundamentais, essa alteração deverá ocorrer exclusivamente por meio de atualização oficial da Máquina Abstrata da Alquimia.
+
+## Estrutura dos Círculos
+
+Todo círculo válido deve possuir uma circunferência externa completamente fechada.
+
+A matéria-prima deve estar integralmente contida dentro dessa circunferência.
+
+O limite externo define a fronteira física da transmutação.
+
+Círculos podem conter outros círculos.
+
+Cada camada adicional representa um nível adicional de abstração da transformação.
+
+Camadas internas executam operações específicas.
+
+Camadas externas coordenam a transformação global.
+
+Não existe limite conhecido para o número de camadas.
+
+A complexidade prática é limitada apenas por:
+
+- conhecimento do alquimista;
+- estabilidade da especificação;
+- disponibilidade de Azoth;
+- recursos físicos necessários.
+
+## Ativação
+
+Uma transmutação jamais inicia automaticamente.
+
+Ela somente começa quando:
+
+- existe um círculo válido;
+- existe matéria ou energia suficiente;
+- existe Azoth disponível;
+- existe intenção consciente;
+- o alquimista canaliza energia para iniciar a execução.
+
+## Resultado
+
+Uma transmutação é considerada bem-sucedida quando o estado final corresponde integralmente à intenção especificada.
+
+Uma transmutação falha quando existe incompatibilidade entre intenção, especificação, recursos disponíveis ou execução.
+
+## Falhas
+
+Entre as possíveis causas de falha estão:
+
+- círculo geometricamente incorreto;
+- especificação semanticamente inválida;
+- runas incompatíveis;
+- intenção incompatível;
+- energia insuficiente;
+- matéria insuficiente;
+- Azoth insuficiente;
+- perda de estabilidade durante a execução.
+
+Outras categorias futuras de falha podem ser adicionadas, desde que permaneçam compatíveis com os documentos constitucionais e com a MAA.
+
+## Complexidade
+
+Círculos simples podem realizar transformações simples.
+
+Círculos compostos podem realizar transformações compostas.
+
+Aumentar a complexidade da especificação permite produzir resultados anteriormente impossíveis.
+
+A complexidade de uma transmutação depende da quantidade de operações executadas, da profundidade das camadas de composição e da sofisticação da especificação.
+
+Complexidade e poder não constituem conceitos equivalentes.
+
+Essa propriedade explica:
+
+- surgimento das Academias;
+- evolução histórica da alquimia;
+- novas técnicas;
+- novos tipos de transmutação;
+- novas especializações;
+- novos artefatos.
+
+Toda evolução da alquimia corresponde ao desenvolvimento de especificações mais sofisticadas.
+
+## Consumo
+
+A MAA não define fórmulas matemáticas para consumo de energia ou Azoth.
+
+Esses valores permanecem abstratos para preservar liberdade criativa para gameplay, balanceamento e futuras expansões.
+
+A MAA estabelece apenas que diferentes especificações possuem diferentes eficiências.
+
+Melhores especificações produzem melhores resultados com menor consumo relativo.
+
+## O que a MAA Não Define
+
+A MAA não define:
+
+- a origem do Azoth;
+- a origem da Consciência;
+- a origem da Informação;
+- a origem da Realidade;
+- a natureza da Verdade;
+- a origem da Gênese;
+- a existência anterior à Gênese;
+- o funcionamento interno do Protocolo Flamel enquanto estrutura cosmológica.
+
+Esses conceitos pertencem às Leis Fundamentais ou permanecem intencionalmente além da compreensão da franquia.
+
+## Implicações para Documentação Futura
+
+O futuro Tratado da Alquimia deverá utilizar a MAA como sua fonte técnica superior.
+
+Todo gameplay, lore, sistema de crafting, habilidade, artefato, Academia, pesquisa, NPC, tecnologia e expansão futura deverá permanecer integralmente compatível com a MAA.
+
+Documentos subordinados podem detalhar implementações, métodos acadêmicos, técnicas, estilos visuais, balanceamento ou variações culturais, mas não podem alterar os componentes fundamentais da MAA nem omitir etapas da arquitetura pós-GTP.
+
+## Pontos Arquiteturais Pendentes
+
+Os pontos abaixo foram identificados como lacunas, ambiguidades ou oportunidades de melhoria. Eles não devem ser respondidos sem nova decisão canônica.
+
+- Definir se "Consciência" exige inteligência biológica, inteligência artificial, homúnculo, organismo vivo ou outra categoria ainda não documentada.
+- Definir limites entre intenção consciente e comando automatizado em artefatos ou sistemas alquímicos complexos.
+- Definir se círculos podem ser armazenados, projetados, inscritos temporariamente ou executados por suporte não físico.
+- Definir a relação precisa entre estabilidade da especificação e Ruído Informacional.
+- Definir categorias formais de falha além das causas iniciais listadas, sem alterar o ciclo da Máquina de Execução.
+- Definir como o Protocolo Flamel valida uma especificação sem descrever seu funcionamento interno cosmológico além da responsabilidade de Validação.
+- Definir como especificações compostas se coordenam quando múltiplos círculos interagem.
+- Definir critérios técnicos para "especificação semanticamente inválida".
+- Definir subcategorias técnicas de runas sem criar novos Domínios ou novas Operações Fundamentais.
+- Definir como a MAA será traduzida para sistemas de gameplay sem criar fórmulas rígidas de consumo.
+
+## Histórico de Versões
+
+- v0.1: criação da Máquina Abstrata da Alquimia como fundamento técnico superior ao futuro Tratado da Alquimia.
+- v0.2: inclusão da Linguagem Universal da Alquimia, seus grupos de runas, Domínios Fundamentais, Operações Fundamentais, Runas Modificadoras, estrutura lógica de especificação e regras de extensibilidade.
+- v0.3: inclusão da Máquina de Execução, ciclo universal de execução pós-GTP e separação de responsabilidades entre Consciência, Protocolo Flamel, Linguagem Universal da Alquimia, Azoth, matéria, energia e informação.

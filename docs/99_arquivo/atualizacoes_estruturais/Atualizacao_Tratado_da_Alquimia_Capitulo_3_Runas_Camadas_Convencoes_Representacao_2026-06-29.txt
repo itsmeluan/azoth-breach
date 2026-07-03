@@ -1,0 +1,102 @@
+Atualização do Tratado da Alquimia — Capítulo 3 — Runas, Camadas, Convenções e Representação Gráfica
+
+Fonte: solicitação direta do usuário em 2026-06-29.
+
+Objetivo
+
+Adicionar ao Capítulo 3 do Documento 01.1 — Tratado da Alquimia as seções:
+
+- 3.14 — Runas
+- 3.15 — Camadas
+- 3.16 — Convenções e Padrões
+- 3.17 — Representação Gráfica das Especificações da Transmutação
+
+Nota de normalização canônica
+
+A solicitação original utiliza "Linguagem das Especificações de Transmutação" e "Especificação de Transmutação". A documentação ativa já consolidou "Linguagem das Especificações da Transmutação" e "Especificação da Transmutação". Por consistência terminológica, a atualização ativa utiliza as formas canônicas com "da".
+
+Nota de numeração
+
+A seção anteriormente numerada como 3.14 — Convenção Oficial da Sigla ET deve ser preservada e renumerada para 3.18.
+
+Nota de precedência
+
+As seções adicionadas devem permanecer subordinadas à Máquina Abstrata da Alquimia, à Linguagem Universal da Alquimia, à Gramática Geométrica, à Linguagem das Especificações da Transmutação e ao Protocolo Flamel.
+
+Conteúdo solicitado
+
+3.14 Runas
+
+As runas constituem os elementos simbólicos fundamentais da Linguagem das Especificações de Transmutação.
+
+Cada runa representa um conceito formal da linguagem, capaz de descrever operações, propriedades, relações ou restrições necessárias à execução de uma Especificação de Transmutação (ET).
+
+As runas não representam matéria, energia ou Azoth.
+
+Elas representam significado.
+
+Seu papel consiste em expressar, de maneira formal, a transformação desejada.
+
+Assim como palavras não executam ações por si mesmas, runas não produzem transmutações.
+
+Elas apenas compõem a descrição lógica interpretada posteriormente pelo Protocolo Flamel.
+
+Uma mesma ET pode utilizar diferentes combinações de runas para representar soluções equivalentes, desde que preservem exatamente o mesmo significado lógico.
+
+Consequentemente, o domínio da Engenharia Alquímica depende tanto da compreensão do significado individual das runas quanto da forma como elas são organizadas dentro de uma ET.
+
+3.15 Camadas
+
+Uma Especificação de Transmutação pode ser organizada em múltiplas camadas.
+
+Cada camada adiciona novos níveis de descrição sem modificar a finalidade daquelas que já existem.
+
+A utilização de camadas permite que ETs progressivamente mais sofisticadas sejam construídas preservando organização, clareza e capacidade de manutenção.
+
+Camadas não representam etapas sequenciais da execução.
+
+Representam níveis estruturais da especificação.
+
+Cada camada complementa as anteriores, adicionando restrições, refinamentos ou novos comportamentos à transformação.
+
+Quanto maior a complexidade de uma ET, maior tende a ser a necessidade de organização em camadas independentes.
+
+A Engenharia Alquímica busca construir camadas com responsabilidades bem definidas, reduzindo interdependências desnecessárias e facilitando futuras evoluções da especificação.
+
+3.16 Convenções e Padrões
+
+Embora a Linguagem das Especificações de Transmutação permita múltiplas formas equivalentes de representar uma mesma transformação, a Engenharia Alquímica adota convenções e padrões para promover clareza, consistência e reutilização.
+
+Convenções correspondem a regras de organização adotadas pela comunidade científica para facilitar leitura, desenvolvimento, manutenção e validação de ETs.
+
+Padrões correspondem a soluções estruturais recorrentes cuja eficácia foi demonstrada por meio da prática e da Convergência Experimental.
+
+Nem convenções nem padrões alteram o funcionamento da MAA.
+
+Seu objetivo consiste exclusivamente em melhorar a qualidade da Engenharia Alquímica.
+
+A adoção de convenções comuns permite que diferentes alquimistas compreendam, validem e evoluam uma mesma ET com menor esforço.
+
+Da mesma forma, padrões consolidados reduzem a necessidade de reprojetar soluções para problemas já compreendidos.
+
+A utilização de convenções e padrões constitui uma boa prática da Engenharia Alquímica, mas não substitui o julgamento técnico do alquimista responsável pelo projeto da ET.
+
+3.17 Representação Gráfica das Especificações de Transmutação
+
+A Linguagem das Especificações de Transmutação possui natureza lógica e abstrata.
+
+Entretanto, para que uma ET possa ser utilizada durante a execução de uma transmutação, ela deve ser representada fisicamente.
+
+A representação gráfica canônica de uma ET é o Círculo de Transmutação.
+
+O círculo organiza visualmente todos os elementos da especificação de forma compatível com a interpretação realizada pelo Protocolo Flamel.
+
+Sua geometria estabelece os limites formais da ET, enquanto a disposição de runas, camadas e demais elementos preserva sua estrutura lógica.
+
+O círculo não constitui a ET.
+
+Ele constitui sua representação gráfica oficial.
+
+Outras formas de representação podem existir, desde que preservem integralmente a estrutura lógica da especificação e permaneçam compatíveis com o Protocolo Flamel.
+
+Independentemente do meio utilizado, diferentes representações de uma mesma ET são logicamente equivalentes quando descrevem exatamente a mesma transformação.

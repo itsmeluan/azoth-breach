@@ -1,0 +1,77 @@
+Atualização do Tratado da Alquimia — Capítulo 3 — LET
+
+Fonte: solicitação direta do usuário em 2026-06-29.
+
+Objetivo
+
+Incluir no Capítulo 3 do Documento 01.1 — Tratado da Alquimia uma nova seção sobre a Linguagem das Especificações de Transmutação.
+
+Nota de normalização canônica
+
+A solicitação original utiliza a forma "Especificações de Transmutação". A documentação ativa já consolidou o termo oficial "Especificação da Transmutação" e a sigla ET. Por consistência terminológica, a atualização ativa utiliza "Linguagem das Especificações da Transmutação" e preserva LET como sigla técnica oficial.
+
+Nota de precedência
+
+LET é tratada como denominação técnica da Engenharia Alquímica para a linguagem formal utilizada na descrição de ETs. Ela deriva da Linguagem Universal da Alquimia definida pela MAA e não a substitui.
+
+Conteúdo solicitado
+
+3.13 Linguagem das Especificações de Transmutação
+
+A Engenharia Alquímica utiliza uma linguagem formal denominada Linguagem das Especificações de Transmutação (LET).
+
+A LET constitui o meio oficial utilizado para descrever Especificações de Transmutação (ETs) de forma compreensível pelo Protocolo Flamel.
+
+Seu objetivo é representar, de maneira precisa e não ambígua, a transformação desejada.
+
+A LET não constitui uma linguagem natural.
+
+Também não constitui uma linguagem matemática tradicional.
+
+Ela representa uma linguagem formal própria da alquimia, construída para descrever transformações compatíveis com a Máquina Abstrata da Alquimia.
+
+Independentemente do meio físico utilizado para registrá-la, toda ET possui exatamente o mesmo significado lógico.
+
+O círculo de transmutação constitui a representação gráfica canônica da LET.
+
+Outros suportes físicos podem representar uma mesma ET desde que preservem integralmente sua estrutura lógica.
+
+3.13.1 Sintaxe
+
+A sintaxe define como uma ET deve ser escrita.
+
+Ela estabelece as regras estruturais utilizadas para organizar os elementos da Linguagem das Especificações de Transmutação.
+
+Essas regras determinam a forma válida de representar uma transmutação, garantindo que a ET possa ser interpretada corretamente pelo Protocolo Flamel.
+
+Uma ET sintaticamente inválida não pode ser executada.
+
+A correção sintática, entretanto, não garante que a transmutação produza o resultado desejado.
+
+Ela apenas assegura que a especificação possua estrutura formal válida.
+
+3.13.2 Semântica
+
+A semântica define o significado de cada elemento presente em uma ET.
+
+Enquanto a sintaxe determina como a especificação deve ser organizada, a semântica determina o comportamento representado por essa organização.
+
+Uma ET semanticamente incorreta pode possuir sintaxe perfeitamente válida.
+
+Nesse caso, a execução ocorrerá conforme a especificação escrita, ainda que seu resultado não corresponda à intenção do alquimista.
+
+A Engenharia Alquímica busca garantir simultaneamente correção sintática e consistência semântica.
+
+Somente a combinação de ambas produz Especificações de Transmutação confiáveis.
+
+3.13.3 Princípio da Linguagem
+
+A Linguagem das Especificações de Transmutação constitui uma linguagem formal, determinística e universal.
+
+Ela não interpreta intenções.
+
+Ela descreve transformações.
+
+Cabe ao Protocolo Flamel interpretar essa descrição e convertê-la em uma execução compatível com a Máquina Abstrata da Alquimia.
+
+Quanto mais precisa for a descrição fornecida pela LET, menor será a influência prática da Incerteza Fundamental da Transmutação durante a execução.

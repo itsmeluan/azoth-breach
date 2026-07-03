@@ -1,0 +1,64 @@
+Atualização Estrutural — Série 01 Alquimia Enxuta
+
+Fonte: decisão direta do usuário em 2026-06-29.
+
+Objetivo
+
+Reestruturar a série 01 — Alquimia após a consolidação do Documento 01.1 — Tratado da Alquimia.
+
+Decisão estrutural
+
+O Documento 01.2 — Engenharia dos Círculos deixa de fazer parte da estrutura ativa, pois seu escopo foi absorvido pelo Documento 01.0 — Máquina Abstrata da Alquimia e pelo Documento 01.1 — Tratado da Alquimia.
+
+O Documento 01.4 — Pesquisa Alquímica deixa de fazer parte da estrutura ativa, pois seu escopo metodológico foi absorvido pelo Tratado da Alquimia, especialmente pelos capítulos 2 e 4.
+
+A nova estrutura ativa da série 01 passa a ser:
+
+1. 01.0 — Máquina Abstrata da Alquimia
+2. 01.1 — Tratado da Alquimia
+3. 01.2 — Taxonomia das Transmutações
+4. 01.3 — Academias de Alquimia
+5. 01.4 — Pesquisa Aplicada e Catalogação Alquímica
+
+Escopo do novo Documento 01.4
+
+O novo Documento 01.4 — Pesquisa Aplicada e Catalogação Alquímica deve permanecer como documento reservado de estrutura, em status EM PLANEJAMENTO.
+
+Ele não deve ser desenvolvido antes do Documento 01.3 — Academias de Alquimia.
+
+Seu objetivo futuro é definir como as Academias aplicam, validam, catalogam, preservam e compartilham conhecimento alquímico consolidado.
+
+Escopo futuro previsto:
+
+- protocolos de catalogação de ETs;
+- identificadores acadêmicos de ETs;
+- bibliotecas de ETs;
+- famílias de ETs;
+- ET Base e ET Derivada;
+- publicações científicas;
+- validação independente;
+- registro de Convergência Experimental;
+- linhas de pesquisa aplicadas;
+- preservação de conhecimento entre Academias.
+
+Fora de escopo:
+
+- redefinir a MAA;
+- redefinir o Tratado da Alquimia;
+- criar novas leis;
+- criar sistemas de gameplay;
+- detalhar Academias antes do Documento 01.3.
+
+Documentos arquivados
+
+- AZOTH_01.2_Engenharia_dos_Circulos_v0.1.md
+- AZOTH_01.4_Pesquisa_Alquimica_v0.2.md
+
+Documentos renumerados
+
+- AZOTH_01.3_Taxonomia_das_Transmutacoes_v0.2.md passa a AZOTH_01.2_Taxonomia_das_Transmutacoes_v0.3.md.
+- AZOTH_01.5_Academias_de_Alquimia_v0.2.md passa a AZOTH_01.3_Academias_de_Alquimia_v0.3.md.
+
+Nota de precedência
+
+Essa reestruturação não altera a MAA, a Linguagem Universal da Alquimia, a LET, a Gramática Geométrica, a Convergência Experimental ou qualquer conceito cosmológico superior.

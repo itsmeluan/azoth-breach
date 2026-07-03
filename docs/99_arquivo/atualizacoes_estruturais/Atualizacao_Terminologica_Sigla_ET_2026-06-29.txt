@@ -1,0 +1,33 @@
+Atualização Terminológica — Sigla ET
+
+Data: 2026-06-29
+Status: Aprovada para incorporação documental
+
+Objetivo
+
+Introduzir oficialmente a sigla ET em todos os documentos futuros da franquia AZOTH: BREACH.
+
+ET passa a designar Especificação da Transmutação como sigla técnica oficial, de forma análoga ao uso de termos computacionais consolidados como API, CPU ou AST.
+
+Exemplos de uso aprovado
+
+* ET-0142 — identificador de uma especificação catalogada por uma Academia;
+* Biblioteca de ETs — coleção de especificações reutilizáveis;
+* Família de ETs — especificações derivadas de uma mesma arquitetura;
+* ET Base — especificação utilizada como origem técnica de derivações;
+* ET Derivada — especificação criada a partir de uma ET Base.
+
+Diretriz de interpretação
+
+ET não cria um novo conceito separado da Especificação da Transmutação.
+
+ET é a forma abreviada oficial para uso técnico, documental, científico, acadêmico, de engenharia e de catalogação.
+
+Todo uso de ET deve permanecer subordinado à Máquina Abstrata da Alquimia, à Linguagem Universal da Alquimia, à Gramática Geométrica, ao Protocolo Flamel e aos documentos constitucionais superiores.
+
+Documentos afetados
+
+* Documento 00.2 — Glossário Canônico;
+* Documento 00.3 — Estrutura Mestre da Documentação;
+* Documento 01.1 — Tratado da Alquimia;
+* documentos futuros da série 01 — Alquimia.

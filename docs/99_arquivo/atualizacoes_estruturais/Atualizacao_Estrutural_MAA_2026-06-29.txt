@@ -1,0 +1,379 @@
+Atualização Estrutural da Documentação — Substituição do Tratado da Alquimia pela Máquina Abstrata da Alquimia (MAA)
+
+Objetivo
+
+A evolução recente da cosmologia da franquia tornou evidente que o documento anteriormente planejado como “Tratado da Alquimia” não deve mais ser o primeiro documento técnico da alquimia.
+
+Antes de documentar a ciência alquímica, é necessário definir formalmente o modelo computacional que torna qualquer transmutação possível.
+
+Por esse motivo, o documento anteriormente previsto como “Tratado da Alquimia” deve ser substituído pelo documento:
+
+01.0 — Máquina Abstrata da Alquimia (MAA)
+
+Subtítulo:
+
+Modelo Computacional da Transmutação
+
+Este documento passa a ocupar posição hierárquica superior ao futuro Tratado da Alquimia.
+
+O Tratado da Alquimia passa a ser consequência da MAA.
+
+Nenhum conceito do Tratado poderá contradizer a MAA.
+
+A MAA define como a alquimia funciona.
+
+O Tratado define como essa estrutura é estudada pelas civilizações.
+
+⸻
+
+Natureza do documento
+
+A MAA NÃO representa conhecimento de nenhuma civilização.
+
+Não representa filosofia.
+
+Não representa religião.
+
+Não representa teoria científica.
+
+Ela descreve objetivamente como toda transmutação ocorre no universo.
+
+Da mesma forma que uma Máquina de Turing descreve um modelo computacional sem depender de qualquer linguagem específica, a MAA descreve o modelo universal de toda transmutação.
+
+Ela constitui a referência máxima para toda a ciência alquímica da franquia.
+
+⸻
+
+Objetivo do documento
+
+Definir rigorosamente:
+
+* como uma transmutação acontece;
+* quais componentes participam dela;
+* quais informações fluem entre esses componentes;
+* quais estados existem durante sua execução;
+* quais condições tornam uma transmutação válida;
+* quais condições provocam falhas;
+* quais propriedades são universais e imutáveis.
+
+Todo o restante da alquimia deverá surgir como consequência lógica da MAA.
+
+⸻
+
+Arquitetura Geral
+
+Toda transmutação pós-GTP ocorre obrigatoriamente segundo a seguinte arquitetura:
+
+Consciência
+
+↓
+
+Intenção
+
+↓
+
+Protocolo Flamel
+
+↓
+
+Especificação da Transmutação
+
+↓
+
+Azoth
+
+↓
+
+Transformação Física
+
+↓
+
+Resultado
+
+Nenhuma transmutação pós-GTP pode ignorar qualquer uma dessas etapas.
+
+⸻
+
+Os cinco componentes fundamentais
+
+A MAA é composta exatamente por cinco componentes fundamentais.
+
+1. Consciência
+
+Origem da intenção.
+
+A consciência jamais cria matéria.
+
+Jamais cria energia.
+
+Jamais cria informação.
+
+Sua única função é produzir intenção.
+
+A intenção representa o estado desejado da realidade.
+
+Ela nunca modifica diretamente o universo.
+
+Ela apenas inicia uma transmutação.
+
+⸻
+
+2. Protocolo Flamel
+
+O Protocolo Flamel constitui a interface universal entre consciência e Azoth.
+
+Ele foi criado durante a Grande Transmutação Planetária.
+
+Toda transmutação realizada após a GTP passa obrigatoriamente por esse protocolo.
+
+O Protocolo Flamel é representado fisicamente pelos círculos de transmutação.
+
+Os círculos não possuem poder próprio.
+
+Eles representam a linguagem formal utilizada pelo protocolo.
+
+O protocolo traduz a intenção da consciência para uma especificação executável.
+
+⸻
+
+3. Especificação da Transmutação
+
+A especificação representa a descrição formal da transformação desejada.
+
+Ela contém:
+
+* estado inicial;
+* restrições;
+* operações;
+* estado final esperado.
+
+Ela não contém energia.
+
+Ela não contém Azoth.
+
+Ela apenas descreve a transformação.
+
+⸻
+
+4. Azoth
+
+Azoth constitui o catalisador universal da transmutação.
+
+Ele não interpreta intenções.
+
+Ele interpreta exclusivamente especificações válidas produzidas pelo Protocolo Flamel.
+
+Sua função consiste em catalisar a transformação entre matéria, energia e informação.
+
+Azoth nunca viola as Leis Fundamentais.
+
+Ele apenas permite que reações ocorram em escalas impossíveis para processos naturais.
+
+⸻
+
+5. Matéria, Energia e Informação
+
+Toda transmutação atua exclusivamente sobre matéria, energia e informação.
+
+Informação constitui propriedade intrínseca da matéria e da energia.
+
+Ela nunca é criada pela consciência.
+
+Ela nunca existe separadamente do universo físico.
+
+A transmutação altera simultaneamente matéria, energia e informação.
+
+⸻
+
+Fluxo de Execução
+
+Toda transmutação ocorre segundo o seguinte fluxo:
+
+1. A consciência estabelece uma intenção.
+2. A intenção é traduzida pelo Protocolo Flamel.
+3. O círculo produz uma especificação válida.
+4. O alquimista canaliza energia para iniciar a execução.
+5. Azoth reage com a especificação.
+6. A transformação física ocorre.
+7. O resultado final é produzido.
+
+Nenhuma etapa pode ser omitida.
+
+⸻
+
+Natureza dos Círculos
+
+Os círculos de transmutação deixam definitivamente de ser tratados como diagramas.
+
+Passam a ser definidos como programas executáveis.
+
+Cada círculo representa uma especificação formal.
+
+Sua geometria constitui gramática.
+
+Suas runas constituem vocabulário.
+
+Sua organização constitui sintaxe.
+
+Seu significado constitui semântica.
+
+Seu resultado constitui execução.
+
+⸻
+
+Natureza das Runas
+
+As runas deixam de representar objetos específicos.
+
+Elas representam conceitos.
+
+Uma runa nunca significa “ferro”.
+
+Ela pode representar “metal”.
+
+Nunca representa “água”.
+
+Pode representar “líquido”.
+
+Nunca representa um objeto.
+
+Representa classes conceituais.
+
+A intenção da consciência fornece a definição específica dentro do conjunto permitido pela especificação.
+
+Quanto melhor construída a especificação, menor a dependência da intenção para resolver ambiguidades.
+
+⸻
+
+Estrutura dos Círculos
+
+Todo círculo válido deve possuir uma circunferência externa completamente fechada.
+
+A matéria-prima deve estar integralmente contida dentro dessa circunferência.
+
+O limite externo define a fronteira física da transmutação.
+
+Círculos podem conter outros círculos.
+
+Cada camada adicional representa um nível adicional de abstração da transformação.
+
+Camadas internas executam operações específicas.
+
+Camadas externas coordenam a transformação global.
+
+Não existe limite conhecido para o número de camadas.
+
+A complexidade prática é limitada apenas pelo conhecimento do alquimista, estabilidade da especificação, disponibilidade de Azoth e recursos físicos necessários.
+
+⸻
+
+Ativação
+
+Uma transmutação jamais inicia automaticamente.
+
+Ela somente começa quando:
+
+* existe um círculo válido;
+* existe matéria ou energia suficiente;
+* existe Azoth disponível;
+* existe intenção consciente;
+* o alquimista canaliza energia para iniciar a execução.
+
+⸻
+
+Resultado
+
+Uma transmutação é considerada bem-sucedida quando o estado final corresponde integralmente à intenção especificada.
+
+Ela falha quando existe incompatibilidade entre intenção, especificação, recursos disponíveis ou execução.
+
+⸻
+
+Falhas
+
+Entre as possíveis causas de falha:
+
+* círculo geometricamente incorreto;
+* especificação semanticamente inválida;
+* runas incompatíveis;
+* intenção incompatível;
+* energia insuficiente;
+* matéria insuficiente;
+* Azoth insuficiente;
+* perda de estabilidade durante a execução.
+
+O documento deve prever a possibilidade de outras categorias futuras de falha.
+
+⸻
+
+Complexidade
+
+Círculos simples realizam transformações simples.
+
+Círculos compostos realizam transformações compostas.
+
+Aumentar a complexidade da especificação permite produzir resultados anteriormente impossíveis.
+
+Essa propriedade explica naturalmente:
+
+* surgimento das Academias;
+* evolução histórica da alquimia;
+* novas técnicas;
+* novos tipos de transmutação;
+* novas especializações;
+* novos artefatos.
+
+Toda evolução da alquimia corresponde ao desenvolvimento de especificações mais sofisticadas.
+
+⸻
+
+Consumo
+
+O documento NÃO deve definir fórmulas matemáticas para consumo de energia ou Azoth.
+
+Esses valores permanecem propositalmente abstratos para preservar liberdade criativa para gameplay, balanceamento e futuras expansões.
+
+Deve apenas estabelecer que diferentes especificações possuem diferentes eficiências.
+
+Melhores especificações produzem melhores resultados com menor consumo relativo.
+
+⸻
+
+O que a MAA não define
+
+A MAA não define:
+
+* a origem do Azoth;
+* a origem da consciência;
+* a origem da informação;
+* a origem da realidade;
+* a natureza da Verdade;
+* a origem da Gênese;
+* a existência anterior à Gênese;
+* o funcionamento interno do Protocolo Flamel enquanto estrutura cosmológica.
+
+Esses conceitos pertencem às Leis Fundamentais ou permanecem intencionalmente além da compreensão da franquia.
+
+⸻
+
+Objetivo futuro
+
+Este documento deve tornar-se o fundamento técnico de toda a alquimia da franquia.
+
+O futuro Tratado da Alquimia deverá utilizar a MAA como sua única fonte de verdade.
+
+Todo gameplay, lore, sistema de crafting, habilidades, artefatos, academias, pesquisas, NPCs, tecnologia e expansão futura deverá permanecer integralmente compatível com a MAA.
+
+⸻
+
+Solicitação adicional
+
+Durante a elaboração do documento, identifique lacunas conceituais, ambiguidades, conflitos ou oportunidades de melhoria.
+
+Não invente respostas.
+
+Sempre que encontrar um conceito ainda insuficientemente definido, registre-o em uma seção chamada:
+
+“Pontos Arquiteturais Pendentes”
+
+Esses pontos servirão como backlog para a evolução da cosmologia antes da versão 1.0 definitiva da Máquina Abstrata da Alquimia.

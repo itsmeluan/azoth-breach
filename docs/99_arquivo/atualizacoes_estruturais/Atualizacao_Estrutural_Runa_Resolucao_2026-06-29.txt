@@ -1,0 +1,15 @@
+Atualização Estrutural — Runa de Resolução
+
+Solicitação recebida em 2026-06-29:
+
+1. Aprovar os novos termos `Distribuição Permitida de Resultados` e `Estados Fundamentais da Execução`.
+2. Modificar o nome da runa/modificador de `Precisão` para `Resolução`.
+3. Confirmar que a separação entre Complexidade da Especificação e Complexidade Alquímica está correta e sem conflito.
+4. Confirmar que a variação de resultado deriva somente da Incerteza Fundamental da Transmutação, nunca do Azoth.
+
+Decisão canônica aplicada:
+
+- `Precisão Alquímica` permanece como propriedade da especificação.
+- `Resolução` passa a nomear o Modificador Fundamental que expressa quanto da especificação será resolvido pelo círculo.
+- O termo `Precisão` deixa de nomear uma runa/modificador fundamental ativo.
+- Os conflitos controlados e as pendências de aprovação humana relacionados aos novos termos são considerados resolvidos nesta rodada.
