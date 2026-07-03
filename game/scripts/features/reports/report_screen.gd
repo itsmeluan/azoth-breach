@@ -2,6 +2,8 @@ extends Control
 
 const OperationLoader = preload("res://scripts/services/operation_loader.gd")
 const CodexLoader = preload("res://scripts/services/codex_loader.gd")
+const ETLoader = preload("res://scripts/services/et_loader.gd")
+const TextFormat = preload("res://scripts/services/text_format.gd")
 
 signal navigate_to(scene_path: String, context: Dictionary)
 
@@ -29,10 +31,10 @@ func _ready() -> void:
 	title_label.text = "Relatório — %s" % operation.get("name", "")
 
 	var summary_text := "Resultado: %s\nRodadas usadas: %d\nInstabilidade final: %d\nETs usadas: %s" % [
-		_context.get("outcome", ""),
+		TextFormat.format_slug(_context.get("outcome", "")),
 		_context.get("rounds_used", 0),
 		_context.get("final_instability", 0),
-		", ".join(_context.get("ets_used", [])),
+		", ".join(_context.get("ets_used", []).map(_et_display_name)),
 	]
 	var evidence_target: int = _context.get("evidence_target", 0)
 	if evidence_target > 0:
@@ -40,8 +42,10 @@ func _ready() -> void:
 	summary_label.text = summary_text
 
 	var rewards: Array = operation.get("rewards_guaranteed", [])
-	rewards_label.text = "Recompensa: %s (+%d recursos)" % [
-		", ".join(rewards.map(_format_slug)), SliceState.RESOURCE_GRANT_PER_OPERATION,
+	rewards_label.text = "Recompensa:\n%s\n+%d recursos (total agora: %d)" % [
+		TextFormat.format_reward_list(rewards),
+		SliceState.RESOURCE_GRANT_PER_OPERATION,
+		SliceState.resources,
 	]
 
 	chase_loot_label.text = _build_chase_loot_notice()
@@ -66,7 +70,7 @@ func _build_chase_loot_notice() -> String:
 		return ""
 	var names: Array[String] = []
 	for chase_id in chase_loot_this_run:
-		names.append(_format_slug(chase_id).capitalize())
+		names.append(TextFormat.format_slug(chase_id))
 	return "Loot raro obtido: %s!" % ", ".join(names)
 
 
@@ -91,8 +95,11 @@ func _find_operation(operation_id: String) -> Dictionary:
 	return {}
 
 
-func _format_slug(slug: String) -> String:
-	return String(slug).replace("_", " ")
+func _et_display_name(et_id: String) -> String:
+	for et in ETLoader.load_all():
+		if et.get("id") == et_id:
+			return et.get("name", et_id)
+	return et_id
 
 
 func _on_return_pressed() -> void:

@@ -2,6 +2,7 @@ extends VBoxContainer
 
 const OperationLoader = preload("res://scripts/services/operation_loader.gd")
 const OperationState = preload("res://scripts/services/operation_state.gd")
+const TextFormat = preload("res://scripts/services/text_format.gd")
 
 signal operation_selected(operation_id: String)
 
@@ -24,11 +25,10 @@ func _build_entry(operation: Dictionary) -> Button:
 
 	var button := Button.new()
 	button.disabled = not selectable
-	button.text = "%s — %s\n[tipo: %s | risco: %s] %s" % [
+	button.text = "%s\n%s\nRisco: %s — %s" % [
 		operation.get("name", ""),
 		operation.get("sublocal", ""),
-		operation.get("type", ""),
-		operation.get("risk_level", ""),
+		TextFormat.format_slug(operation.get("risk_level", "")),
 		OperationState.label(state),
 	]
 	if selectable:

@@ -4,7 +4,7 @@
   "name": "Varredura de Estabilização",
   "type": "repetivel",
   "sublocal": "Túneis de Calor Baixo",
-  "risk_level": "medio",
+  "risk_level": "médio",
   "objective_primary": "Responder a incidentes menores persistentes na mesma região para coletar recurso e reduzir instabilidade local.",
   "rewards_guaranteed": [
     "recurso_comum_garantido",

@@ -4,6 +4,7 @@ const OperationLoader = preload("res://scripts/services/operation_loader.gd")
 const LoadoutLoader = preload("res://scripts/services/loadout_loader.gd")
 const ETLoader = preload("res://scripts/services/et_loader.gd")
 const ETResolution = preload("res://scripts/services/et_resolution.gd")
+const TextFormat = preload("res://scripts/services/text_format.gd")
 
 signal navigate_to(scene_path: String, context: Dictionary)
 
@@ -125,7 +126,7 @@ func _on_et_selected(et_id: String) -> void:
 
 	var et_name: String = _ets_by_id.get(et_id, {}).get("name", et_id)
 	var line := "Rodada %d — %s (%s): -%d Instabilidade (agora %d)" % [
-		_round, et_name, quality, delta, _instability,
+		_round, et_name, TextFormat.format_slug(quality), delta, _instability,
 	]
 	if is_dual_attempt:
 		line += " | Vestígio coletado (%d/%d)" % [_evidence, _evidence_target]
@@ -138,7 +139,10 @@ func _on_et_selected(et_id: String) -> void:
 
 
 func _update_status() -> void:
-	status_label.text = "Rodada %d de %d — Instabilidade: %d" % [_round, _max_rounds, _instability]
+	var text := "Rodada %d de %d — Instabilidade: %d" % [_round, _max_rounds, _instability]
+	if _evidence_target > 0:
+		text += " — Vestígios: %d/%d" % [_evidence, _evidence_target]
+	status_label.text = text
 
 
 func _finish_operation() -> void:

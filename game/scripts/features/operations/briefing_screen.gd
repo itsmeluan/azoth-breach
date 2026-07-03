@@ -1,6 +1,7 @@
 extends Control
 
 const OperationLoader = preload("res://scripts/services/operation_loader.gd")
+const TextFormat = preload("res://scripts/services/text_format.gd")
 
 signal navigate_to(scene_path: String, context: Dictionary)
 
@@ -36,13 +37,9 @@ func _populate() -> void:
 	operation_name_label.text = _operation.get("name", "")
 	sublocal_label.text = _operation.get("sublocal", "")
 	objective_label.text = _operation.get("objective_primary", "")
-	risk_label.text = "Risco: %s" % _operation.get("risk_level", "")
+	risk_label.text = "Risco: %s" % TextFormat.format_slug(_operation.get("risk_level", ""))
 	var rewards: Array = _operation.get("rewards_guaranteed", [])
-	rewards_label.text = "Recompensa prevista: %s" % ", ".join(rewards.map(_format_slug))
-
-
-func _format_slug(slug: String) -> String:
-	return String(slug).replace("_", " ")
+	rewards_label.text = "Recompensa prevista:\n%s" % TextFormat.format_reward_list(rewards)
 
 
 func _on_continue_pressed() -> void:

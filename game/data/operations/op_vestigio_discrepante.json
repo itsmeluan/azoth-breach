@@ -4,7 +4,7 @@
   "name": "Vestígio Discrepante",
   "type": "campanha",
   "sublocal": "Câmara das Vigas Cantantes",
-  "risk_level": "medio",
+  "risk_level": "médio",
   "objective_primary": "Estabilizar o segundo incidente e recuperar vestígios incompatíveis com a leitura institucional inicial.",
   "rewards_guaranteed": [
     "recurso_de_campo_garantido",
