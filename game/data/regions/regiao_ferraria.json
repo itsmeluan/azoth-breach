@@ -1,0 +1,9 @@
+{
+  "id": "regiao_ferraria",
+  "name": "Ferrária",
+  "subtitle": "Ferrária e as Forjas Subterrâneas",
+  "description": "Região industrial, mineral e subterrânea associada às Forjas Confederadas e à Academia Ferrínea. Feita de minas, túneis, elevadores, fornos, cidades escavadas e fundições.",
+  "academia": "Academia Ferrínea de Matéria e Estruturas",
+  "risk_level": "médio",
+  "unlocked": true
+}

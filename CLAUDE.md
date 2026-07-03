@@ -42,7 +42,7 @@ Reabrir a stack só é permitido pelos gatilhos listados na seção 7 do Documen
   /assets
     /audio /sprites /ui /vfx /temp
   /data
-    /codex /ets /loadouts /operations /rewards /state_templates
+    /codex /ets /loadouts /operations /regions /rewards /state_templates
   /scenes
     /app /hub /loadout /operations /reports /research /shared
   /scripts
@@ -328,6 +328,102 @@ autorização direta do usuário em sessão, contornando a regra "exigiria
 voltar a `/docs`" logo acima. Registrado aqui para deixar explícito que
 essa reabertura teve autorização humana e não foi uma decisão de
 implementação unilateral.
+
+### Pós-M6: transição para escopo de MVP (autorização direta do usuário)
+
+Depois do grid tático, o usuário pediu avançar até uma demo mais
+próxima de produto (arte placeholder, mapa, múltiplos personagens,
+mais inimigos, loot) antes de validar em iOS de verdade. Antes de
+codar, li `05.1` (MVP e Recorte de Produção) e `05.3` (Vertical Slice
+e Protótipos) inteiros e respondi ao usuário com duas correções
+importantes antes de prosseguir:
+
+1. **O MVP (`05.1` §3.1/§20) já cobre exatamente o que foi pedido** —
+   região inicial, 1-3 agentes jogáveis, 5-8 inimigos, sistema de loot
+   por categorias, e arte "suficiente para provar atmosfera" (não arte
+   final) são escopo MVP documentado, não invenção nova.
+2. **A ordem documentada é o inverso do que fizemos.** `05.3` §4.2/§4.3
+   define Protótipos → MVP → Vertical Slice polida (a slice deveria
+   ser uma amostra polida *de dentro* do MVP). Construímos uma vertical
+   slice completa (M1-M6) sem MVP prévio. Isso não se desfaz — o
+   enquadramento correto daqui pra frente é **expandir o M1-M6 na
+   direção do recorte completo do MVP** (`05.1` §21, por prioridade),
+   não "fechar a slice e abrir uma fase separada".
+
+O usuário confirmou esse enquadramento e pediu para seguir, priorizando
+mapa/exploração primeiro.
+
+### Mapa de Aletheia (primeira peça do recorte MVP)
+
+Implementa a camada "Mapa de Aletheia" de `04.4` §4/§5.2 — explicitamente
+**não** é mundo aberto navegável, é um mapa estratégico de regiões como
+nós com estado, respondendo "onde vale a pena agir agora". Antes de
+implementar, uma pesquisa dedicada em `/docs` confirmou que os 3
+sublocais de operação já existentes (Estação Ferrínea de Ensaios
+Estruturais, Câmara das Vigas Cantantes, Túneis de Calor Baixo) **já
+eram canônicos** — `docs/02_lore/AZOTH_02.9` §4.3 "Ferrária e as Forjas
+Subterrâneas" os lista literalmente como "Lugares iniciais associados";
+`TK-M1-006` não inventou nada, só usou nomes já existentes no lore. O
+próprio título do Hub (`"Cidade-Forja de Ferrária"`, definido desde
+`TK-M1-004`) já colocava o jogo em Ferrária sem que isso tivesse sido
+percebido como decisão regional até agora.
+
+- `data/regions/regiao_ferraria.json` (novo tipo de conteúdo,
+  `region_loader.gd` delegando a `json_directory_loader.gd`, mesmo
+  padrão dos demais loaders): `name`, `subtitle` e `description` citam
+  quase literalmente `02.9` §4.3; `academia` é "Academia Ferrínea de
+  Matéria e Estruturas" (`02.4` §5.1). As 3 operações existentes
+  ganharam `"region_id": "regiao_ferraria"`.
+- **Eixos de estado regional** (`04.4` §7: Estabilidade, Pressão de
+  Breach, Confiança Civil, Influência Acadêmica, Integridade de
+  Infraestrutura, Pendências de Codex) existem em `/docs` só como
+  conceito qualitativo — nenhum valor inicial, faixa numérica ou
+  exemplo de UI é definido em lugar nenhum. Decisão de implementação:
+  só implementei os 2 eixos com gancho mecânico real e honesto no
+  estado já existente — **Estabilidade** (derivada de operações de
+  campanha concluídas/total na região) e **Pendências de Codex**
+  (derivada de `codex_unlocks` das operações da região vs
+  `SliceState.codex_entries_unlocked`) — ambos recalculados
+  dinamicamente a cada vez que o Mapa é aberto, sem estado duplicado.
+  Os outros 4 eixos (Confiança Civil, Influência Acadêmica, Integridade
+  de Infraestrutura) ficaram de fora deliberadamente: não têm gancho
+  mecânico existente em `SliceState`, e inventar números/narrativa só
+  pra preenchê-los seria inventar sistema novo sem grounding — mais
+  fácil e honesto omitir do que fabricar.
+- **7 outras regiões canônicas de Aletheia** (`02.9` cap. 4: Aurentum,
+  Lumenport, Viridessa, Noctíria, Calx-Rama, Umbrafenda, Arquipélago de
+  Nacre) aparecem bloqueadas no Mapa como "sinais de que o mundo é
+  maior" (`05.1` §7.1, §19 lista "região no mapa ainda interditada"
+  como placeholder aceitável). Nomes reais do lore, não inventados;
+  hardcoded no script (não viraram tipo de conteúdo em `/data`) pela
+  mesma lógica já aplicada aos inimigos fixos do grid — é lista de
+  flavor sem conteúdo jogável por trás ainda, criar um formato de dados
+  só pra isso seria abstração prematura.
+- **Navegação reestruturada**: `hub_screen.tscn` não embute mais
+  `OperationBoard` diretamente — ganhou um botão "Mapa de Aletheia" que
+  leva a `region_map_screen.tscn` (mostra o card de Ferrária + regiões
+  bloqueadas). Entrar em Ferrária leva a `region_detail_screen.tscn`,
+  que embute o mesmo `operation_board.tscn` reaproveitado sem alteração
+  (ainda lista todas as operações sem filtrar por região — com só 1
+  região existindo isso é correto por coincidência; filtrar por
+  `region_id` fica pra quando existir uma 2ª região de verdade, não
+  antes). Codex e Mesa de Pesquisa continuam como botões diretos do
+  Hub (funções de hub per `04.4` §5.1, não do mapa regional). Isso
+  implementa de fato a estrutura de 4 camadas de `04.4` §4 (Hub →
+  Mapa de Aletheia → Estrutura de Campo → Confronto Tático), que até
+  aqui só existia parcialmente (Hub → operação direta, sem camada
+  regional).
+- **Divergência sinalizada, não resolvida**: `05.1` §15.2 pede "1
+  mentor ou superior acadêmico" no MVP. A mentora canônica da campanha
+  principal é **Lys Aurel** (`02.5` linha 584-591, confirmada em
+  `03.2` linha 328), mas sua Academia é a Auricária/Aurentum, não a
+  Ferrínea/Ferrária. O único personagem nomeado de Ferrária ligado à
+  Academia Ferrínea é **Cael Ferron**, categorizado como "Rival Técnico
+  / Especialista de Campo" — não mentor. Não implementei nenhum NPC
+  ainda (fora de escopo desta etapa, que era só o mapa), mas essa
+  inconsistência regional precisa de decisão humana explícita antes de
+  qualquer trabalho de NPC/mentor em Ferrária — não é algo que os
+  documentos resolvem sozinhos.
 
 ### Bug de navegação corrigido em M2
 

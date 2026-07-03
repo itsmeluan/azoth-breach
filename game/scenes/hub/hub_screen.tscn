@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=2 format=3]
 
 [ext_resource type="Script" path="res://scripts/features/hub/hub_screen.gd" id="1"]
-[ext_resource type="PackedScene" path="res://scenes/hub/operation_board.tscn" id="2"]
 
 [node name="HubScreen" type="Control"]
 layout_mode = 3
@@ -45,13 +44,17 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -160.0
+offset_left = -260.0
 offset_top = 195.0
-offset_right = 160.0
+offset_right = 260.0
 offset_bottom = 225.0
 grow_horizontal = 2
 alignment = 1
 theme_override_constants/separation = 12
+
+[node name="MapButton" type="Button" parent="ActionButtons"]
+layout_mode = 2
+text = "Mapa de Aletheia"
 
 [node name="CodexButton" type="Button" parent="ActionButtons"]
 layout_mode = 2
@@ -60,18 +63,6 @@ text = "Codex"
 [node name="ResearchButton" type="Button" parent="ActionButtons"]
 layout_mode = 2
 text = "Mesa de Pesquisa"
-
-[node name="OperationBoard" parent="." instance=ExtResource("2")]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 60.0
-offset_top = 270.0
-offset_right = -60.0
-offset_bottom = -40.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="CodexPopup" type="PopupPanel" parent="."]
 size = Vector2i(420, 420)

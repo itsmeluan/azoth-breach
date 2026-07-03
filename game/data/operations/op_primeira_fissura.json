@@ -3,6 +3,7 @@
   "code": "VS-OP-01",
   "name": "Primeira Fissura",
   "type": "campanha",
+  "region_id": "regiao_ferraria",
   "sublocal": "Estação Ferrínea de Ensaios Estruturais",
   "risk_level": "baixo",
   "objective_primary": "Estabilizar uma fissura menor antes de sua expansão.",
