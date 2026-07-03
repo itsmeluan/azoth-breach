@@ -7,9 +7,11 @@ const QUALITY_TABLE := [
 	{"quality": "extraordinaria", "weight": 5, "min_delta": 45, "max_delta": 55},
 ]
 
+const UPGRADE_ROLL_BONUS := 8
 
-static func resolve_attempt() -> Dictionary:
-	var roll := randi_range(1, 100)
+
+static func resolve_attempt(upgrade_level: int = 0) -> Dictionary:
+	var roll: int = clampi(randi_range(1, 100) + upgrade_level * UPGRADE_ROLL_BONUS, 1, 100)
 	var cumulative := 0
 	for entry in QUALITY_TABLE:
 		cumulative += entry["weight"]
