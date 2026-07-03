@@ -144,16 +144,35 @@ sem reescrever a arquitetura base (princípio 2.5 do Documento 06.1).
   Hub, listando `data/codex/*.json` filtradas por
   `SliceState.codex_entries_unlocked` via `codex_loader.gd`. Uma entrada
   por operação, desbloqueada junto com a recompensa.
-- Autoload `SliceState` (`scripts/state/slice_state.gd`, `TK-M1-005`) carrega
-  `data/state_templates/slice_state_initial.json` no boot (antes do `_ready()`
-  do App Shell) e expõe os campos mínimos de `06.1` 4.4. Estado inicial:
-  `op_primeira_fissura` desbloqueada; `op_vestigio_discrepante` e a repetível
-  bloqueadas; `active_loadout = "loadout_contencao_inicial"` (build de
-  Contenção escolhida como padrão por ser a primeira listada em `05.9`/`05.11`
-  e tematicamente alinhada ao objetivo de estabilização de `BL-005` — não há
-  padrão explícito nos documentos, decisão de implementação registrada aqui).
-  IDs de operação e loadout (`op_*`, `loadout_*_inicial`) batem com os
-  dados reais criados em `TK-M1-006`/`TK-M1-009`.
+- Autoload `SliceState` (`scripts/state/slice_state.gd`, `TK-M1-005`, save
+  real desde `BL-019`) carrega `user://slice_state_save.json` no boot se
+  existir; senão cai para `data/state_templates/slice_state_initial.json`
+  (antes do `_ready()` do App Shell) e expõe os campos mínimos de `06.1`
+  §4.4 + `resources` (extensão própria, não documentada em `06.1`,
+  necessária para "consumo simples de recurso" de `BL-015`). Estado
+  inicial: `op_primeira_fissura` desbloqueada; `op_vestigio_discrepante` e
+  a repetível bloqueadas; `active_loadout = "loadout_contencao_inicial"`
+  (build de Contenção escolhida como padrão por ser a primeira listada em
+  `05.9`/`05.11` e tematicamente alinhada ao objetivo de estabilização de
+  `BL-005` — não há padrão explícito nos documentos, decisão de
+  implementação registrada aqui). IDs de operação e loadout (`op_*`,
+  `loadout_*_inicial`) batem com os dados reais criados em
+  `TK-M1-006`/`TK-M1-009`. Toda mutação relevante (`complete_operation`,
+  `upgrade_et`, `set_active_loadout`) salva em disco automaticamente — sem
+  botão de save manual, sem sync em nuvem (viola `06.0`).
+- Estado de operação formalizado em `scripts/services/operation_state.gd`
+  (`BL-020`): `LOCKED` / `AVAILABLE` / `COMPLETED` / `REPEATABLE`,
+  computado a partir de `SliceState` + `type` da operação. Operações de
+  campanha ficam desabilitadas (`COMPLETED`) depois de concluídas — evita
+  farm de recursos repetindo Primeira Fissura/Vestígio Discrepante agora
+  que a persistência é real. Só `op_varredura_estabilizacao` (`type:
+  "repetivel"`) permanece sempre selecionável, rotulada "Repetível", com
+  `max_rounds=3` (mais curta que as outras duas) e chance de `15%`
+  (`SliceState.CHASE_LOOT_CHANCE`) de conceder a Lente de Vestígio por
+  execução (sem re-rolar depois de obtida). O item, uma vez obtido, evita
+  o pior resultado ("fraca") especificamente ao usar Análise de Vestígio
+  (`operation_field_screen.gd`, efeito distinto da melhoria de ET) — regra
+  vem de `05.9 §9.2-9.3`.
 - `renderer/rendering_method`: `mobile` (compatível com Metal/iOS).
 - Viewport base: `1080x1920`, `window/handheld/orientation = portrait`,
   stretch `canvas_items` / `expand`.
@@ -167,7 +186,7 @@ sem reescrever a arquitetura base (princípio 2.5 do Documento 06.1).
   foram criados — dados pessoais/de conta não estão documentados em `/docs`
   e não devem ser inventados. Configurar em Editor → Export quando necessário.
 
-## M1, M2 e M3: fechados
+## M1 a M4: fechados
 
 `M1 — Primeira Build Navegável` (`TK-M1-001` a `TK-M1-012`, `06.2` §5):
 projeto abre localmente, hub funciona, quadro de operações funciona,
@@ -195,14 +214,24 @@ insuficiente quando a campanha completa (fora da vertical slice) exigir
 o grid de `04.3`, essa é uma reabertura de arquitetura consciente, não
 um esquecimento.
 
+`M4 — Repetição, Estado e Persistência` (`BL-019`, `BL-020`, `BL-008`,
+`05.12` §7): estado da slice sobrevive a fechar/reabrir o app de verdade
+(`user://slice_state_save.json`, testado com 4 lançamentos separados do
+processo Godot, não só validação em memória dentro da mesma execução
+como nos milestones anteriores); operações têm estado formal
+(`LOCKED`/`AVAILABLE`/`COMPLETED`/`REPEATABLE`) — campanha concluída não
+pode mais ser refarmada por recursos; Varredura de Estabilização jogável
+de verdade, mais curta (3 rodadas) que as outras operações, com chance
+controlada de Lente de Vestígio e o efeito mecânico do item (favorece
+Análise de Vestígio, não substitui melhoria de ET, per `05.9 §9`).
+
 Todos os milestones da vertical slice (`M1`–`M6`, `05.12`) estão
-concluídos até `M3`. Próximo é `M4 — Repetição, Estado e Persistência`
-(`05.12` §7): persistência real em disco (`BL-019`, hoje só em memória),
-máquina de estados formal das operações (`BL-020`) e a operação
-repetível Varredura de Estabilização (`BL-008`) — que já está tecnicamente
-jogável desde o fim de `M3` (mesma tela de campo genérica, desbloqueada
-via `unlocks_on_complete` de Vestígio Discrepante), mas sem a resolução
-curta e variações específicas que `BL-008` pede.
+concluídos até `M4`. Próximo é `M5 — Slice Validável` (`05.12` §8):
+interface mínima consistente entre todas as telas (`BL-021`), telemetria
+mínima de uso/conclusão/abandono (`BL-022`) e validação interna
+completa do slice ponta a ponta (`BL-023`) — não introduz mecânica nova,
+fecha e valida o que já existe. `M6` depois disso é só polimento sobre
+blocos já implementados, sem novo backlog.
 
 ### Bug de navegação corrigido em M2
 
