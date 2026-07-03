@@ -606,6 +606,55 @@ como foi chamado; nota de repetível aparece só depois de
 `repeatable_unlocked`; regressão do fluxo canônico completo (Primeira
 Fissura → Vestígio Discrepante → Varredura) sem quebra.
 
+### Primeiro tile de arte real no grid (via PixelLab MCP)
+
+Primeira peça de arte de verdade a entrar no jogo, substituindo
+placeholder de texto — o resto da apresentação (agentes, inimigos, ícones
+de ET, UI) continua em texto/placeholder, isso cobre só o tileset do
+grid. Fluxo: usuário instalou o servidor MCP do PixelLab via `claude mcp
+add`, mas registrou no projeto errado (`Fragmentos_de_Alma`) e no escopo
+do diretório pessoal — não em `AZOTH-Breach`, por isso não aparecia na
+sessão. Corrigido registrando de novo com `--scope local` (padrão) a
+partir do diretório do projeto, reaproveitando a mesma URL/token que já
+estava salvos no config do usuário (sem pedir a chave de novo em chat).
+
+- `create_topdown_tileset` gerou um Wang tileset de 16 tiles (chão vs.
+  obstáculo com autotiling de canto) — `lower_description`/
+  `upper_description`/`transition_description` seguem quase literalmente
+  os prompts já definidos numa sessão anterior de planejamento de arte
+  (chão de metal industrial gasto de Ferrária vs. entulho de rocha e
+  maquinário quebrado), `transition_size=0.25` (borda definida, não
+  gradiente longo — legibilidade tática pesa mais que suavidade visual
+  aqui), `tile_size=16x16` (tamanho nativo da ferramenta em modo
+  standard; 32/64 exigem `mode="pro"`, não usado nesta passada).
+- Só 2 dos 16 tiles do Wang set são usados agora: o tile "totalmente
+  chão" (`wang_0`, todos os 4 cantos = lower) e o "totalmente obstáculo"
+  (`wang_15`, todos os 4 cantos = upper) — recortados do spritesheet via
+  PIL e salvos como `floor.png`/`obstacle.png` em
+  `game/assets/sprites/tiles/`. O jogo hoje só modela obstáculo como
+  booleano por célula (`GridCombatModel.is_obstacle`), não tem conceito
+  de transição suave entre terrenos — os outros 14 tiles do Wang set
+  (bordas/cantos mistos) ficam sem uso até o jogo precisar de blending
+  de verdade; o PNG/JSON completo do tileset fica salvo
+  (`tileset_ferraria_wang.png`/`.json`) caso isso mude depois.
+- `project.godot` ganhou `textures/canvas_textures/default_texture_filter=0`
+  (Nearest global) — sem isso pixel art sai borrada ao escalar. Célula do
+  grid subiu de placeholder `46x46` pra `96x96` (múltiplo inteiro limpo
+  do tile nativo de 16x16, 6×) — bate com o tamanho já recomendado no
+  guia de arte/design system produzido antes desta sessão.
+- `operation_grid_screen.gd`: botão de célula ganhou `icon` (textura de
+  chão ou obstáculo, sempre presente) separado do `text` (glifo de
+  agente/inimigo, só quando a célula está ocupada) — `expand_icon=true`
+  faz a textura preencher o botão. Antes o mesmo glifo de texto cobria
+  tanto terreno (`.`/`#`) quanto unidade; agora terreno é sempre arte
+  real e unidade continua texto até ganhar sprite próprio.
+
+Validado headless: import limpo dos 3 PNGs (`.import` gerados
+automaticamente pelo Godot), simulação confirmando 36 células
+renderizadas, 2 com ícone de obstáculo, 34 com ícone de chão, 6 com
+texto de agente/inimigo sobreposto (3 agentes + 3 inimigos da
+configuração testada), tamanho de célula `96x96` aplicado.
+
 ### Bug de navegação corrigido em M2
 
 `AppShell.go_to_scene()` chamava `child.queue_free()` sem `remove_child()`

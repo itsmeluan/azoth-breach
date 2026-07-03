@@ -4,6 +4,8 @@ const OperationLoader = preload("res://scripts/services/operation_loader.gd")
 const LoadoutLoader = preload("res://scripts/services/loadout_loader.gd")
 const ETLoader = preload("res://scripts/services/et_loader.gd")
 const GridCombatModel = preload("res://scripts/services/grid_combat_model.gd")
+const TILE_FLOOR := preload("res://assets/sprites/tiles/floor.png")
+const TILE_OBSTACLE := preload("res://assets/sprites/tiles/obstacle.png")
 
 signal navigate_to(scene_path: String, context: Dictionary)
 
@@ -154,7 +156,10 @@ func _build_grid() -> void:
 		for x in GridCombatModel.GRID_SIZE:
 			var pos := Vector2i(x, y)
 			var cell_button := Button.new()
-			cell_button.custom_minimum_size = Vector2(46, 46)
+			cell_button.custom_minimum_size = Vector2(96, 96)
+			cell_button.expand_icon = true
+			cell_button.icon_alignment = HORIZONTAL_ALIGNMENT_CENTER
+			cell_button.vertical_icon_alignment = VERTICAL_ALIGNMENT_CENTER
 			cell_button.pressed.connect(func() -> void: _on_cell_pressed(pos))
 			grid_container.add_child(cell_button)
 			_cell_buttons.append(cell_button)
@@ -167,6 +172,7 @@ func _render_grid(highlighted: Array[Vector2i] = []) -> void:
 			var index := y * GridCombatModel.GRID_SIZE + x
 			var cell_button: Button = _cell_buttons[index]
 			cell_button.text = _cell_glyph(pos)
+			cell_button.icon = TILE_OBSTACLE if _model.is_obstacle(pos) else TILE_FLOOR
 			cell_button.disabled = not highlighted.has(pos)
 
 
@@ -178,9 +184,7 @@ func _cell_glyph(pos: Vector2i) -> String:
 		var enemy = _model.enemies[i]
 		if enemy.is_alive() and enemy.position == pos:
 			return "E%d" % (i + 1)
-	if _model.is_obstacle(pos):
-		return "#"
-	return "."
+	return ""
 
 
 func _agent_glyph(et_id: String) -> String:
