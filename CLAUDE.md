@@ -151,7 +151,18 @@ sem reescrever a arquitetura base (princípio 2.5 do Documento 06.1).
   validação: inimigo travava permanentemente atrás de obstáculo (só
   tentava os 2 passos "diretos"); a correção ingênua causava oscilação
   entre 2 células. Resolvido com busca gulosa entre todas as adjacentes
-  livres + memória da célula anterior pra não retroceder.
+  livres + memória da célula anterior pra não retroceder. **Economia de
+  ação por rodada** (`_move_used_this_round`/`_et_used_this_round` em
+  `operation_grid_screen.gd`, botões desabilitados após o uso e
+  reabilitados só em "Terminar rodada"): o "1 movimento e/ou 1 ET por
+  rodada" descrito acima ficou só documentado, não implementado, na
+  primeira versão do grid — dava pra usar qualquer quantidade de ETs (ou
+  se mover várias vezes) antes de terminar a rodada, o que zerava
+  Instabilidade sem nunca enfrentar a fase de inimigo e contradizia
+  diretamente o motivo de existir o grid ("quero testar um combate
+  real"). Achado numa passada de regressão pedida pelo usuário depois de
+  fechar o suporte da Varredura; corrigido e revalidado end-to-end via
+  UI simulada (não só no model).
 - Relatório e recompensa (`scenes/reports/report_screen.tscn`, origem em
   M2 `BL-014`/`BL-006`, generalizado em M3 `BL-016`/`BL-018`): mostra
   resultado/rodadas/ETs usadas, evidência coletada vs. meta quando

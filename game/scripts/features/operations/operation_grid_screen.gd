@@ -33,6 +33,8 @@ var _ets_used: Array[String] = []
 var _model: GridCombatModel
 var _pending_et: String = ""
 var _move_mode: bool = false
+var _move_used_this_round: bool = false
+var _et_used_this_round: bool = false
 var _finished: bool = false
 var _start_time_msec: int = 0
 var _cell_buttons: Array = []
@@ -64,6 +66,7 @@ func _ready() -> void:
 	_build_et_buttons()
 	_render_grid()
 	_update_status()
+	_update_action_buttons_enabled()
 	move_button.pressed.connect(_on_move_mode_pressed)
 	end_round_button.pressed.connect(_on_end_round_pressed)
 	abandon_button.pressed.connect(_on_abandon_pressed)
@@ -142,7 +145,7 @@ func _cell_glyph(pos: Vector2i) -> String:
 
 
 func _on_move_mode_pressed() -> void:
-	if _finished:
+	if _finished or _move_used_this_round:
 		return
 	_pending_et = ""
 	_move_mode = true
@@ -150,7 +153,7 @@ func _on_move_mode_pressed() -> void:
 
 
 func _on_et_selected(et_id: String) -> void:
-	if _finished:
+	if _finished or _et_used_this_round:
 		return
 	if et_id == ET_SELAGEM:
 		_use_selagem_parcial()
@@ -181,26 +184,32 @@ func _on_cell_pressed(pos: Vector2i) -> void:
 	if _move_mode:
 		if _model.move_player(pos):
 			_move_mode = false
+			_move_used_this_round = true
 			_after_action()
 		return
 	if _pending_et != "":
-		_apply_et_at(_pending_et, pos)
+		if _apply_et_at(_pending_et, pos):
+			_et_used_this_round = true
 		_pending_et = ""
 		_after_action()
 
 
-func _apply_et_at(et_id: String, pos: Vector2i) -> void:
+func _apply_et_at(et_id: String, pos: Vector2i) -> bool:
 	var upgrade_level: int = SliceState.et_upgrade_level(et_id)
 	match et_id:
 		ET_CRISTALIZACAO:
 			if _model.apply_cristalizacao(pos):
 				_ets_used.append(et_id)
 				_log_et_used(et_id)
+				return true
+			return false
 		ET_DECOMPOSICAO:
 			var result := _model.apply_decomposicao(pos, upgrade_level)
 			if not result.is_empty():
 				_ets_used.append(et_id)
 				_log_et_used(et_id, result.get("quality", ""))
+				return true
+			return false
 		ET_ANALISE:
 			if not _dual_objective_et.is_empty() and et_id == _dual_objective_et:
 				_evidence += 1
@@ -216,6 +225,8 @@ func _apply_et_at(et_id: String, pos: Vector2i) -> void:
 				_instability = max(_instability - result["delta"], 0)
 				_ets_used.append(et_id)
 				_log_et_used(et_id, result.get("quality", ""))
+			return true
+	return false
 
 
 func _use_selagem_parcial() -> void:
@@ -224,6 +235,7 @@ func _use_selagem_parcial() -> void:
 	_instability = max(_instability - result["delta"], 0)
 	_ets_used.append(ET_SELAGEM)
 	_log_et_used(ET_SELAGEM, result.get("quality", ""))
+	_et_used_this_round = true
 	_after_action()
 
 
@@ -240,7 +252,14 @@ func _after_action() -> void:
 	log_label.text = "\n".join(_model.log_lines)
 	_update_status()
 	_render_grid()
+	_update_action_buttons_enabled()
 	_check_end_conditions()
+
+
+func _update_action_buttons_enabled() -> void:
+	move_button.disabled = _finished or _move_used_this_round
+	for et_button in et_buttons_container.get_children():
+		et_button.disabled = _finished or _et_used_this_round
 
 
 func _on_end_round_pressed() -> void:
@@ -248,9 +267,12 @@ func _on_end_round_pressed() -> void:
 		return
 	_round += 1
 	_model.enemy_phase()
+	_move_used_this_round = false
+	_et_used_this_round = false
 	log_label.text = "\n".join(_model.log_lines)
 	_update_status()
 	_render_grid()
+	_update_action_buttons_enabled()
 	_check_end_conditions()
 
 
