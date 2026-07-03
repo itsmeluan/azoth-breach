@@ -1,3 +1,8 @@
 .DS_Store
 _md_export.zip
 zi2yCCx8
+
+# Godot 4.x
+game/.godot/
+game/export_presets.cfg
+*.translation
