@@ -201,7 +201,7 @@ sem reescrever a arquitetura base (princípio 2.5 do Documento 06.1).
   foram criados — dados pessoais/de conta não estão documentados em `/docs`
   e não devem ser inventados. Configurar em Editor → Export quando necessário.
 
-## M1 a M5: fechados
+## M1 a M6: vertical slice completa
 
 `M1 — Primeira Build Navegável` (`TK-M1-001` a `TK-M1-012`, `06.2` §5):
 projeto abre localmente, hub funciona, quadro de operações funciona,
@@ -250,10 +250,29 @@ final rodando o fluxo canônico completo (Op01 → Mesa de Pesquisa → Op02
 → repetível → hub) como checagem de regressão depois de todas as
 mudanças de M2–M5, sem quebra.
 
-Todos os milestones da vertical slice (`M1`–`M6`, `05.12`) estão
-concluídos até `M5`. `M6` (próximo, não pedido ainda) não introduz novo
-backlog — é só polimento interno sobre os blocos já implementados
-(`05.12` §9).
+`M6 — Polimento Interno da Slice` (`05.12` §9, sem blocos de backlog
+formais — "organizar correções, refinamentos e estabilização sobre os
+blocos já existentes", sem reabrir arquitetura): novo
+`scripts/services/text_format.gd` elimina duplicação de formatação de
+slug espalhada por 3 telas; quadro de operações e recompensas
+reformatados para legibilidade (lista com marcador em vez de string
+por vírgula); relatório mostra total de recursos após a concessão, não
+só o delta, e corrige as ETs usadas para mostrar nome de exibição em
+vez do ID cru (bug real de revisão: "Et Selagem Parcial" vazando o
+prefixo `et_`); progresso de vestígios (objetivo duplo) agora
+permanente na tela, não só no log; Hub ganha resumo
+"Operações concluídas: X/Y"; `risk_level` de "medio" para "médio" nos
+dados — ficou visível de forma proeminente só depois que
+`TextFormat.format_slug` passou a expor o valor bruto diretamente ao
+jogador.
+
+Todos os milestones documentados da vertical slice (`M1`–`M6`, `05.12`)
+estão concluídos. A partir daqui, qualquer trabalho novo precisa de
+autorização documental explícita — `05.12` não define escopo além de
+`M6` para a fatia vertical; expandir a campanha completa (grid tático
+de `04.3`, mais ETs, mais operações, Codex/Mesa de Pesquisa avançados)
+exigiria voltar a `/docs` para uma decisão de produto, não é uma
+extensão natural do que já existe aqui.
 
 ### Bug de navegação corrigido em M2
 
