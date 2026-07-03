@@ -9,11 +9,13 @@ func _ready() -> void:
 	go_to_scene(HUB_SCENE)
 
 
-func go_to_scene(scene_path: String) -> void:
+func go_to_scene(scene_path: String, context: Dictionary = {}) -> void:
 	for child in screen_host.get_children():
 		child.queue_free()
 	var next_screen: PackedScene = load(scene_path)
 	var screen_instance := next_screen.instantiate()
+	if screen_instance.has_method("set_context"):
+		screen_instance.set_context(context)
 	screen_host.add_child(screen_instance)
 	if screen_instance.has_signal("navigate_to"):
 		screen_instance.navigate_to.connect(go_to_scene)

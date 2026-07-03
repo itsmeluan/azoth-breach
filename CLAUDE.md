@@ -65,19 +65,25 @@ sem reescrever a arquitetura base (princípio 2.5 do Documento 06.1).
 ## Configuração de projeto atual
 
 - `run/main_scene`: `res://scenes/app/app_shell.tscn` — App Shell real
-  (`TK-M1-004`). Faz roteamento básico (`go_to_scene`) via um container
-  `ScreenHost` e abre o Hub (`scenes/hub/hub_screen.tscn`) como tela inicial.
-  Qualquer tela filha pode emitir `navigate_to(scene_path)` para pedir
-  navegação — o App Shell conecta esse sinal automaticamente ao instanciar
-  a tela (padrão reaproveitável por Briefing, Loadout etc.).
+  (`TK-M1-004`). Faz roteamento básico via um container `ScreenHost`.
+  Qualquer tela filha pode emitir `navigate_to(scene_path, context)` para
+  pedir navegação com contexto (ex.: `operation_id`) — o App Shell conecta
+  esse sinal automaticamente e chama `set_context(context)` na tela seguinte
+  antes dela entrar na árvore, se o método existir (padrão reaproveitável
+  por Loadout, entrada em operação etc.).
 - Hub (`TK-M1-007`) embute um `OperationBoard` (`scenes/hub/operation_board.tscn`)
   que lista as operações de `data/operations/*.json` via `OperationLoader`
   (`scripts/services/operation_loader.gd`), diferenciando disponível/bloqueada
   a partir de `SliceState.is_operation_unlocked`. Selecionar uma operação
-  disponível navega para `scenes/operations/briefing_screen.tscn` — hoje um
-  stub textual, conteúdo completo (objetivo, risco, recompensa, sublocal,
-  confirmação) entra em `TK-M1-008`. Acesso a Codex e Mesa de Pesquisa ainda
-  não existem no Hub — entram em tarefas de milestones posteriores (`M3`).
+  disponível navega para o Briefing repassando `operation_id`. Acesso a Codex
+  e Mesa de Pesquisa ainda não existem no Hub — entram em tarefas de
+  milestones posteriores (`M3`).
+- Briefing (`TK-M1-008`, `scenes/operations/briefing_screen.tscn`) recebe o
+  `operation_id` via `set_context`, busca a operação com `OperationLoader` e
+  exibe nome, sublocal, objetivo, risco e recompensa prevista (`rewards_guaranteed`
+  formatado). O botão "Seguir" navega para `scenes/loadout/loadout_screen.tscn`
+  repassando o mesmo `operation_id` — hoje um stub textual, conteúdo completo
+  (ETs equipadas, papel do build, troca/preset) entra em `TK-M1-010`.
 - Autoload `SliceState` (`scripts/state/slice_state.gd`, `TK-M1-005`) carrega
   `data/state_templates/slice_state_initial.json` no boot (antes do `_ready()`
   do App Shell) e expõe os campos mínimos de `06.1` 4.4. Estado inicial:
