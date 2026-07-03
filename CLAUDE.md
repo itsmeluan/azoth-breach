@@ -610,7 +610,7 @@ Fissura → Vestígio Discrepante → Varredura) sem quebra.
 
 Primeira peça de arte de verdade a entrar no jogo, substituindo
 placeholder de texto — o resto da apresentação (agentes, inimigos, ícones
-de ET, UI) continua em texto/placeholder, isso cobre só o tileset do
+de ET, UI) continua em texto/placeholder, isso cobre só chão/obstáculo do
 grid. Fluxo: usuário instalou o servidor MCP do PixelLab via `claude mcp
 add`, mas registrou no projeto errado (`Fragmentos_de_Alma`) e no escopo
 do diretório pessoal — não em `AZOTH-Breach`, por isso não aparecia na
@@ -618,38 +618,40 @@ sessão. Corrigido registrando de novo com `--scope local` (padrão) a
 partir do diretório do projeto, reaproveitando a mesma URL/token que já
 estava salvos no config do usuário (sem pedir a chave de novo em chat).
 
-- `create_topdown_tileset` gerou um Wang tileset de 16 tiles (chão vs.
-  obstáculo com autotiling de canto) — `lower_description`/
-  `upper_description`/`transition_description` seguem quase literalmente
-  os prompts já definidos numa sessão anterior de planejamento de arte
-  (chão de metal industrial gasto de Ferrária vs. entulho de rocha e
-  maquinário quebrado), `transition_size=0.25` (borda definida, não
-  gradiente longo — legibilidade tática pesa mais que suavidade visual
-  aqui), `tile_size=16x16` (tamanho nativo da ferramenta em modo
-  standard; 32/64 exigem `mode="pro"`, não usado nesta passada).
-- Só 2 dos 16 tiles do Wang set são usados agora: o tile "totalmente
-  chão" (`wang_0`, todos os 4 cantos = lower) e o "totalmente obstáculo"
-  (`wang_15`, todos os 4 cantos = upper) — recortados do spritesheet via
-  PIL e salvos como `floor.png`/`obstacle.png` em
-  `game/assets/sprites/tiles/`. O jogo hoje só modela obstáculo como
-  booleano por célula (`GridCombatModel.is_obstacle`), não tem conceito
-  de transição suave entre terrenos — os outros 14 tiles do Wang set
-  (bordas/cantos mistos) ficam sem uso até o jogo precisar de blending
-  de verdade; o PNG/JSON completo do tileset fica salvo
-  (`tileset_ferraria_wang.png`/`.json`) caso isso mude depois.
-- `project.godot` ganhou `textures/canvas_textures/default_texture_filter=0`
-  (Nearest global) — sem isso pixel art sai borrada ao escalar. Célula do
-  grid subiu de placeholder `46x46` pra `96x96` (múltiplo inteiro limpo
-  do tile nativo de 16x16, 6×) — bate com o tamanho já recomendado no
-  guia de arte/design system produzido antes desta sessão.
-- `operation_grid_screen.gd`: botão de célula ganhou `icon` (textura de
-  chão ou obstáculo, sempre presente) separado do `text` (glifo de
-  agente/inimigo, só quando a célula está ocupada) — `expand_icon=true`
-  faz a textura preencher o botão. Antes o mesmo glifo de texto cobria
-  tanto terreno (`.`/`#`) quanto unidade; agora terreno é sempre arte
-  real e unidade continua texto até ganhar sprite próprio.
+- **Primeira tentativa (`create_topdown_tileset`, um Wang tileset de 16
+  tiles com autotiling de canto) foi abandonada por feedback direto do
+  usuário** — achou o resultado ruim. Preferência confirmada: gerar tiles
+  individuais em vez de tileset, e nesse caso o usuário já tinha gerado 9
+  tiles separados (via alguma ferramenta externa de tile/mapa, exportados
+  como PNGs individuais 96×96 numa pasta local, não pelo MCP diretamente
+  nesta sessão) e pediu pra eu usá-los em vez de gerar mais.
+- Os 9 tiles foram inspecionados visualmente (grade de ventilação, piso
+  de pedra/cobblestone, painel de metal rebitado enferrujado, grelha de
+  dreno, painel com listras de risco, metal com mancha escura, painel
+  com janela, escada/barras enferrujadas numa parede, variante de piso
+  em pedra) — escolhidos **`tile_1` (piso de pedra) como chão** e
+  **`tile_2` (painel de metal enferrujado rebitado) como obstáculo**,
+  copiados por cima de `floor.png`/`obstacle.png` em
+  `game/assets/sprites/tiles/` (mesmos caminhos que o código já
+  referenciava, nenhuma mudança de código necessária). Os outros 7 ficam
+  em `variantes_nao_usadas/` pra uso futuro (variação de terreno, ícones,
+  estados de campo per `05.8` §9.3) — decisão de qual usar como
+  chão/obstáculo é subjetiva, o usuário pode trocar só apontando outro
+  arquivo se não gostar.
+- Os 9 tiles já vieram nativos em 96×96 (mesmo tamanho de célula do
+  grid) — melhor que o Wang tileset anterior, que era 16×16 escalado 6×.
+  Sem necessidade de reescalar.
+- `tileset_ferraria_wang.png`/`.json` (da tentativa anterior) apagados —
+  código morto, o jogo não referenciava mais depois da troca.
+- `project.godot` mantém `textures/canvas_textures/default_texture_filter=0`
+  (Nearest global, já configurado na tentativa anterior — continua
+  necessário pra manter pixel art nítida). Célula do grid continua
+  `96x96` (já estava certa desde a primeira tentativa).
+- `operation_grid_screen.gd` não mudou nesta passada — já estava
+  preparado pra qualquer conteúdo em `floor.png`/`obstacle.png` (ícone de
+  terreno sempre presente, separado do texto de agente/inimigo).
 
-Validado headless: import limpo dos 3 PNGs (`.import` gerados
+Validado headless: import limpo dos PNGs (`.import` gerados
 automaticamente pelo Godot), simulação confirmando 36 células
 renderizadas, 2 com ícone de obstáculo, 34 com ícone de chão, 6 com
 texto de agente/inimigo sobreposto (3 agentes + 3 inimigos da

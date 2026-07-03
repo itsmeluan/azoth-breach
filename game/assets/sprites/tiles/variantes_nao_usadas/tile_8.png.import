@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm6nqcgjganyk"
-path="res://.godot/imported/tileset_ferraria_wang.png-4d55f4f2635acfd51935ac620a6957ab.ctex"
+uid="uid://c58p3dyay8xo"
+path="res://.godot/imported/tile_8.png-e52b63bfa26ab44903602807eee531e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/tiles/tileset_ferraria_wang.png"
-dest_files=["res://.godot/imported/tileset_ferraria_wang.png-4d55f4f2635acfd51935ac620a6957ab.ctex"]
+source_file="res://assets/sprites/tiles/variantes_nao_usadas/tile_8.png"
+dest_files=["res://.godot/imported/tile_8.png-e52b63bfa26ab44903602807eee531e9.ctex"]
 
 [params]
 
