@@ -8,6 +8,7 @@ Conteúdo inicial:
 - `fontes_originais_txt`: arquivos `.txt` originais preservados para auditoria.
 - `atualizacoes_canonicas`: atualizações canônicas recebidas e preservadas como fonte histórica.
 - `atualizacoes_estruturais`: atualizações estruturais recebidas e preservadas como fonte histórica.
+- `referencias_visuais`: imagens de referência preservadas para auditoria criativa e futuras passadas de arte.
 - `versoes_anteriores`: versões ativas anteriores arquivadas antes de novas atualizações.
 
 Documentos nesta pasta não têm precedência ativa sobre os documentos constitucionais.

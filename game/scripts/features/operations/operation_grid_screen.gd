@@ -4,8 +4,11 @@ const OperationLoader = preload("res://scripts/services/operation_loader.gd")
 const LoadoutLoader = preload("res://scripts/services/loadout_loader.gd")
 const ETLoader = preload("res://scripts/services/et_loader.gd")
 const GridCombatModel = preload("res://scripts/services/grid_combat_model.gd")
-const TILE_FLOOR := preload("res://assets/sprites/tiles/floor.png")
-const TILE_OBSTACLE := preload("res://assets/sprites/tiles/obstacle.png")
+const TILE_FERRARIA_BASE_1 := preload("res://assets/sprites/tiles/ferraria-base-1.png")
+const TILE_FERRARIA_BASE_2 := preload("res://assets/sprites/tiles/ferraria-base-2.png")
+const TILE_FERRARIA_CONTAMINATION_1 := preload("res://assets/sprites/tiles/ferraria-contamination-1.png")
+const TILE_FERRARIA_CONTAMINATION_2 := preload("res://assets/sprites/tiles/ferraria-contamination-2.png")
+const TILE_FERRARIA_OBSTACLE := preload("res://assets/sprites/tiles/ferraria-obstacle-1.png")
 
 signal navigate_to(scene_path: String, context: Dictionary)
 
@@ -172,8 +175,44 @@ func _render_grid(highlighted: Array[Vector2i] = []) -> void:
 			var index := y * GridCombatModel.GRID_SIZE + x
 			var cell_button: Button = _cell_buttons[index]
 			cell_button.text = _cell_glyph(pos)
-			cell_button.icon = TILE_OBSTACLE if _model.is_obstacle(pos) else TILE_FLOOR
+			cell_button.icon = _tile_for_cell(pos)
 			cell_button.disabled = not highlighted.has(pos)
+
+
+func _tile_for_cell(pos: Vector2i) -> Texture2D:
+	if _model.is_obstacle(pos):
+		return TILE_FERRARIA_OBSTACLE
+	if _uses_contamination_tile(pos):
+		return _contamination_tile_for(pos)
+	return _base_tile_for(pos)
+
+
+func _base_tile_for(pos: Vector2i) -> Texture2D:
+	return TILE_FERRARIA_BASE_1 if _tile_variant_index(pos) == 0 else TILE_FERRARIA_BASE_2
+
+
+func _contamination_tile_for(pos: Vector2i) -> Texture2D:
+	return TILE_FERRARIA_CONTAMINATION_1 if _tile_variant_index(pos) == 0 else TILE_FERRARIA_CONTAMINATION_2
+
+
+func _uses_contamination_tile(pos: Vector2i) -> bool:
+	if _is_near_field_phenomenon(pos):
+		return true
+	var operation_id: String = _operation.get("id", "")
+	return pos.y < GridCombatModel.GRID_SIZE - 1 and ((pos.x * 5 + pos.y * 7 + operation_id.length()) % 11 == 0)
+
+
+func _is_near_field_phenomenon(pos: Vector2i) -> bool:
+	for enemy in _model.enemies:
+		if enemy.is_alive() and enemy.display_name == "Fenômeno de Campo":
+			var distance: int = abs(enemy.position.x - pos.x) + abs(enemy.position.y - pos.y)
+			if distance <= 1:
+				return true
+	return false
+
+
+func _tile_variant_index(pos: Vector2i) -> int:
+	return abs(pos.x * 31 + pos.y * 17) % 2
 
 
 func _cell_glyph(pos: Vector2i) -> String:

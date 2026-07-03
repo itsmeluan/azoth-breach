@@ -657,6 +657,39 @@ renderizadas, 2 com ícone de obstáculo, 34 com ícone de chão, 6 com
 texto de agente/inimigo sobreposto (3 agentes + 3 inimigos da
 configuração testada), tamanho de célula `96x96` aplicado.
 
+### Tiles ferrários ligados ao grid e smoke test mínimo
+
+Atualização posterior de consolidação: o grid tático deixou de depender
+dos placeholders genéricos `floor.png`/`obstacle.png` e agora usa a
+família real `ferraria-*` em `game/assets/sprites/tiles/`:
+
+- `ferraria-base-1.png` / `ferraria-base-2.png` alternam o piso base por
+  célula, sem alterar regras de combate;
+- `ferraria-contamination-1.png` /
+  `ferraria-contamination-2.png` aparecem como manchas visuais de
+  Breach/contaminação, especialmente em torno do `Fenômeno de Campo`;
+- `ferraria-obstacle-1.png` representa obstáculos/cobertura, inclusive
+  os criados por `Cristalização Controlada`.
+
+A pasta raiz `tiles/` foi removida porque era duplicata exata dos PNGs já
+copiados para `game/assets/sprites/tiles/`. As referências visuais únicas
+foram preservadas em `docs/99_arquivo/referencias_visuais/`, com README
+próprio e sem precedência canônica.
+
+Também foi criado `game/tests/smoke_validation.gd`, executável com:
+
+```sh
+/Applications/Godot.app/Contents/MacOS/Godot --headless --path game --script res://tests/smoke_validation.gd
+```
+
+O teste carrega as cenas principais, confere conteúdo estruturado mínimo
+e instancia `operation_grid_screen.tscn` para garantir 36 células e uso de
+tiles `ferraria-base-*`, `ferraria-contamination-*` e
+`ferraria-obstacle-1.png`. O primeiro teste encontrou e corrigiu um parse
+real de GDScript por inferência de tipo (`distance` em
+`_is_near_field_phenomenon`), então essa checagem deve ser mantida antes
+de fechar mudanças no grid.
+
 ### Bug de navegação corrigido em M2
 
 `AppShell.go_to_scene()` chamava `child.queue_free()` sem `remove_child()`
