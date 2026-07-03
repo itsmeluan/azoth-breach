@@ -102,25 +102,46 @@ sem reescrever a arquitetura base (princípio 2.5 do Documento 06.1).
   aplicando o princípio de Estado Explícito de `06.1` §2.3). "Confirmar e
   entrar em campo" navega para `scenes/operations/operation_field_screen.tscn`
   repassando `operation_id` e `loadout_id`.
-- Campo de operação (`scenes/operations/operation_field_screen.tscn`,
-  origem em M2 `BL-012`/`BL-013`/`BL-005`, generalizado em M3
-  `BL-007`/`BL-010`) implementa um loop **mínimo por rodadas** contra uma
-  barra única de Instabilidade — deliberadamente sem grid, inimigos ou
-  catálogo de estados (`04.3` descreve uma visão de MVP completo bem mais
-  ambiciosa; `BL-012` pede explicitamente um sistema "mínimo"). Tudo
-  data-driven pela operação: `max_rounds` (Primeira Fissura=4, Vestígio
-  Discrepante=5, mais intensa), e opcionalmente `dual_objective_et` +
-  `evidence_target` — quando presentes (só em Vestígio Discrepante), usar
-  aquela ET soma evidência mas reduz a Instabilidade a 80% do normal
-  (`DUAL_OBJECTIVE_INSTABILITY_FACTOR`), traduzindo o trade-off "eficiência
-  tática vs. coleta contextual" de `05.9 §7.2`. Cada tentativa passa por
-  `scripts/services/et_resolution.gd` (qualidade fraca/normal/precisa/
-  extraordinária, conceito simplificado de `04.2 §11.2`, sem "falha" dura),
-  que agora também recebe o nível de melhoria da ET
-  (`SliceState.et_upgrade_level`) e desloca a rolagem para cima. Encerra em
-  sucesso (Instabilidade chega a 0) ou estabilização parcial (rodadas
-  esgotadas — não é derrota; `04.3 §10.3` recomenda vitória parcial).
-  Navega para `scenes/reports/report_screen.tscn`.
+- Campo de operação simples (`scenes/operations/operation_field_screen.tscn`,
+  origem em M2 `BL-012`/`BL-013`/`BL-005`) implementa um loop **mínimo por
+  rodadas** contra uma barra única de Instabilidade — sem grid, inimigos ou
+  catálogo de estados. Serve **Primeira Fissura** (`max_rounds=4`) e
+  **Varredura de Estabilização** (`max_rounds=3`, resolução curta — `BL-008`).
+  Cada tentativa passa por `scripts/services/et_resolution.gd` (qualidade
+  fraca/normal/precisa/extraordinária, conceito simplificado de `04.2 §11.2`,
+  sem "falha" dura, recebe `SliceState.et_upgrade_level` e desloca a
+  rolagem pra cima) e opcionalmente soma `dual_objective_et`/`evidence_target`
+  quando a operação define esses campos. Encerra em sucesso (Instabilidade
+  chega a 0) ou estabilização parcial (rodadas esgotadas — não é derrota;
+  `04.3 §10.3` recomenda vitória parcial). Navega para
+  `scenes/reports/report_screen.tscn`.
+- **Grid tático** (`scenes/operations/operation_grid_screen.tscn` +
+  `scripts/services/grid_combat_model.gd`) serve só **Vestígio Discrepante**
+  (`combat_mode: "grid"` nos dados da operação) — reabertura de escopo
+  pedida explicitamente pelo usuário depois de testar a build e sentir que
+  a mecânica simples não passava sensação de combate tático. Grid 6x6
+  (`04.3 §6.1`), agente jogável único (HP 100 — `BL-009` já define agente
+  único, não os 3 personagens de `04.3 §15.1`, que é MVP completo), 2
+  inimigos "Criatura Deslocada" fixos no script (`04.3 §16.1`, espelha o
+  exemplo oficial de `04.3 §32.1`), turno por time (`04.3 §8.2`: mover
+  e/ou 1 ET, depois fase de inimigo). Cada ET tem efeito de campo distinto
+  usando o campo `role` de `data/ets/*.json` (existia desde `TK-M1-009`,
+  nunca tinha sido usado de fato): Selagem Parcial reduz Instabilidade;
+  Cristalização Controlada cria obstáculo/cobertura (reduz dano em 50% pra
+  quem está adjacente); Decomposição Dirigida dana inimigo adjacente;
+  Análise de Vestígio soma vestígio. Derrotar inimigos não é obrigatório —
+  o objetivo continua sendo Instabilidade ≤ 0, inimigos são pressão tática
+  (`04.3 §4`). Novo outcome `retirada forçada` (vida a 0) ainda concede
+  recompensa garantida (`04.3 §23.3`). Simplificações explícitas: sem fog
+  of war/linha de efeito, sem estados de campo além do obstáculo, sem
+  telegraphing visual dedicado, inimigos hardcoded (não viraram tipo de
+  conteúdo em `/data` — `06.1` não define esse modelo, criar um formato
+  novo pra 2 instâncias fixas seria abstração prematura). Dois bugs reais
+  de IA corrigidos durante a validação: inimigo travava permanentemente
+  atrás de obstáculo (só tentava os 2 passos "diretos"); a correção
+  ingênua causava oscilação entre 2 células. Resolvido com busca gulosa
+  entre todas as adjacentes livres + memória da célula anterior pra não
+  retroceder.
 - Relatório e recompensa (`scenes/reports/report_screen.tscn`, origem em
   M2 `BL-014`/`BL-006`, generalizado em M3 `BL-016`/`BL-018`): mostra
   resultado/rodadas/ETs usadas, evidência coletada vs. meta quando
@@ -273,6 +294,19 @@ autorização documental explícita — `05.12` não define escopo além de
 de `04.3`, mais ETs, mais operações, Codex/Mesa de Pesquisa avançados)
 exigiria voltar a `/docs` para uma decisão de produto, não é uma
 extensão natural do que já existe aqui.
+
+### Pós-M6: grid tático (reabertura de escopo autorizada diretamente)
+
+Depois de testar a build completa, o usuário sentiu que a mecânica de
+campo por rodadas não passava sensação de combate tático mesmo
+descontando a apresentação em texto puro, e pediu explicitamente o
+grid mínimo de `04.3` (6x6, movimento, cobertura, inimigos) para
+Vestígio Discrepante — ver seção "Grid tático" acima. Diferente do
+resto deste documento, essa decisão **não** veio de `/docs`: foi
+autorização direta do usuário em sessão, contornando a regra "exigiria
+voltar a `/docs`" logo acima. Registrado aqui para deixar explícito que
+essa reabertura teve autorização humana e não foi uma decisão de
+implementação unilateral.
 
 ### Bug de navegação corrigido em M2
 
