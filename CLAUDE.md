@@ -173,6 +173,21 @@ sem reescrever a arquitetura base (princípio 2.5 do Documento 06.1).
   o pior resultado ("fraca") especificamente ao usar Análise de Vestígio
   (`operation_field_screen.gd`, efeito distinto da melhoria de ET) — regra
   vem de `05.9 §9.2-9.3`.
+- Telemetria (`BL-022`) via autoload `TelemetryLogger`
+  (`scripts/services/telemetry_logger.gd`), gravando JSONL local em
+  `user://telemetry.jsonl` — decisão de stack de `06.0` §5.3/§8, implementada
+  pela primeira vez aqui. `AppShell.go_to_scene()` loga `screen_opened` para
+  toda transição (um ponto de instrumentação cobre todas as telas). Demais
+  eventos do escopo mínimo (`operation_started`, `et_used`,
+  `operation_completed`, `operation_abandoned`, `loadout_selected`,
+  `reward_granted`, `report_viewed`) logados nos pontos naturais do fluxo.
+- Cancelar/Abandonar (`BL-021`): Briefing e Loadout ganharam botão
+  "Cancelar" e o Campo ganhou "Abandonar operação" — antes só dava pra
+  desistir fechando o app inteiro. Abandonar em campo não chama
+  `SliceState.complete_operation()`: sem recompensa, a operação continua
+  `AVAILABLE`. Essa lacuna de UI só ficou visível ao tentar instrumentar
+  "operação abandonada" para `BL-022` — abandono não era uma ação possível
+  até então.
 - `renderer/rendering_method`: `mobile` (compatível com Metal/iOS).
 - Viewport base: `1080x1920`, `window/handheld/orientation = portrait`,
   stretch `canvas_items` / `expand`.
@@ -186,7 +201,7 @@ sem reescrever a arquitetura base (princípio 2.5 do Documento 06.1).
   foram criados — dados pessoais/de conta não estão documentados em `/docs`
   e não devem ser inventados. Configurar em Editor → Export quando necessário.
 
-## M1 a M4: fechados
+## M1 a M5: fechados
 
 `M1 — Primeira Build Navegável` (`TK-M1-001` a `TK-M1-012`, `06.2` §5):
 projeto abre localmente, hub funciona, quadro de operações funciona,
@@ -225,13 +240,20 @@ de verdade, mais curta (3 rodadas) que as outras operações, com chance
 controlada de Lente de Vestígio e o efeito mecânico do item (favorece
 Análise de Vestígio, não substitui melhoria de ET, per `05.9 §9`).
 
+`M5 — Slice Validável` (`BL-021`, `BL-022`, `BL-023`, `05.12` §8):
+telemetria JSONL local cobrindo os 9 eventos do escopo mínimo (validado
+inspecionando um `telemetry.jsonl` real de sessão de teste); botões de
+Cancelar/Abandonar em Briefing, Loadout e Campo — lacuna de UI que só
+ficou visível ao tentar instrumentar "operação abandonada" (não dava
+pra desistir de nada antes, só fechando o app); validação integrada
+final rodando o fluxo canônico completo (Op01 → Mesa de Pesquisa → Op02
+→ repetível → hub) como checagem de regressão depois de todas as
+mudanças de M2–M5, sem quebra.
+
 Todos os milestones da vertical slice (`M1`–`M6`, `05.12`) estão
-concluídos até `M4`. Próximo é `M5 — Slice Validável` (`05.12` §8):
-interface mínima consistente entre todas as telas (`BL-021`), telemetria
-mínima de uso/conclusão/abandono (`BL-022`) e validação interna
-completa do slice ponta a ponta (`BL-023`) — não introduz mecânica nova,
-fecha e valida o que já existe. `M6` depois disso é só polimento sobre
-blocos já implementados, sem novo backlog.
+concluídos até `M5`. `M6` (próximo, não pedido ainda) não introduz novo
+backlog — é só polimento interno sobre os blocos já implementados
+(`05.12` §9).
 
 ### Bug de navegação corrigido em M2
 
