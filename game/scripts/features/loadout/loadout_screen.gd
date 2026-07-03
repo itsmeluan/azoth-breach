@@ -5,7 +5,7 @@ const ETLoader = preload("res://scripts/services/et_loader.gd")
 
 signal navigate_to(scene_path: String, context: Dictionary)
 
-const OPERATION_ENTRY_SCENE := "res://scenes/operations/operation_entry_screen.tscn"
+const OPERATION_FIELD_SCENE := "res://scenes/operations/operation_field_screen.tscn"
 
 var _operation_id: String = ""
 var _loadouts: Array[Dictionary] = []
@@ -70,7 +70,7 @@ func _find_loadout(loadout_id: String) -> Dictionary:
 
 
 func _on_confirm_pressed() -> void:
-	navigate_to.emit(OPERATION_ENTRY_SCENE, {
+	navigate_to.emit(OPERATION_FIELD_SCENE, {
 		"operation_id": _operation_id,
 		"loadout_id": SliceState.active_loadout,
 	})

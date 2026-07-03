@@ -11,6 +11,7 @@ func _ready() -> void:
 
 func go_to_scene(scene_path: String, context: Dictionary = {}) -> void:
 	for child in screen_host.get_children():
+		screen_host.remove_child(child)
 		child.queue_free()
 	var next_screen: PackedScene = load(scene_path)
 	var screen_instance := next_screen.instantiate()
