@@ -10,7 +10,7 @@
   - `Documentos 00.0 a 00.3 — Constituição`
   - `Série 04 — Gameplay`
   - `Série 05 — Produto`
-  - `AZOTH_06.0_Estrategia_Tecnica_e_Stack_Inicial_v0.1.md`
+  - `AZOTH_06.0_Estrategia_Tecnica_e_Stack_Inicial_v0.2.md`
 - **Função:** definir a arquitetura inicial da build, os modelos mínimos de estado e a estrutura de pastas recomendada para iniciar a vertical slice.
 
 ---

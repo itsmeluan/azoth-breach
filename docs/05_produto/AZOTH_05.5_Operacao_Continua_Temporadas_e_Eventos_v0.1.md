@@ -17,7 +17,7 @@
   - `AZOTH_05.1_MVP_e_Recorte_de_Producao_v0.2.md`
   - `AZOTH_05.2_Roadmap_Marcos_e_Criterios_de_Entrega_v0.3.md`
   - `AZOTH_05.3_Vertical_Slice_e_Prototipos_Operacionais_v0.6.md`
-  - `AZOTH_05.4_Modelo_de_Lancamento_e_Distribuicao_v0.1.md`
+  - `AZOTH_05.4_Modelo_de_Lancamento_e_Distribuicao_v0.2.md`
 - **Função:** definir como AZOTH: BREACH deve continuar vivo após o primeiro release por meio de operação contínua, temporadas, eventos, ciclos de atualização, manutenção de conteúdo repetível e expansão controlada de recompensas, sem violar o cânone, sem transformar o jogo em live service predatório e sem exigir capacidade operacional incompatível com produção solo apoiada por IA.
 
 ---

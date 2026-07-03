@@ -50,13 +50,13 @@ Tecnologia não pode:
 
 Os arquivos ativos da pasta `06_tecnologia` são:
 
-1. `AZOTH_06.0_Estrategia_Tecnica_e_Stack_Inicial_v0.1.md`  
-   Define a stack inicial recomendada, os princípios técnicos obrigatórios e as restrições de implementação para a vertical slice.
+1. `AZOTH_06.0_Estrategia_Tecnica_e_Stack_Inicial_v0.2.md`
+   Define a stack inicial recomendada, os princípios técnicos obrigatórios, a priorização iOS-first do primeiro ciclo e as restrições de implementação para a vertical slice.
 
 2. `AZOTH_06.1_Arquitetura_Inicial_da_Build_e_Estrutura_de_Pastas_v0.1.md`  
    Define a arquitetura inicial da build, os modelos de estado e a estrutura de pastas recomendada para começar o projeto.
 
-3. `AZOTH_06.2_Pacote_de_Arranque_do_M1_v0.1.md`  
+3. `AZOTH_06.2_Pacote_de_Arranque_do_M1_v0.2.md`
    Converte o milestone `M1` em tarefas técnicas iniciáveis, com ordem de execução, dependências e checklist de saída da primeira build navegável.
 
 ## Papel de Cada Documento

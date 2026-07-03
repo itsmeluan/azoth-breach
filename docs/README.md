@@ -83,7 +83,7 @@ Eles são apenas agregações auxiliares para ingestão e consulta consolidada.
     AZOTH_00.0_Leis_Fundamentais_v1.10.md
     AZOTH_00.1_The_Truth_v1.9_Constituicao_do_Universo.md
     AZOTH_00.2_Glossario_Canonico_v1.32.md
-    AZOTH_00.3_Estrutura_Mestre_da_Documentacao_v2.39.md
+    AZOTH_00.3_Estrutura_Mestre_da_Documentacao_v2.40.md
   /01_alquimia
     README.md
     AZOTH_01.0_Maquina_Abstrata_da_Alquimia_v0.7.md
@@ -131,7 +131,7 @@ Eles são apenas agregações auxiliares para ingestão e consulta consolidada.
     AZOTH_05.1_MVP_e_Recorte_de_Producao_v0.2.md
     AZOTH_05.2_Roadmap_Marcos_e_Criterios_de_Entrega_v0.3.md
     AZOTH_05.3_Vertical_Slice_e_Prototipos_Operacionais_v0.6.md
-    AZOTH_05.4_Modelo_de_Lancamento_e_Distribuicao_v0.1.md
+    AZOTH_05.4_Modelo_de_Lancamento_e_Distribuicao_v0.2.md
     AZOTH_05.5_Operacao_Continua_Temporadas_e_Eventos_v0.1.md
     AZOTH_05.6_Monetizacao_e_Integridade_da_Experiencia_v0.1.md
     AZOTH_05.7_Expansoes_Endgame_e_Crescimento_do_Produto_v0.1.md
@@ -142,9 +142,9 @@ Eles são apenas agregações auxiliares para ingestão e consulta consolidada.
     AZOTH_05.12_Milestones_de_Implementacao_da_Vertical_Slice_v0.2.md
   /06_tecnologia
     README.md
-    AZOTH_06.0_Estrategia_Tecnica_e_Stack_Inicial_v0.1.md
+    AZOTH_06.0_Estrategia_Tecnica_e_Stack_Inicial_v0.2.md
     AZOTH_06.1_Arquitetura_Inicial_da_Build_e_Estrutura_de_Pastas_v0.1.md
-    AZOTH_06.2_Pacote_de_Arranque_do_M1_v0.1.md
+    AZOTH_06.2_Pacote_de_Arranque_do_M1_v0.2.md
   /98_consolidados_gpt
     README.md
     AZOTH_CONSOLIDADO_00_Constituicao_v1.0.md
@@ -177,7 +177,7 @@ Qualquer agente que precise continuar o projeto deve, no mínimo, ler nesta orde
 1. `00_constituicao/AZOTH_00.0_Leis_Fundamentais_v1.10.md`
 2. `00_constituicao/AZOTH_00.1_The_Truth_v1.9_Constituicao_do_Universo.md`
 3. `00_constituicao/AZOTH_00.2_Glossario_Canonico_v1.32.md`
-4. `00_constituicao/AZOTH_00.3_Estrutura_Mestre_da_Documentacao_v2.39.md`
+4. `00_constituicao/AZOTH_00.3_Estrutura_Mestre_da_Documentacao_v2.40.md`
 5. os `README.md` das séries relevantes ao trabalho em curso
 
 Se o trabalho for de:
@@ -206,7 +206,7 @@ O estado atual do projeto é o seguinte:
 - a base constitucional está consolidada;
 - as camadas de alquimia, lore, narrativa, gameplay e produto estão documentadas;
 - a vertical slice está definida em nível de pacote, backlog e milestones;
-- a camada `06_tecnologia` já formalizou stack, arquitetura inicial e arranque técnico;
+- a camada `06_tecnologia` já formalizou stack, arquitetura inicial, arranque técnico e priorização iOS-first no primeiro ciclo mobile;
 - os consolidados de `00` a `06` já existem em `98_consolidados_gpt`;
 - a pasta `/game` já existe como estrutura inicial de implementação, mas ainda não contém o projeto executável real;
 - a pasta `/tools` existe como reserva para scripts auxiliares, ainda mínima.
@@ -226,9 +226,9 @@ Isso significa:
 Esse direcionamento deriva de:
 
 - `AZOTH_05.12_Milestones_de_Implementacao_da_Vertical_Slice_v0.2.md`
-- `AZOTH_06.0_Estrategia_Tecnica_e_Stack_Inicial_v0.1.md`
+- `AZOTH_06.0_Estrategia_Tecnica_e_Stack_Inicial_v0.2.md`
 - `AZOTH_06.1_Arquitetura_Inicial_da_Build_e_Estrutura_de_Pastas_v0.1.md`
-- `AZOTH_06.2_Pacote_de_Arranque_do_M1_v0.1.md`
+- `AZOTH_06.2_Pacote_de_Arranque_do_M1_v0.2.md`
 
 ## Regras Operacionais para Continuidade
 
@@ -251,7 +251,7 @@ Se houver mudança estrutural relevante, atualizar também:
 
 ## Referências de Entrada Rápida
 
-- Estrutura oficial: `00_constituicao/AZOTH_00.3_Estrutura_Mestre_da_Documentacao_v2.39.md`
+- Estrutura oficial: `00_constituicao/AZOTH_00.3_Estrutura_Mestre_da_Documentacao_v2.40.md`
 - Produto e vertical slice: `05_produto/README.md`
 - Arranque técnico: `06_tecnologia/README.md`
 - Histórico de mudanças: `CHANGELOG.md`

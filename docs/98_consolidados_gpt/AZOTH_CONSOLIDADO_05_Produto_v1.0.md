@@ -9,8 +9,6 @@
 ---
 
 
----
-
 # Fonte: README.md
 
 # 05 — Produto
@@ -87,8 +85,8 @@ Os arquivos ativos da pasta `05_produto` são:
 4. `AZOTH_05.3_Vertical_Slice_e_Prototipos_Operacionais_v0.6.md`  
    Define quais protótipos precisam existir, o que a vertical slice deve provar e como validar coerência entre campanha, alquimia, combate, exploração, UX e operação.
 
-5. `AZOTH_05.4_Modelo_de_Lancamento_e_Distribuicao_v0.1.md`  
-   Define estratégia de lançamento, plataformas-alvo, formato comercial inicial, critérios para early access ou lançamento fechado e premissas de distribuição.
+5. `AZOTH_05.4_Modelo_de_Lancamento_e_Distribuicao_v0.2.md`
+   Define estratégia de lançamento, plataformas-alvo, priorização iOS-first no primeiro ciclo mobile, formato comercial inicial, critérios para early access ou lançamento fechado e premissas de distribuição.
 
 6. `AZOTH_05.5_Operacao_Continua_Temporadas_e_Eventos_v0.1.md`  
    Define live ops, temporadas, ciclos de atualização, eventos, cadência de conteúdo e limites operacionais da continuidade do produto.
@@ -245,8 +243,8 @@ Toda a série `05` deve preservar o seguinte princípio:
 
 **AZOTH: BREACH deve ser planejado, lançado e expandido de modo a proteger a verdade estrutural do universo, a integridade da experiência jogável e a viabilidade real de produção.**
 
----
 
+---
 
 # Fonte: AZOTH_05.0_Estrategia_de_Produto_e_Posicionamento_v0.1.md
 
@@ -1619,8 +1617,8 @@ Deve ser acessível o bastante para entrar, profundo o bastante para dominar e c
 
 > **AZOTH: BREACH, como produto, deve transformar a riqueza estrutural do universo em uma experiência jogável viável, recompensadora e expansível, sem jamais reduzir sua alquimia, sua narrativa ou sua Verdade a conveniências de mercado.**
 
----
 
+---
 
 # Fonte: AZOTH_05.1_MVP_e_Recorte_de_Producao_v0.2.md
 
@@ -3292,8 +3290,8 @@ Tudo muito acima disso corre o risco de não sair do papel.
 
 > **O MVP de AZOTH: BREACH deve ser pequeno o bastante para ser produzido, mas verdadeiro o bastante para provar que a alquimia, a Breach, o Codex, a progressão e a descoberta já formam um jogo memorável.**
 
----
 
+---
 
 # Fonte: AZOTH_05.2_Roadmap_Marcos_e_Criterios_de_Entrega_v0.3.md
 
@@ -5426,8 +5424,8 @@ Qualquer fase que fortaleça apenas uma dessas dimensões e enfraqueça as outra
 
 O produto só deve crescer quando o núcleo já estiver provado.
 
----
 
+---
 
 # Fonte: AZOTH_05.3_Vertical_Slice_e_Prototipos_Operacionais_v0.6.md
 
@@ -7311,17 +7309,17 @@ Se a vertical slice provar isso, o projeto pode crescer.
 
 Se não provar, o projeto deve melhorar o coração antes de ganhar corpo.
 
+
 ---
 
-
-# Fonte: AZOTH_05.4_Modelo_de_Lancamento_e_Distribuicao_v0.1.md
+# Fonte: AZOTH_05.4_Modelo_de_Lancamento_e_Distribuicao_v0.2.md
 
 # AZOTH: BREACH — 05.4 — Modelo de Lançamento e Distribuição
 
 - **Série:** 05 — Produto
 - **Documento:** 05.4
 - **Título:** Modelo de Lançamento e Distribuição
-- **Versão:** v0.1
+- **Versão:** v0.2
 - **Status:** Documento operacional de produto
 - **Classificação:** Produto / Lançamento / Distribuição / Go-to-Market / Release Strategy
 - **Dependências diretas:**
@@ -7437,7 +7435,7 @@ Essa clareza evita atrair o público errado e evita prometer uma experiência in
 
 A plataforma primária recomendada para o lançamento inicial é:
 
-> **Mobile — iOS e Android, com prioridade prática para uma das plataformas no primeiro ciclo de validação.**
+> **Mobile — iOS e Android, com iOS como plataforma prioritária do primeiro ciclo de validação.**
 
 A razão é estrutural:
 
@@ -7464,15 +7462,16 @@ Isso significa que:
 
 ## 4.2 Plataforma de Validação Inicial
 
-Para validação inicial, o ideal é escolher **uma plataforma principal de desenvolvimento e teste**.
+Para validação inicial, fica estabelecido que **iOS é a plataforma principal de desenvolvimento e teste do primeiro ciclo**.
 
-Critério recomendado:
+Critério operacional aprovado:
 
-- se a infraestrutura atual estiver mais madura para iOS, validar primeiro em iOS;
-- se aquisição de testers for mais fácil em Android, validar grind, retenção e telemetria em Android;
-- se engine/framework permitir build simultâneo sem custo alto, manter ambas preparadas, mas publicar testes por fase.
+- validar primeiro em iOS;
+- manter Android como segunda plataforma mobile planejada para a fase subsequente de compatibilidade, distribuição e expansão de base de testes;
+- preparar builds e requisitos de Android sem reabrir a prioridade operacional do primeiro ciclo;
+- publicar testes em Android apenas depois que o fluxo principal estiver estável no ciclo iOS-first.
 
-A decisão importante não é “iOS ou Android primeiro” em termos ideológicos.
+A decisão importante não é reabrir “iOS ou Android primeiro”.
 
 A decisão importante é:
 
@@ -8946,17 +8945,18 @@ Mitigação:
 Este documento fecha as seguintes decisões de produto:
 
 1. AZOTH: BREACH deve ser planejado como produto **mobile-first**.
-2. O lançamento inicial deve priorizar **solo-first**.
-3. O produto não deve lançar como MMO, gacha, mundo aberto ou PvP-first.
-4. O jogo deve avançar por etapas: protótipo, vertical slice, alpha fechado, beta/soft launch restrito, lançamento público.
-5. Early access só é aceitável se a identidade já estiver comprovada.
-6. Soft launch só é recomendável com telemetria, progressão e economia já funcionais.
-7. O modelo comercial deve evitar venda de poder estrutural.
-8. A distribuição inicial deve proteger reputação, escopo e capacidade operacional.
-9. A comunicação pública deve prometer apenas o que o produto consegue sustentar.
-10. O release inicial precisa ser pequeno, mas honesto e representativo.
-11. Endgame completo e live ops amplos devem ser posteriores à validação da base.
-12. Monetização, se existir, deve ser subordinada à integridade da experiência.
+2. O primeiro ciclo de validação mobile deve priorizar **iOS**.
+3. O lançamento inicial deve priorizar **solo-first**.
+4. O produto não deve lançar como MMO, gacha, mundo aberto ou PvP-first.
+5. O jogo deve avançar por etapas: protótipo, vertical slice, alpha fechado, beta/soft launch restrito, lançamento público.
+6. Early access só é aceitável se a identidade já estiver comprovada.
+7. Soft launch só é recomendável com telemetria, progressão e economia já funcionais.
+8. O modelo comercial deve evitar venda de poder estrutural.
+9. A distribuição inicial deve proteger reputação, escopo e capacidade operacional.
+10. A comunicação pública deve prometer apenas o que o produto consegue sustentar.
+11. O release inicial precisa ser pequeno, mas honesto e representativo.
+12. Endgame completo e live ops amplos devem ser posteriores à validação da base.
+13. Monetização, se existir, deve ser subordinada à integridade da experiência.
 
 ---
 
@@ -8966,10 +8966,10 @@ Este documento não fecha:
 
 - preço final;
 - idioma exato do primeiro lançamento público;
-- plataforma inicial única entre iOS e Android;
 - data de lançamento;
 - modelo comercial definitivo;
 - regiões de soft launch;
+- janela de expansão para Android após a validação iOS-first;
 - volume final de conteúdo do release;
 - duração de temporada;
 - formato exato de comunidade;
@@ -9056,8 +9056,8 @@ A diretriz final é:
 
 > **Lançar pequeno, lançar verdadeiro, lançar legível e lançar com espaço para crescer sem trair a experiência.**
 
----
 
+---
 
 # Fonte: AZOTH_05.5_Operacao_Continua_Temporadas_e_Eventos_v0.1.md
 
@@ -9080,7 +9080,7 @@ A diretriz final é:
   - `AZOTH_05.1_MVP_e_Recorte_de_Producao_v0.2.md`
   - `AZOTH_05.2_Roadmap_Marcos_e_Criterios_de_Entrega_v0.3.md`
   - `AZOTH_05.3_Vertical_Slice_e_Prototipos_Operacionais_v0.6.md`
-  - `AZOTH_05.4_Modelo_de_Lancamento_e_Distribuicao_v0.1.md`
+  - `AZOTH_05.4_Modelo_de_Lancamento_e_Distribuicao_v0.2.md`
 - **Função:** definir como AZOTH: BREACH deve continuar vivo após o primeiro release por meio de operação contínua, temporadas, eventos, ciclos de atualização, manutenção de conteúdo repetível e expansão controlada de recompensas, sem violar o cânone, sem transformar o jogo em live service predatório e sem exigir capacidade operacional incompatível com produção solo apoiada por IA.
 
 ---
@@ -10831,8 +10831,8 @@ Se a operação contínua preservar esse princípio, ela fortalece o produto.
 
 Se abandonar esse princípio, ela transforma AZOTH em ruído.
 
----
 
+---
 
 # Fonte: AZOTH_05.6_Monetizacao_e_Integridade_da_Experiencia_v0.1.md
 
@@ -10853,7 +10853,7 @@ Se abandonar esse princípio, ela transforma AZOTH em ruído.
   - `AZOTH_05.1_MVP_e_Recorte_de_Producao_v0.2.md`
   - `AZOTH_05.2_Roadmap_Marcos_e_Criterios_de_Entrega_v0.3.md`
   - `AZOTH_05.3_Vertical_Slice_e_Prototipos_Operacionais_v0.6.md`
-  - `AZOTH_05.4_Modelo_de_Lancamento_e_Distribuicao_v0.1.md`
+  - `AZOTH_05.4_Modelo_de_Lancamento_e_Distribuicao_v0.2.md`
   - `AZOTH_05.5_Operacao_Continua_Temporadas_e_Eventos_v0.1.md`
 
 ---
@@ -12585,8 +12585,8 @@ A monetização de AZOTH: BREACH deve ser simples de explicar:
 
 Esse princípio deve governar toda decisão comercial do projeto.
 
----
 
+---
 
 # Fonte: AZOTH_05.7_Expansoes_Endgame_e_Crescimento_do_Produto_v0.1.md
 
@@ -12598,7 +12598,7 @@ Esse princípio deve governar toda decisão comercial do projeto.
 - **Versão:** v0.1
 - **Status:** Documento de referência operacional
 - **Classificação:** Produto / Crescimento / Expansão / Endgame / Continuidade
-- **Dependências principais:** `Documentos 00.0 a 00.3 — Constituição`; `Série 01 — Alquimia`; `Série 02 — Lore`; `Série 03 — Narrativa`; `Série 04 — Gameplay`; `AZOTH_05.0_Estrategia_de_Produto_e_Posicionamento_v0.1.md`; `AZOTH_05.1_MVP_e_Recorte_de_Producao_v0.2.md`; `AZOTH_05.2_Roadmap_Marcos_e_Criterios_de_Entrega_v0.3.md`; `AZOTH_05.3_Vertical_Slice_e_Prototipos_Operacionais_v0.6.md`; `AZOTH_05.4_Modelo_de_Lancamento_e_Distribuicao_v0.1.md`; `AZOTH_05.5_Operacao_Continua_Temporadas_e_Eventos_v0.1.md`; `AZOTH_05.6_Monetizacao_e_Integridade_da_Experiencia_v0.1.md`
+- **Dependências principais:** `Documentos 00.0 a 00.3 — Constituição`; `Série 01 — Alquimia`; `Série 02 — Lore`; `Série 03 — Narrativa`; `Série 04 — Gameplay`; `AZOTH_05.0_Estrategia_de_Produto_e_Posicionamento_v0.1.md`; `AZOTH_05.1_MVP_e_Recorte_de_Producao_v0.2.md`; `AZOTH_05.2_Roadmap_Marcos_e_Criterios_de_Entrega_v0.3.md`; `AZOTH_05.3_Vertical_Slice_e_Prototipos_Operacionais_v0.6.md`; `AZOTH_05.4_Modelo_de_Lancamento_e_Distribuicao_v0.2.md`; `AZOTH_05.5_Operacao_Continua_Temporadas_e_Eventos_v0.1.md`; `AZOTH_05.6_Monetizacao_e_Integridade_da_Experiencia_v0.1.md`
 - **Não substitui:** documentação canônica, sistemas de gameplay, design detalhado de missões, tuning numérico, roteiro narrativo ou plano técnico de implementação
 
 ---
@@ -13995,8 +13995,8 @@ Crescer não é adicionar mais coisas.
 
 Crescer é fazer o jogador sentir que Aletheia continua profunda, instável, recompensadora e coerente — sem que o produto perca a forma que o tornou especial.
 
----
 
+---
 
 # Fonte: AZOTH_05.8_Diretrizes_Operacionais_de_Arte_UI_e_Audio_v0.1.md
 
@@ -14018,7 +14018,7 @@ Crescer é fazer o jogador sentir que Aletheia continua profunda, instável, rec
   - `AZOTH_05.1_MVP_e_Recorte_de_Producao_v0.2.md`
   - `AZOTH_05.2_Roadmap_Marcos_e_Criterios_de_Entrega_v0.3.md`
   - `AZOTH_05.3_Vertical_Slice_e_Prototipos_Operacionais_v0.6.md`
-  - `AZOTH_05.4_Modelo_de_Lancamento_e_Distribuicao_v0.1.md`
+  - `AZOTH_05.4_Modelo_de_Lancamento_e_Distribuicao_v0.2.md`
   - `AZOTH_05.5_Operacao_Continua_Temporadas_e_Eventos_v0.1.md`
   - `AZOTH_05.6_Monetizacao_e_Integridade_da_Experiencia_v0.1.md`
   - `AZOTH_05.7_Expansoes_Endgame_e_Crescimento_do_Produto_v0.1.md`
@@ -15487,8 +15487,8 @@ O objetivo não é parecer maior do que é.
 
 O objetivo é parecer exatamente tão profundo, preciso e instável quanto AZOTH precisa ser.
 
----
 
+---
 
 # Fonte: AZOTH_05.9_Pacote_de_Producao_da_Vertical_Slice_v0.4.md
 
@@ -16009,8 +16009,8 @@ Esse próximo artefato já não é documento-mestre de produto.
 
 Ele é documento de execução de build.
 
----
 
+---
 
 # Fonte: AZOTH_05.10_Mapa_Funcional_e_Pacote_de_Execucao_da_Vertical_Slice_v0.1.md
 
@@ -16565,8 +16565,8 @@ O princípio central deste documento é:
 
 Se o artefato não ajudar diretamente a responder o que precisa entrar na próxima build, ele está fora do escopo deste documento.
 
----
 
+---
 
 # Fonte: AZOTH_05.11_Backlog_Executavel_da_Vertical_Slice_v0.1.md
 
@@ -17306,8 +17306,8 @@ O princípio central deste documento é:
 
 Este documento existe para garantir exatamente isso.
 
----
 
+---
 
 # Fonte: AZOTH_05.12_Milestones_de_Implementacao_da_Vertical_Slice_v0.2.md
 
@@ -17707,4 +17707,3 @@ O princípio final deste documento é:
 > **A documentação da vertical slice só se converte em desenvolvimento real quando backlog, milestones e decisão técnica mínima passam a apontar para a mesma primeira build.**
 
 A função deste documento é levar a estrutura de produto exatamente até esse ponto e entregar a passagem formal para a série `06 — Tecnologia`.
-

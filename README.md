@@ -98,7 +98,7 @@ Se você quer entender o projeto rapidamente, comece por:
 2. [docs/00_constituicao/AZOTH_00.0_Leis_Fundamentais_v1.10.md](docs/00_constituicao/AZOTH_00.0_Leis_Fundamentais_v1.10.md)
 3. [docs/00_constituicao/AZOTH_00.1_The_Truth_v1.9_Constituicao_do_Universo.md](docs/00_constituicao/AZOTH_00.1_The_Truth_v1.9_Constituicao_do_Universo.md)
 4. [docs/00_constituicao/AZOTH_00.2_Glossario_Canonico_v1.32.md](docs/00_constituicao/AZOTH_00.2_Glossario_Canonico_v1.32.md)
-5. [docs/00_constituicao/AZOTH_00.3_Estrutura_Mestre_da_Documentacao_v2.39.md](docs/00_constituicao/AZOTH_00.3_Estrutura_Mestre_da_Documentacao_v2.39.md)
+5. [docs/00_constituicao/AZOTH_00.3_Estrutura_Mestre_da_Documentacao_v2.40.md](docs/00_constituicao/AZOTH_00.3_Estrutura_Mestre_da_Documentacao_v2.40.md)
 
 ### Continuidade da vertical slice
 
@@ -109,9 +109,9 @@ Se você quer continuar o trabalho de produto e implementação, leia:
 3. [docs/05_produto/AZOTH_05.11_Backlog_Executavel_da_Vertical_Slice_v0.1.md](docs/05_produto/AZOTH_05.11_Backlog_Executavel_da_Vertical_Slice_v0.1.md)
 4. [docs/05_produto/AZOTH_05.12_Milestones_de_Implementacao_da_Vertical_Slice_v0.2.md](docs/05_produto/AZOTH_05.12_Milestones_de_Implementacao_da_Vertical_Slice_v0.2.md)
 5. [docs/06_tecnologia/README.md](docs/06_tecnologia/README.md)
-6. [docs/06_tecnologia/AZOTH_06.0_Estrategia_Tecnica_e_Stack_Inicial_v0.1.md](docs/06_tecnologia/AZOTH_06.0_Estrategia_Tecnica_e_Stack_Inicial_v0.1.md)
+6. [docs/06_tecnologia/AZOTH_06.0_Estrategia_Tecnica_e_Stack_Inicial_v0.2.md](docs/06_tecnologia/AZOTH_06.0_Estrategia_Tecnica_e_Stack_Inicial_v0.2.md)
 7. [docs/06_tecnologia/AZOTH_06.1_Arquitetura_Inicial_da_Build_e_Estrutura_de_Pastas_v0.1.md](docs/06_tecnologia/AZOTH_06.1_Arquitetura_Inicial_da_Build_e_Estrutura_de_Pastas_v0.1.md)
-8. [docs/06_tecnologia/AZOTH_06.2_Pacote_de_Arranque_do_M1_v0.1.md](docs/06_tecnologia/AZOTH_06.2_Pacote_de_Arranque_do_M1_v0.1.md)
+8. [docs/06_tecnologia/AZOTH_06.2_Pacote_de_Arranque_do_M1_v0.2.md](docs/06_tecnologia/AZOTH_06.2_Pacote_de_Arranque_do_M1_v0.2.md)
 
 ## Fonte de Verdade
 
@@ -122,7 +122,7 @@ Ele não substitui a hierarquia documental oficial.
 Em caso de conflito, prevalecem sempre os documentos da série `00_constituicao`, seguidos da ordem formal descrita em:
 
 - [docs/README.md](docs/README.md)
-- [docs/00_constituicao/AZOTH_00.3_Estrutura_Mestre_da_Documentacao_v2.39.md](docs/00_constituicao/AZOTH_00.3_Estrutura_Mestre_da_Documentacao_v2.39.md)
+- [docs/00_constituicao/AZOTH_00.3_Estrutura_Mestre_da_Documentacao_v2.40.md](docs/00_constituicao/AZOTH_00.3_Estrutura_Mestre_da_Documentacao_v2.40.md)
 
 ## Situação da Implementação
 
@@ -139,7 +139,7 @@ O arranque técnico aprovado atualmente é:
 - `Godot 4.x`
 - `GDScript`
 - `2D`
-- `mobile-first`
+- `mobile-first`, com `iOS-first` no primeiro ciclo
 - `local-first`
 
 ## Observação

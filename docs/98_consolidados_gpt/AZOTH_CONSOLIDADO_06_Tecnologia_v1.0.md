@@ -9,8 +9,6 @@
 ---
 
 
----
-
 # Fonte: README.md
 
 # 06 — Tecnologia
@@ -65,13 +63,13 @@ Tecnologia não pode:
 
 Os arquivos ativos da pasta `06_tecnologia` são:
 
-1. `AZOTH_06.0_Estrategia_Tecnica_e_Stack_Inicial_v0.1.md`  
-   Define a stack inicial recomendada, os princípios técnicos obrigatórios e as restrições de implementação para a vertical slice.
+1. `AZOTH_06.0_Estrategia_Tecnica_e_Stack_Inicial_v0.2.md`
+   Define a stack inicial recomendada, os princípios técnicos obrigatórios, a priorização iOS-first do primeiro ciclo e as restrições de implementação para a vertical slice.
 
 2. `AZOTH_06.1_Arquitetura_Inicial_da_Build_e_Estrutura_de_Pastas_v0.1.md`  
    Define a arquitetura inicial da build, os modelos de estado e a estrutura de pastas recomendada para começar o projeto.
 
-3. `AZOTH_06.2_Pacote_de_Arranque_do_M1_v0.1.md`  
+3. `AZOTH_06.2_Pacote_de_Arranque_do_M1_v0.2.md`
    Converte o milestone `M1` em tarefas técnicas iniciáveis, com ordem de execução, dependências e checklist de saída da primeira build navegável.
 
 ## Papel de Cada Documento
@@ -86,17 +84,17 @@ Toda a série `06` deve preservar o seguinte princípio:
 
 **A implementação deve servir ao jogo que foi definido, não empurrar o jogo para o formato mais fácil de programar.**
 
+
 ---
 
-
-# Fonte: AZOTH_06.0_Estrategia_Tecnica_e_Stack_Inicial_v0.1.md
+# Fonte: AZOTH_06.0_Estrategia_Tecnica_e_Stack_Inicial_v0.2.md
 
 # AZOTH: BREACH — 06.0 — Estratégia Técnica e Stack Inicial
 
 - **Série:** 06 — Tecnologia
 - **Documento:** 06.0
 - **Título:** Estratégia Técnica e Stack Inicial
-- **Versão:** v0.1
+- **Versão:** v0.2
 - **Status:** Documento técnico ativo
 - **Classificação:** Tecnologia / Implementação / Arranque
 - **Dependências diretas:**
@@ -160,7 +158,7 @@ O formato técnico inicial recomendado é:
 
 As plataformas iniciais recomendadas são:
 
-1. **Android** como alvo prioritário de produto;
+1. **iOS** como alvo prioritário de produto;
 2. **desktop local** como ambiente de debug, teste e iteração rápida.
 
 ## 3.5 Serviços Online
@@ -262,7 +260,7 @@ Antes de avançar além de `M1`, a stack escolhida deve sustentar:
 
 A decisão atual deve ser reavaliada somente se ocorrer um destes cenários:
 
-1. o build local em Android não sustenta o recorte de `M2`;
+1. o build local em iOS não sustenta o recorte de `M2`;
 2. o fluxo de UI vertical se torna estruturalmente inviável na stack escolhida;
 3. a produção de conteúdo estruturado se torna mais lenta do que o desenvolvimento do próprio jogo;
 4. a integração entre operação, save local e estado da slice se mostra instável por limitação real da stack.
@@ -278,7 +276,7 @@ Para início do desenvolvimento, fica estabelecido:
 - **Engine:** Godot 4.x estável
 - **Linguagem:** GDScript
 - **Formato:** 2D
-- **Produto inicial:** mobile-first, solo-first
+- **Produto inicial:** mobile-first, solo-first, com iOS como alvo prioritário de validação
 - **Execução:** local-first
 - **Dados:** JSON
 - **Save:** JSON local
@@ -293,8 +291,8 @@ O princípio operacional deste documento é:
 
 > **A stack inicial deve maximizar velocidade de iteração, legibilidade estrutural e fechamento do loop da vertical slice.**
 
----
 
+---
 
 # Fonte: AZOTH_06.1_Arquitetura_Inicial_da_Build_e_Estrutura_de_Pastas_v0.1.md
 
@@ -310,7 +308,7 @@ O princípio operacional deste documento é:
   - `Documentos 00.0 a 00.3 — Constituição`
   - `Série 04 — Gameplay`
   - `Série 05 — Produto`
-  - `AZOTH_06.0_Estrategia_Tecnica_e_Stack_Inicial_v0.1.md`
+  - `AZOTH_06.0_Estrategia_Tecnica_e_Stack_Inicial_v0.2.md`
 - **Função:** definir a arquitetura inicial da build, os modelos mínimos de estado e a estrutura de pastas recomendada para iniciar a vertical slice.
 
 ---
@@ -594,23 +592,23 @@ O princípio técnico deste documento é:
 
 > **A primeira arquitetura da build deve ser pequena, explícita, local e fácil de evoluir sem reescrever o projeto inteiro.**
 
+
 ---
 
-
-# Fonte: AZOTH_06.2_Pacote_de_Arranque_do_M1_v0.1.md
+# Fonte: AZOTH_06.2_Pacote_de_Arranque_do_M1_v0.2.md
 
 # AZOTH: BREACH — 06.2 — Pacote de Arranque do M1
 
 - **Série:** 06 — Tecnologia
 - **Documento:** 06.2
 - **Título:** Pacote de Arranque do M1
-- **Versão:** v0.1
+- **Versão:** v0.2
 - **Status:** Documento técnico ativo
 - **Classificação:** Tecnologia / Execução / Milestone Inicial
 - **Dependências diretas:**
   - `AZOTH_05.11_Backlog_Executavel_da_Vertical_Slice_v0.1.md`
   - `AZOTH_05.12_Milestones_de_Implementacao_da_Vertical_Slice_v0.2.md`
-  - `AZOTH_06.0_Estrategia_Tecnica_e_Stack_Inicial_v0.1.md`
+  - `AZOTH_06.0_Estrategia_Tecnica_e_Stack_Inicial_v0.2.md`
   - `AZOTH_06.1_Arquitetura_Inicial_da_Build_e_Estrutura_de_Pastas_v0.1.md`
 - **Função:** converter o milestone `M1 — Primeira Build Navegável` em tarefas técnicas iniciáveis e em checklist de saída operacional.
 
@@ -686,7 +684,7 @@ Alinhar o projeto ao formato mobile-first.
 - retrato vertical como referência;
 - resolução-base provisória de trabalho;
 - execução local em desktop;
-- configuração inicial voltada para Android.
+- configuração inicial voltada para iOS.
 
 ### Dependências
 
@@ -982,4 +980,3 @@ O repositório já possui:
 O princípio final deste documento é:
 
 > **O desenvolvimento começa quando o milestone inicial deixa de ser abstração documental e vira sequência de tarefas que já podem ser executadas no projeto real.**
-

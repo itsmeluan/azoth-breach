@@ -9,8 +9,6 @@
 ---
 
 
----
-
 # Fonte: AZOTH_00.0_Leis_Fundamentais_v1.10.md
 
 # AZOTH: BREACH — Documento 00.0 — Leis Fundamentais
@@ -861,8 +859,8 @@ As Leis Fundamentais foram derivadas exclusivamente dos documentos canônicos ex
 - v1.9: desambiguação terminológica de Convergência Experimental como conceito metodológico da Ciência Alquímica, sem alterar o conjunto de Leis Fundamentais nem a Convergência cosmológica.
 - v1.10: atualização administrativa da estrutura da série 01 — Alquimia para a forma enxuta 01.1 a 01.4, sem alterar o conjunto de Leis Fundamentais.
 
----
 
+---
 
 # Fonte: AZOTH_00.1_The_Truth_v1.9_Constituicao_do_Universo.md
 
@@ -2199,8 +2197,8 @@ Documentos derivados, incluindo Glossário Canônico, Alquimia, Lore Bible, Camp
 - v1.8: atualização estrutural da categoria 01 como Alquimia e reconhecimento do Documento 01.1 — Tratado da Alquimia como derivado da MAA.
 - v1.9: desambiguação entre Convergência cosmológica e Convergência Experimental, preservando o fenômeno cosmológico e subordinando o conceito experimental à Ciência Alquímica.
 
----
 
+---
 
 # Fonte: AZOTH_00.2_Glossario_Canonico_v1.32.md
 
@@ -6668,14 +6666,14 @@ Este documento estabelece a versão 1.23 do Glossário Canônico de desenvolvime
 - v1.24: atualização de referência para a Estrutura Mestre v2.26 após ativação formal do Documento 04.10, sem inclusão de novos verbetes obrigatórios.
 - v1.23: ativação da série 04 — Gameplay, com inclusão de verbetes estruturais para loops, progressão, investigação jogável, endgame operacional e interação social solo-first.
 
+
 ---
 
-
-# Fonte: AZOTH_00.3_Estrutura_Mestre_da_Documentacao_v2.39.md
+# Fonte: AZOTH_00.3_Estrutura_Mestre_da_Documentacao_v2.40.md
 
 # AZOTH: BREACH — Documento 00.3 — Estrutura Mestre da Documentação
 
-- Versão: 2.39
+- Versão: 2.40
 - Classificação: Interno de Desenvolvimento
 - Status: CANÔNICO
 - Precedência: subordinado aos Documentos 00.0, 00.1 e 00.2
@@ -6714,7 +6712,7 @@ Os arquivos da pasta `98_consolidados_gpt` não constituem uma camada de preced�
     AZOTH_00.0_Leis_Fundamentais_v1.10.md
     AZOTH_00.1_The_Truth_v1.9_Constituicao_do_Universo.md
     AZOTH_00.2_Glossario_Canonico_v1.32.md
-    AZOTH_00.3_Estrutura_Mestre_da_Documentacao_v2.39.md
+    AZOTH_00.3_Estrutura_Mestre_da_Documentacao_v2.40.md
   /01_alquimia
     AZOTH_01.0_Maquina_Abstrata_da_Alquimia_v0.7.md
     AZOTH_01.1_Tratado_da_Alquimia_v1.2.md
@@ -6761,7 +6759,7 @@ Os arquivos da pasta `98_consolidados_gpt` não constituem uma camada de preced�
     AZOTH_05.1_MVP_e_Recorte_de_Producao_v0.2.md
     AZOTH_05.2_Roadmap_Marcos_e_Criterios_de_Entrega_v0.3.md
     AZOTH_05.3_Vertical_Slice_e_Prototipos_Operacionais_v0.6.md
-    AZOTH_05.4_Modelo_de_Lancamento_e_Distribuicao_v0.1.md
+    AZOTH_05.4_Modelo_de_Lancamento_e_Distribuicao_v0.2.md
     AZOTH_05.5_Operacao_Continua_Temporadas_e_Eventos_v0.1.md
     AZOTH_05.6_Monetizacao_e_Integridade_da_Experiencia_v0.1.md
     AZOTH_05.7_Expansoes_Endgame_e_Crescimento_do_Produto_v0.1.md
@@ -6772,9 +6770,9 @@ Os arquivos da pasta `98_consolidados_gpt` não constituem uma camada de preced�
     AZOTH_05.12_Milestones_de_Implementacao_da_Vertical_Slice_v0.2.md
     README.md
   /06_tecnologia
-    AZOTH_06.0_Estrategia_Tecnica_e_Stack_Inicial_v0.1.md
+    AZOTH_06.0_Estrategia_Tecnica_e_Stack_Inicial_v0.2.md
     AZOTH_06.1_Arquitetura_Inicial_da_Build_e_Estrutura_de_Pastas_v0.1.md
-    AZOTH_06.2_Pacote_de_Arranque_do_M1_v0.1.md
+    AZOTH_06.2_Pacote_de_Arranque_do_M1_v0.2.md
     README.md
   /98_consolidados_gpt
     README.md
@@ -7080,6 +7078,7 @@ Versões futuras desta estrutura devem expandir categorias sem contradizer a hie
 
 ## Histórico de Versões
 
+- v2.40: atualização das referências da série 05 e da série 06 para formalizar a priorização iOS-first no primeiro ciclo mobile, com versionamento de 05.4, 06.0 e 06.2 e sincronização da árvore documental ativa.
 - v2.29: consolidação do Documento 05.1 como fronteira oficial do MVP, com atualização da descrição da série 05 para refletir o recorte executivo do primeiro pacote jogável.
 - v2.28: ativação formal da série 05 — Produto com enumeração dos Documentos 05.0 a 05.8 na árvore de pastas, sincronização da ordem interna ativa e normalização do mapeamento da estrutura antiga para os documentos operacionais atuais.
 - v2.27: detalhamento estrutural da série 05 — Produto, com definição da ordem documental recomendada da pasta e clareza ampliada de escopo operacional.
@@ -7119,4 +7118,3 @@ Versões futuras desta estrutura devem expandir categorias sem contradizer a hie
 - v2.33: atualização de referências para Glossário v1.31 e criação do Documento 05.9 como pacote executável da Vertical Slice aprovado.
 - v2.31: atualização de referências para Glossário v1.29 e Vertical Slice v0.3, com aprovação do recorte executivo da fatia polida como subconjunto oficial do MVP.
 - v2.30: atualização de referências para Glossário v1.28, Roadmap v0.2 e Vertical Slice v0.2, com consolidação do desdobramento operacional do MVP definido em 05.1.
-

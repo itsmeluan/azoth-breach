@@ -72,8 +72,8 @@ Os arquivos ativos da pasta `05_produto` são:
 4. `AZOTH_05.3_Vertical_Slice_e_Prototipos_Operacionais_v0.6.md`  
    Define quais protótipos precisam existir, o que a vertical slice deve provar e como validar coerência entre campanha, alquimia, combate, exploração, UX e operação.
 
-5. `AZOTH_05.4_Modelo_de_Lancamento_e_Distribuicao_v0.1.md`  
-   Define estratégia de lançamento, plataformas-alvo, formato comercial inicial, critérios para early access ou lançamento fechado e premissas de distribuição.
+5. `AZOTH_05.4_Modelo_de_Lancamento_e_Distribuicao_v0.2.md`
+   Define estratégia de lançamento, plataformas-alvo, priorização iOS-first no primeiro ciclo mobile, formato comercial inicial, critérios para early access ou lançamento fechado e premissas de distribuição.
 
 6. `AZOTH_05.5_Operacao_Continua_Temporadas_e_Eventos_v0.1.md`  
    Define live ops, temporadas, ciclos de atualização, eventos, cadência de conteúdo e limites operacionais da continuidade do produto.

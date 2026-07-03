@@ -1,5 +1,59 @@
 # AZOTH: BREACH — Changelog da Documentação
 
+## 2026-07-02 — Priorização de iOS na Estratégia de Lançamento e Implementação Inicial
+
+### Arquivos Renomeados ou Versionados
+
+- `AZOTH_05.4_Modelo_de_Lancamento_e_Distribuicao_v0.1.md` foi versionado para `AZOTH_05.4_Modelo_de_Lancamento_e_Distribuicao_v0.2.md`.
+- `AZOTH_06.0_Estrategia_Tecnica_e_Stack_Inicial_v0.1.md` foi versionado para `AZOTH_06.0_Estrategia_Tecnica_e_Stack_Inicial_v0.2.md`.
+- `AZOTH_06.2_Pacote_de_Arranque_do_M1_v0.1.md` foi versionado para `AZOTH_06.2_Pacote_de_Arranque_do_M1_v0.2.md`.
+- `AZOTH_00.3_Estrutura_Mestre_da_Documentacao_v2.39.md` foi versionado para `AZOTH_00.3_Estrutura_Mestre_da_Documentacao_v2.40.md`.
+
+### Arquivos Movidos para Arquivo Histórico
+
+- `/docs/99_arquivo/versoes_anteriores/2026-07-02_prioridade_ios/AZOTH_05.4_Modelo_de_Lancamento_e_Distribuicao_v0.1.md`
+- `/docs/99_arquivo/versoes_anteriores/2026-07-02_prioridade_ios/AZOTH_06.0_Estrategia_Tecnica_e_Stack_Inicial_v0.1.md`
+- `/docs/99_arquivo/versoes_anteriores/2026-07-02_prioridade_ios/AZOTH_06.2_Pacote_de_Arranque_do_M1_v0.1.md`
+- `/docs/99_arquivo/versoes_anteriores/2026-07-02_prioridade_ios/AZOTH_00.3_Estrutura_Mestre_da_Documentacao_v2.39.md`
+
+### Arquivos Atualizados
+
+- `/README.md`
+- `/docs/README.md`
+- `/docs/CHANGELOG.md`
+- `/docs/00_constituicao/AZOTH_00.3_Estrutura_Mestre_da_Documentacao_v2.40.md`
+- `/docs/05_produto/README.md`
+- `/docs/05_produto/AZOTH_05.4_Modelo_de_Lancamento_e_Distribuicao_v0.2.md`
+- `/docs/05_produto/AZOTH_05.5_Operacao_Continua_Temporadas_e_Eventos_v0.1.md`
+- `/docs/05_produto/AZOTH_05.6_Monetizacao_e_Integridade_da_Experiencia_v0.1.md`
+- `/docs/05_produto/AZOTH_05.7_Expansoes_Endgame_e_Crescimento_do_Produto_v0.1.md`
+- `/docs/05_produto/AZOTH_05.8_Diretrizes_Operacionais_de_Arte_UI_e_Audio_v0.1.md`
+- `/docs/06_tecnologia/README.md`
+- `/docs/06_tecnologia/AZOTH_06.0_Estrategia_Tecnica_e_Stack_Inicial_v0.2.md`
+- `/docs/06_tecnologia/AZOTH_06.1_Arquitetura_Inicial_da_Build_e_Estrutura_de_Pastas_v0.1.md`
+- `/docs/06_tecnologia/AZOTH_06.2_Pacote_de_Arranque_do_M1_v0.2.md`
+- `/docs/98_consolidados_gpt/AZOTH_CONSOLIDADO_00_Constituicao_v1.0.md`
+- `/docs/98_consolidados_gpt/AZOTH_CONSOLIDADO_05_Produto_v1.0.md`
+- `/docs/98_consolidados_gpt/AZOTH_CONSOLIDADO_06_Tecnologia_v1.0.md`
+
+### Principais Alterações de Conteúdo
+
+- A decisão de plataforma do primeiro ciclo mobile foi formalmente fechada como `iOS-first`.
+- O Documento `05.4` deixou de tratar a prioridade entre iOS e Android como decisão em aberto e passou a registrar Android como expansão mobile subsequente.
+- O Documento `06.0` passou a refletir iOS como alvo prioritário de produto e como gatilho principal de validação técnica do arranque.
+- O Documento `06.2` alinhou o pacote técnico de `M1` à configuração inicial voltada para iOS.
+- O Documento `00.3`, os `README.md` afetados e as dependências internas foram sincronizados com os novos nomes de arquivo e com a decisão iOS-first.
+- Os consolidados de `00`, `05` e `06` em `98_consolidados_gpt` foram regenerados a partir das versões ativas já atualizadas.
+
+### Conflitos Encontrados
+
+- Havia um conflito estrutural leve entre a abertura ainda existente em `05.4` e a priorização explícita da camada técnica anterior. Esse conflito foi resolvido com o fechamento formal da prioridade iOS-first.
+
+### Pendências para Revisão Humana
+
+- Não há pendência crítica nesta rodada.
+- Continua em aberto apenas a definição da janela exata de expansão para Android após a validação iOS-first.
+
 ## 2026-07-02 — Atualização do README Raiz da Documentação
 
 ### Arquivos Atualizados
