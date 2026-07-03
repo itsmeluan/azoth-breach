@@ -1,6 +1,7 @@
 extends Node
 
 const OperationLoader = preload("res://scripts/services/operation_loader.gd")
+const CatalystLoader = preload("res://scripts/services/catalyst_loader.gd")
 
 const INITIAL_STATE_PATH := "res://data/state_templates/slice_state_initial.json"
 const SAVE_PATH := "user://slice_state_save.json"
@@ -12,6 +13,21 @@ const CHASE_LOOT_CHANCE := 15
 const MAX_REPORTS_RETAINED := 20
 const REPEATABLE_TYPE := "repetivel"
 
+# Recompensa data-driven "chance_de_runa_ou_catalisador" (05.9, presente em
+# op_varredura_estabilizacao.json desde TK-M1-006, nunca conectada a efeito
+# mecânico até aqui).
+const CATALYST_DROP_REWARD_KEY := "chance_de_runa_ou_catalisador"
+const CATALYST_DROP_CHANCE := 15
+# Pesos de raridade sem valor definido em /docs (04.6 §7.2 só define os
+# subtipos, não frequência) — decisão de implementação, mesma natureza das
+# faixas de qualidade já hardcoded em et_resolution.gd.
+const CATALYST_RARITY_WEIGHTS := {
+	"comum": 55,
+	"incomum": 30,
+	"raro": 12,
+	"experimental": 3,
+}
+
 var current_phase: String = ""
 var operations_unlocked: Array = []
 var operations_completed: Array = []
@@ -22,6 +38,8 @@ var et_upgrades: Dictionary = {}
 var codex_entries_unlocked: Array = []
 var reports_resolved: Array = []
 var chase_loot_obtained: Array = []
+var catalysts_owned: Dictionary = {}
+var equipped_catalysts: Dictionary = {}
 
 
 func _ready() -> void:
@@ -44,6 +62,8 @@ func _load_state() -> void:
 	codex_entries_unlocked = data.get("codex_entries_unlocked", [])
 	reports_resolved = data.get("reports_resolved", [])
 	chase_loot_obtained = data.get("chase_loot_obtained", [])
+	catalysts_owned = data.get("catalysts_owned", {})
+	equipped_catalysts = data.get("equipped_catalysts", {})
 
 
 func save_to_disk() -> void:
@@ -58,6 +78,8 @@ func save_to_disk() -> void:
 		"codex_entries_unlocked": codex_entries_unlocked,
 		"reports_resolved": reports_resolved,
 		"chase_loot_obtained": chase_loot_obtained,
+		"catalysts_owned": catalysts_owned,
+		"equipped_catalysts": equipped_catalysts,
 	}
 	var file := FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	file.store_string(JSON.stringify(data, "  "))
@@ -113,6 +135,14 @@ func complete_operation(operation_id: String, report_data: Dictionary = {}) -> v
 			chase_loot_this_run.append(chase_id)
 	report_data["chase_loot_this_run"] = chase_loot_this_run
 
+	var catalyst_gained := ""
+	if current_operation.get("rewards_guaranteed", []).has(CATALYST_DROP_REWARD_KEY):
+		if randi_range(1, 100) <= CATALYST_DROP_CHANCE:
+			catalyst_gained = _roll_random_catalyst()
+			if catalyst_gained != "":
+				add_catalyst(catalyst_gained)
+	report_data["catalyst_gained"] = catalyst_gained
+
 	save_to_disk()
 
 
@@ -140,3 +170,57 @@ func upgrade_et(et_id: String) -> bool:
 	et_upgrades[et_id] = current_level + 1
 	save_to_disk()
 	return true
+
+
+func add_catalyst(catalyst_id: String) -> void:
+	catalysts_owned[catalyst_id] = catalysts_owned.get(catalyst_id, 0) + 1
+	save_to_disk()
+
+
+func equip_catalyst(et_id: String, catalyst_id: String) -> bool:
+	if catalyst_id == "":
+		equipped_catalysts.erase(et_id)
+		save_to_disk()
+		return true
+	if catalysts_owned.get(catalyst_id, 0) <= 0:
+		return false
+	catalysts_owned[catalyst_id] -= 1
+	if catalysts_owned[catalyst_id] <= 0:
+		catalysts_owned.erase(catalyst_id)
+	equipped_catalysts[et_id] = catalyst_id
+	save_to_disk()
+	return true
+
+
+func catalyst_bonus_for(et_id: String) -> int:
+	var catalyst_id: String = equipped_catalysts.get(et_id, "")
+	if catalyst_id == "":
+		return 0
+	for catalyst in CatalystLoader.load_all():
+		if catalyst.get("id") == catalyst_id:
+			return catalyst.get("bonus_level", 0)
+	return 0
+
+
+func effective_resolution_level(et_id: String) -> int:
+	return et_upgrade_level(et_id) + catalyst_bonus_for(et_id)
+
+
+func _roll_random_catalyst() -> String:
+	var catalysts := CatalystLoader.load_all()
+	if catalysts.is_empty():
+		return ""
+	var total_weight := 0
+	for catalyst in catalysts:
+		var rarity: String = catalyst.get("rarity", "comum")
+		total_weight += CATALYST_RARITY_WEIGHTS.get(rarity, 0)
+	if total_weight <= 0:
+		return ""
+	var roll := randi_range(1, total_weight)
+	var cumulative := 0
+	for catalyst in catalysts:
+		var rarity: String = catalyst.get("rarity", "comum")
+		cumulative += CATALYST_RARITY_WEIGHTS.get(rarity, 0)
+		if roll <= cumulative:
+			return catalyst.get("id", "")
+	return catalysts[-1].get("id", "")

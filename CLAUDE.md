@@ -472,6 +472,60 @@ percebido como decisão regional até agora.
   qualquer trabalho de NPC/mentor em Ferrária — não é algo que os
   documentos resolvem sozinhos.
 
+### Catalisadores (primeira peça do sistema de loot/crafting)
+
+Implementa o slot de "catalisador" da estrutura mínima de buildcraft do
+MVP (`05.1` §10.3: "ET base + 1 modificador + 1 catalisador ou runa") —
+só esse slot, não "modificador"/runa, pra não empacotar dois sistemas
+novos de uma vez (fica pra iteração futura). Pesquisa em `/docs` antes de
+codar confirmou que não existe lista canônica de catalisadores nomeados
+em `01_alquimia` nem em `05.9` — só o conceito e a taxonomia formal
+(`04.6` §7.2: 7 subtipos funcionais — Estabilidade, Intensidade,
+Precisão, Propagação, Extração, Instáveis, Impossíveis). Os 4
+catalisadores implementados (`data/catalysts/*.json`) usam esses
+subtipos já canônicos como nome em vez de inventar nomenclatura nova:
+Estabilidade (comum, bônus +1), Intensidade (incomum, +2), Precisão
+(raro, +3), Instável (experimental/chase-tier, +4 — espelha "Instáveis"
+de `04.6`: mais poder, sem garantia).
+
+A pesquisa também achou um gancho pendurado nos dados desde `TK-M1-006`:
+a string `"chance_de_runa_ou_catalisador"` já existia em
+`rewards_guaranteed` de `op_varredura_estabilizacao.json` (vinda de
+`05.9`), mas nunca teve efeito mecânico — só aparecia como texto
+formatado genérico. Agora `SliceState.complete_operation()` rola contra
+essa string (`CATALYST_DROP_CHANCE = 15`, mesma faixa do chase loot) e,
+se acertar, sorteia 1 catalisador por peso de raridade
+(`CATALYST_RARITY_WEIGHTS`, sem valor definido em `/docs` — decisão de
+implementação) e adiciona ao inventário (`SliceState.catalysts_owned`).
+
+Efeito mecânico: `bonus_level` do catalisador equipado soma direto ao
+`upgrade_level` que já alimenta `ETResolution.resolve_attempt` — reaproveita
+100% a infraestrutura existente de melhoria de ET, nenhuma mecânica nova.
+Por isso `SliceState` ganhou dois métodos separados e não deve
+confundi-los: `et_upgrade_level(et_id)` continua sendo o nível puro
+comprado na Mesa de Pesquisa (usado só pra exibir "nível X/3"), e
+`effective_resolution_level(et_id)` (novo) é `et_upgrade_level +
+catalyst_bonus_for` — é esse último que os 3 call-sites reais de
+resolução (`operation_field_screen.gd`, `operation_grid_screen.gd` ×2)
+passam pra `ETResolution.resolve_attempt`. Misturar os dois faria a Mesa
+de Pesquisa mostrar "nível 4/3", incoerente.
+
+Equipar consome o catalisador do inventário permanentemente (sem
+"desequipar e recuperar") — mantém o modelo simples e casa com a ideia
+de catalisador como recurso consumível (`04.6` §7), não como equipamento
+reutilizável. Mesa de Pesquisa ganhou um `OptionButton` por ET
+(`research_screen.gd`) pra escolher entre "Nenhum" e os catalisadores
+possuídos; selecionar chama `SliceState.equip_catalyst()` direto.
+
+Validado headless: distribuição do sorteio de raridade em 1000 rolls
+bateu com os pesos configurados; taxa de drop em 200 tentativas de
+`complete_operation` ficou próxima dos 15% configurados; equipar consome
+o inventário corretamente e não pode ser feito sem possuir o catalisador;
+desequipar (`catalyst_id` vazio) limpa o slot sem devolver ao inventário;
+fluxo completo via UI (selecionar no `OptionButton`) atualiza estado e
+texto da linha (`"+X catalisador"`) corretamente; regressão do fluxo
+canônico completo sem vazamento de nó.
+
 ### Bug de navegação corrigido em M2
 
 `AppShell.go_to_scene()` chamava `child.queue_free()` sem `remove_child()`

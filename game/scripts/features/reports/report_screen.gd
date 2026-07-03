@@ -3,6 +3,7 @@ extends Control
 const OperationLoader = preload("res://scripts/services/operation_loader.gd")
 const CodexLoader = preload("res://scripts/services/codex_loader.gd")
 const ETLoader = preload("res://scripts/services/et_loader.gd")
+const CatalystLoader = preload("res://scripts/services/catalyst_loader.gd")
 const TextFormat = preload("res://scripts/services/text_format.gd")
 
 signal navigate_to(scene_path: String, context: Dictionary)
@@ -15,6 +16,7 @@ var _context: Dictionary = {}
 @onready var summary_label: Label = $Content/SummaryLabel
 @onready var rewards_label: Label = $Content/RewardsLabel
 @onready var chase_loot_label: Label = $Content/ChaseLootLabel
+@onready var catalyst_notice_label: Label = $Content/CatalystNoticeLabel
 @onready var codex_notice_label: Label = $Content/CodexNoticeLabel
 @onready var recontextualization_label: Label = $Content/RecontextualizationLabel
 @onready var research_notice_label: Label = $Content/ResearchNoticeLabel
@@ -64,6 +66,7 @@ func _ready() -> void:
 	]
 
 	chase_loot_label.text = _build_chase_loot_notice()
+	catalyst_notice_label.text = _build_catalyst_notice()
 	codex_notice_label.text = _build_codex_notice(operation)
 	recontextualization_label.text = operation.get("recontextualization_notice", "")
 	research_notice_label.text = "Melhoria de ET disponível — acesse a Mesa de Pesquisa no Hub."
@@ -87,6 +90,16 @@ func _build_chase_loot_notice() -> String:
 	for chase_id in chase_loot_this_run:
 		names.append(TextFormat.format_slug(chase_id))
 	return "Loot raro obtido: %s!" % ", ".join(names)
+
+
+func _build_catalyst_notice() -> String:
+	var catalyst_id: String = _context.get("catalyst_gained", "")
+	if catalyst_id == "":
+		return ""
+	for catalyst in CatalystLoader.load_all():
+		if catalyst.get("id") == catalyst_id:
+			return "Catalisador obtido: %s!" % catalyst.get("name", catalyst_id)
+	return "Catalisador obtido: %s!" % catalyst_id
 
 
 func _build_codex_notice(operation: Dictionary) -> String:

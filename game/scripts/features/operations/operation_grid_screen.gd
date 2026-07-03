@@ -272,7 +272,7 @@ func _on_cell_pressed(pos: Vector2i) -> void:
 
 
 func _apply_et_at(et_id: String, agent, pos: Vector2i) -> bool:
-	var upgrade_level: int = SliceState.et_upgrade_level(et_id)
+	var upgrade_level: int = SliceState.effective_resolution_level(et_id)
 	match et_id:
 		ET_CRISTALIZACAO:
 			if _model.apply_cristalizacao(agent, pos):
@@ -307,7 +307,7 @@ func _apply_et_at(et_id: String, agent, pos: Vector2i) -> bool:
 
 
 func _use_selagem_parcial(agent) -> void:
-	var upgrade_level: int = SliceState.et_upgrade_level(ET_SELAGEM)
+	var upgrade_level: int = SliceState.effective_resolution_level(ET_SELAGEM)
 	var result := _model.apply_selagem_parcial(upgrade_level)
 	_instability = max(_instability - result["delta"], 0)
 	_ets_used.append(ET_SELAGEM)

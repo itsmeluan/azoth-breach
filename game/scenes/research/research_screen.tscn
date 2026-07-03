@@ -35,6 +35,12 @@ layout_mode = 2
 text = ""
 horizontal_alignment = 1
 
+[node name="OwnedCatalystsLabel" type="Label" parent="Content"]
+layout_mode = 2
+autowrap_mode = 3
+text = ""
+horizontal_alignment = 1
+
 [node name="EtList" type="VBoxContainer" parent="Content"]
 layout_mode = 2
 theme_override_constants/separation = 10

@@ -103,7 +103,7 @@ func _on_et_selected(et_id: String) -> void:
 		return
 
 	_round += 1
-	var upgrade_level: int = SliceState.et_upgrade_level(et_id)
+	var upgrade_level: int = SliceState.effective_resolution_level(et_id)
 	var avoid_weak := et_id == CHASE_LOOT_BONUS_ET and SliceState.has_chase_loot(CHASE_LOOT_ID)
 	var result := ETResolution.resolve_attempt(upgrade_level, avoid_weak)
 	var delta: int = result["delta"]
