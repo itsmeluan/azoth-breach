@@ -537,21 +537,32 @@ inventário/recursos e configurações como telas próprias; o resto já
 existia, só precisava ficar alcançável do lugar certo.
 
 - **`hub_screen.gd`/`.tscn` absorveu `region_map_screen.gd`/`.tscn`**
-  (apagado depois da migração) — o Mapa de Aletheia (card de Ferrária +
-  7 regiões bloqueadas) agora é a própria tela inicial, sem clique
-  extra a partir de um Hub separado. Escolha deliberada de manter o
-  **mesmo caminho de arquivo** (`res://scenes/hub/hub_screen.tscn`)
-  como destino da fusão: toda outra tela do jogo já usa esse caminho
-  como `HUB_SCENE`/"Voltar ao Hub" (Briefing, Loadout, Campo, Grid,
-  Relatório, Pesquisa) — fundir ali em vez de criar uma tela nova evitou
-  precisar tocar em nenhuma dessas telas. Só `region_detail_screen.gd`
-  mudou (botão "Voltar ao Mapa" agora aponta pra `HUB_SCENE` em vez do
-  caminho apagado de `region_map_screen`). Card da região ganhou uma
-  linha nova, "Operação repetível disponível.", visível quando
-  `SliceState.repeatable_unlocked` — a Varredura de Estabilização não
-  virou uma "zona" separada no mapa (já pertence a Ferrária via
-  `region_id`, inventar uma segunda região só pra ela contrariaria o
-  grounding em `/docs`), só ficou mais visível que existe.
+  (apagado depois da migração) — o Mapa de Aletheia agora é a própria
+  tela inicial, sem clique extra a partir de um Hub separado. Escolha
+  deliberada de manter o **mesmo caminho de arquivo**
+  (`res://scenes/hub/hub_screen.tscn`) como destino da fusão: toda outra
+  tela do jogo já usa esse caminho como `HUB_SCENE`/"Voltar ao Hub"
+  (Briefing, Loadout, Campo, Grid, Relatório, Pesquisa) — fundir ali em
+  vez de criar uma tela nova evitou precisar tocar em nenhuma dessas
+  telas. Só `region_detail_screen.gd` mudou (botão "Voltar ao Mapa"
+  agora aponta pra `HUB_SCENE` em vez do caminho apagado de
+  `region_map_screen`).
+- **Layout revisado logo em seguida, a pedido do usuário**: a primeira
+  versão da fusão mostrava Ferrária como um card grande em destaque +
+  lista separada de regiões bloqueadas abaixo — o usuário sentiu que
+  isso não passava sensação de "mapa geral", parecia já abrir dentro da
+  região. Redesenhado como `RegionsGrid` (`GridContainer`, 2 colunas), um
+  grid uniforme com as 8 regiões (Ferrária + 7 bloqueadas) no mesmo peso
+  visual — só o botão de Ferrária fica habilitado, os outros 7
+  desabilitados com mesmo tamanho/estilo. Texto de Ferrária (nome,
+  subtítulo, Academia, estabilidade, pendências de Codex, nota de
+  repetível quando `SliceState.repeatable_unlocked`) foi todo pro
+  próprio botão multi-linha, em vez de labels separadas — mantém tudo
+  dentro do grid uniforme sem precisar de um painel de detalhe reativo à
+  parte. A Varredura de Estabilização não virou uma "zona" separada no
+  mapa (já pertence a Ferrária via `region_id`, inventar uma segunda
+  região só pra ela contrariaria o grounding em `/docs`), só ficou
+  visível via essa nota.
 - **HUD de 5 botões redondos** (`LeftHudButtons`: Personagens,
   Habilidades, Recursos; `RightHudButtons`: Codex, Configurações),
   `custom_minimum_size` fixo + `StyleBoxFlat` com `corner_radius_*=50`

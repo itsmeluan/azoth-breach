@@ -59,58 +59,12 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 16
 
-[node name="RegionCard" type="VBoxContainer" parent="Content"]
+[node name="RegionsGrid" type="GridContainer" parent="Content"]
 layout_mode = 2
-theme_override_constants/separation = 8
-
-[node name="RegionName" type="Label" parent="Content/RegionCard"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 22
-text = ""
-horizontal_alignment = 1
-
-[node name="RegionSubtitle" type="Label" parent="Content/RegionCard"]
-layout_mode = 2
-autowrap_mode = 3
-text = ""
-horizontal_alignment = 1
-
-[node name="RegionAcademia" type="Label" parent="Content/RegionCard"]
-layout_mode = 2
-autowrap_mode = 3
-text = ""
-horizontal_alignment = 1
-
-[node name="RegionStability" type="Label" parent="Content/RegionCard"]
-layout_mode = 2
-autowrap_mode = 3
-text = ""
-horizontal_alignment = 1
-
-[node name="RegionCodex" type="Label" parent="Content/RegionCard"]
-layout_mode = 2
-autowrap_mode = 3
-text = ""
-horizontal_alignment = 1
-
-[node name="RegionRepeatable" type="Label" parent="Content/RegionCard"]
-layout_mode = 2
-autowrap_mode = 3
-text = ""
-horizontal_alignment = 1
-
-[node name="EnterButton" type="Button" parent="Content/RegionCard"]
-layout_mode = 2
-text = "Ver operações"
-
-[node name="LockedRegionsLabel" type="Label" parent="Content"]
-layout_mode = 2
-text = "Outras regiões de Aletheia"
-horizontal_alignment = 1
-
-[node name="LockedRegionsList" type="VBoxContainer" parent="Content"]
-layout_mode = 2
-theme_override_constants/separation = 4
+size_flags_horizontal = 4
+columns = 2
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 12
 
 [node name="LeftHudButtons" type="VBoxContainer" parent="."]
 layout_mode = 1

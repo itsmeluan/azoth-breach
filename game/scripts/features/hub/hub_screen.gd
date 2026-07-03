@@ -31,14 +31,7 @@ const OTHER_REGIONS := [
 var _region: Dictionary = {}
 
 @onready var status_label: Label = $HubSubtitle
-@onready var region_name_label: Label = $Content/RegionCard/RegionName
-@onready var region_subtitle_label: Label = $Content/RegionCard/RegionSubtitle
-@onready var region_academia_label: Label = $Content/RegionCard/RegionAcademia
-@onready var region_stability_label: Label = $Content/RegionCard/RegionStability
-@onready var region_codex_label: Label = $Content/RegionCard/RegionCodex
-@onready var region_repeatable_label: Label = $Content/RegionCard/RegionRepeatable
-@onready var enter_button: Button = $Content/RegionCard/EnterButton
-@onready var locked_regions_container: VBoxContainer = $Content/LockedRegionsList
+@onready var regions_grid: GridContainer = $Content/RegionsGrid
 
 @onready var characters_button: Button = $LeftHudButtons/CharactersButton
 @onready var abilities_button: Button = $LeftHudButtons/AbilitiesButton
@@ -56,9 +49,7 @@ func _ready() -> void:
 
 	var regions := RegionLoader.load_all()
 	_region = regions[0] if not regions.is_empty() else {}
-	_populate_region_card()
-	_populate_locked_regions()
-	enter_button.pressed.connect(_on_enter_pressed)
+	_populate_regions_grid()
 
 	characters_button.pressed.connect(_on_characters_pressed)
 	abilities_button.pressed.connect(_on_abilities_pressed)
@@ -68,13 +59,35 @@ func _ready() -> void:
 	codex_close_button.pressed.connect(func() -> void: codex_popup.hide())
 
 
-func _populate_region_card() -> void:
-	region_name_label.text = _region.get("name", "")
-	region_subtitle_label.text = _region.get("subtitle", "")
-	region_academia_label.text = "Presença acadêmica: %s" % _region.get("academia", "")
-	region_stability_label.text = _stability_text()
-	region_codex_label.text = _codex_pendencies_text()
-	region_repeatable_label.text = "Operação repetível disponível." if SliceState.repeatable_unlocked else ""
+func _populate_regions_grid() -> void:
+	var ferraria_button := Button.new()
+	ferraria_button.text = _ferraria_button_text()
+	ferraria_button.autowrap_mode = TextServer.AUTOWRAP_WORD
+	ferraria_button.custom_minimum_size = Vector2(320, 180)
+	ferraria_button.pressed.connect(_on_enter_pressed)
+	regions_grid.add_child(ferraria_button)
+
+	for entry in OTHER_REGIONS:
+		var button := Button.new()
+		button.text = "%s\n(bloqueada)" % entry["name"]
+		button.tooltip_text = entry["subtitle"]
+		button.autowrap_mode = TextServer.AUTOWRAP_WORD
+		button.custom_minimum_size = Vector2(320, 180)
+		button.disabled = true
+		regions_grid.add_child(button)
+
+
+func _ferraria_button_text() -> String:
+	var lines: Array[String] = [
+		_region.get("name", ""),
+		_region.get("subtitle", ""),
+		"Presença acadêmica: %s" % _region.get("academia", ""),
+		_stability_text(),
+		_codex_pendencies_text(),
+	]
+	if SliceState.repeatable_unlocked:
+		lines.append("Operação repetível disponível.")
+	return "\n".join(lines)
 
 
 func _region_operations() -> Array[Dictionary]:
@@ -120,15 +133,6 @@ func _codex_pendencies_text() -> String:
 	if unlocked >= total:
 		return "Pendências de Codex: nenhuma pendência — todos os registros da região analisados."
 	return "Pendências de Codex: %d de %d registros pendentes de análise." % [total - unlocked, total]
-
-
-func _populate_locked_regions() -> void:
-	for entry in OTHER_REGIONS:
-		var button := Button.new()
-		button.text = "%s (bloqueada)" % entry["name"]
-		button.tooltip_text = entry["subtitle"]
-		button.disabled = true
-		locked_regions_container.add_child(button)
 
 
 func _on_enter_pressed() -> void:
