@@ -1,6 +1,7 @@
 extends VBoxContainer
 
 const OperationLoader = preload("res://scripts/services/operation_loader.gd")
+const OperationState = preload("res://scripts/services/operation_state.gd")
 
 signal operation_selected(operation_id: String)
 
@@ -18,18 +19,18 @@ func _build_board() -> void:
 
 func _build_entry(operation: Dictionary) -> Button:
 	var operation_id: String = operation.get("id", "")
-	var unlocked := SliceState.is_operation_unlocked(operation_id)
-	var status := "Disponível" if unlocked else "Bloqueada"
+	var state := OperationState.compute(operation)
+	var selectable := OperationState.is_selectable(state)
 
 	var button := Button.new()
-	button.disabled = not unlocked
+	button.disabled = not selectable
 	button.text = "%s — %s\n[tipo: %s | risco: %s] %s" % [
 		operation.get("name", ""),
 		operation.get("sublocal", ""),
 		operation.get("type", ""),
 		operation.get("risk_level", ""),
-		status,
+		OperationState.label(state),
 	]
-	if unlocked:
+	if selectable:
 		button.pressed.connect(func() -> void: operation_selected.emit(operation_id))
 	return button

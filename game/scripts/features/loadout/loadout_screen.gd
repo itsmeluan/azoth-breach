@@ -45,7 +45,7 @@ func _build_style_buttons() -> void:
 
 
 func _select_loadout(loadout_id: String) -> void:
-	SliceState.active_loadout = loadout_id
+	SliceState.set_active_loadout(loadout_id)
 	_display_loadout(loadout_id)
 
 
