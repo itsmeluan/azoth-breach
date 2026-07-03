@@ -16,6 +16,10 @@ run/main_scene="res://scenes/app/app_shell.tscn"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+SliceState="*res://scripts/state/slice_state.gd"
+
 [display]
 
 window/size/viewport_width=1080

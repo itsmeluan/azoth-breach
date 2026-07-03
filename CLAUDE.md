@@ -68,7 +68,17 @@ sem reescrever a arquitetura base (princípio 2.5 do Documento 06.1).
   (`TK-M1-004`). Faz roteamento básico (`go_to_scene`) via um container
   `ScreenHost` e abre o Hub (`scenes/hub/hub_screen.tscn`) como tela inicial.
   O Hub ainda é um stub — quadro de operações, acesso a Codex e Mesa de
-  Pesquisa entram em tarefas posteriores (`TK-M1-005` em diante).
+  Pesquisa entram em tarefas posteriores (`TK-M1-006` em diante).
+- Autoload `SliceState` (`scripts/state/slice_state.gd`, `TK-M1-005`) carrega
+  `data/state_templates/slice_state_initial.json` no boot (antes do `_ready()`
+  do App Shell) e expõe os campos mínimos de `06.1` 4.4. Estado inicial:
+  `op_primeira_fissura` desbloqueada; `op_vestigio_discrepante` e a repetível
+  bloqueadas; `active_loadout = "loadout_contencao_inicial"` (build de
+  Contenção escolhida como padrão por ser a primeira listada em `05.9`/`05.11`
+  e tematicamente alinhada ao objetivo de estabilização de `BL-005` — não há
+  padrão explícito nos documentos, decisão de implementação registrada aqui).
+  IDs de operação e loadout (`op_*`, `loadout_*_inicial`) devem ser
+  reaproveitados quando `TK-M1-006`/`TK-M1-009` criarem os dados reais.
 - `renderer/rendering_method`: `mobile` (compatível com Metal/iOS).
 - Viewport base: `1080x1920`, `window/handheld/orientation = portrait`,
   stretch `canvas_items` / `expand`.
