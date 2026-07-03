@@ -33,8 +33,7 @@ var _ets_used: Array[String] = []
 var _model: GridCombatModel
 var _pending_et: String = ""
 var _move_mode: bool = false
-var _move_used_this_round: bool = false
-var _et_used_this_round: bool = false
+var _selected_agent_et_id: String = ""
 var _finished: bool = false
 var _start_time_msec: int = 0
 var _cell_buttons: Array = []
@@ -42,6 +41,7 @@ var _cell_buttons: Array = []
 @onready var operation_title_label: Label = $Content/OperationTitle
 @onready var objective_label: Label = $Content/ObjectiveLabel
 @onready var status_label: Label = $Content/StatusLabel
+@onready var agent_buttons_container: HBoxContainer = $Content/AgentButtons
 @onready var grid_container: GridContainer = $Content/GridContainer
 @onready var et_buttons_container: HBoxContainer = $Content/EtButtons
 @onready var move_button: Button = $Content/ActionButtons/MoveButton
@@ -61,8 +61,9 @@ func _ready() -> void:
 	operation_title_label.text = "%s — %s" % [_operation.get("name", ""), _operation.get("sublocal", "")]
 	_index_ets()
 	objective_label.text = _build_objective_text()
-	_model = GridCombatModel.new()
+	_model = GridCombatModel.new(_build_agent_configs())
 	_build_grid()
+	_build_agent_buttons()
 	_build_et_buttons()
 	_render_grid()
 	_update_status()
@@ -102,11 +103,48 @@ func _active_loadout_ets() -> Array:
 	return []
 
 
+func _build_agent_configs() -> Array[Dictionary]:
+	var result: Array[Dictionary] = []
+	for et_id in _active_loadout_ets():
+		var et: Dictionary = _ets_by_id.get(et_id, {})
+		result.append({"id": et_id, "name": et.get("name", et_id)})
+	return result
+
+
+func _agent_for_et(et_id: String):
+	for agent in _model.agents:
+		if agent.et_id == et_id:
+			return agent
+	return null
+
+
+func _build_agent_buttons() -> void:
+	for agent in _model.agents:
+		var button := Button.new()
+		button.text = _agent_button_text(agent)
+		button.set_meta("et_id", agent.et_id)
+		button.pressed.connect(func() -> void: _on_agent_selected(agent.et_id))
+		agent_buttons_container.add_child(button)
+
+
+func _agent_button_text(agent) -> String:
+	return "%s: %d/%d" % [agent.display_name, agent.hp, agent.max_hp]
+
+
+func _refresh_agent_buttons_text() -> void:
+	for button in agent_buttons_container.get_children():
+		var et_id: String = button.get_meta("et_id")
+		var agent = _agent_for_et(et_id)
+		if agent != null:
+			button.text = _agent_button_text(agent)
+
+
 func _build_et_buttons() -> void:
 	for et_id in _active_loadout_ets():
 		var et: Dictionary = _ets_by_id.get(et_id, {})
 		var button := Button.new()
 		button.text = et.get("name", et_id)
+		button.set_meta("et_id", et_id)
 		button.pressed.connect(func() -> void: _on_et_selected(et_id))
 		et_buttons_container.add_child(button)
 
@@ -133,8 +171,9 @@ func _render_grid(highlighted: Array[Vector2i] = []) -> void:
 
 
 func _cell_glyph(pos: Vector2i) -> String:
-	if pos == _model.player_position:
-		return "P"
+	var agent := _model.agent_at(pos)
+	if agent != null:
+		return _agent_glyph(agent.et_id)
 	for i in _model.enemies.size():
 		var enemy = _model.enemies[i]
 		if enemy.is_alive() and enemy.position == pos:
@@ -144,37 +183,73 @@ func _cell_glyph(pos: Vector2i) -> String:
 	return "."
 
 
+func _agent_glyph(et_id: String) -> String:
+	match et_id:
+		ET_SELAGEM:
+			return "Se"
+		ET_CRISTALIZACAO:
+			return "Cr"
+		ET_DECOMPOSICAO:
+			return "De"
+		ET_ANALISE:
+			return "An"
+	return "Ag"
+
+
+func _on_agent_selected(et_id: String) -> void:
+	if _finished:
+		return
+	var agent = _agent_for_et(et_id)
+	if agent == null or not agent.is_alive():
+		return
+	_selected_agent_et_id = et_id
+	_move_mode = false
+	_pending_et = ""
+	_render_grid()
+	_update_action_buttons_enabled()
+
+
 func _on_move_mode_pressed() -> void:
-	if _finished or _move_used_this_round:
+	if _finished or _selected_agent_et_id == "":
+		return
+	var agent = _agent_for_et(_selected_agent_et_id)
+	if agent == null or not agent.is_alive() or agent.move_used_this_round:
 		return
 	_pending_et = ""
 	_move_mode = true
-	_render_grid(_model.valid_move_cells())
+	_render_grid(_model.valid_move_cells(agent))
 
 
 func _on_et_selected(et_id: String) -> void:
-	if _finished or _et_used_this_round:
+	if _finished:
+		return
+	var agent = _agent_for_et(et_id)
+	if agent == null or not agent.is_alive() or agent.et_used_this_round:
 		return
 	if et_id == ET_SELAGEM:
-		_use_selagem_parcial()
+		_use_selagem_parcial(agent)
 		return
 	_pending_et = et_id
 	_move_mode = false
-	_render_grid(_valid_targets_for(et_id))
+	_render_grid(_valid_targets_for(et_id, agent))
 
 
-func _valid_targets_for(et_id: String) -> Array[Vector2i]:
+func _valid_targets_for(et_id: String, agent) -> Array[Vector2i]:
 	match et_id:
 		ET_CRISTALIZACAO:
-			return _model.adjacent_cells(_model.player_position).filter(
-				func(pos: Vector2i) -> bool: return not _model.is_obstacle(pos) and not _model.is_occupied(pos)
-			)
+			var result: Array[Vector2i] = []
+			for pos in _model.adjacent_cells(agent.position):
+				if not _model.is_obstacle(pos) and not _model.is_occupied(pos):
+					result.append(pos)
+			return result
 		ET_DECOMPOSICAO:
-			return _model.adjacent_cells(_model.player_position).filter(
-				func(pos: Vector2i) -> bool: return _model.enemy_at(pos) != null
-			)
+			var result: Array[Vector2i] = []
+			for pos in _model.adjacent_cells(agent.position):
+				if _model.enemy_at(pos) != null:
+					result.append(pos)
+			return result
 		ET_ANALISE:
-			return _model.adjacent_cells(_model.player_position)
+			return _model.adjacent_cells(agent.position)
 	return []
 
 
@@ -182,29 +257,31 @@ func _on_cell_pressed(pos: Vector2i) -> void:
 	if _finished:
 		return
 	if _move_mode:
-		if _model.move_player(pos):
+		var agent = _agent_for_et(_selected_agent_et_id)
+		if agent != null and _model.move_agent(agent, pos):
+			agent.move_used_this_round = true
 			_move_mode = false
-			_move_used_this_round = true
 			_after_action()
 		return
 	if _pending_et != "":
-		if _apply_et_at(_pending_et, pos):
-			_et_used_this_round = true
+		var agent = _agent_for_et(_pending_et)
+		if agent != null and _apply_et_at(_pending_et, agent, pos):
+			agent.et_used_this_round = true
 		_pending_et = ""
 		_after_action()
 
 
-func _apply_et_at(et_id: String, pos: Vector2i) -> bool:
+func _apply_et_at(et_id: String, agent, pos: Vector2i) -> bool:
 	var upgrade_level: int = SliceState.et_upgrade_level(et_id)
 	match et_id:
 		ET_CRISTALIZACAO:
-			if _model.apply_cristalizacao(pos):
+			if _model.apply_cristalizacao(agent, pos):
 				_ets_used.append(et_id)
 				_log_et_used(et_id)
 				return true
 			return false
 		ET_DECOMPOSICAO:
-			var result := _model.apply_decomposicao(pos, upgrade_level)
+			var result := _model.apply_decomposicao(agent, pos, upgrade_level)
 			if not result.is_empty():
 				_ets_used.append(et_id)
 				_log_et_used(et_id, result.get("quality", ""))
@@ -213,7 +290,7 @@ func _apply_et_at(et_id: String, pos: Vector2i) -> bool:
 		ET_ANALISE:
 			if not _dual_objective_et.is_empty() and et_id == _dual_objective_et:
 				_evidence += 1
-				_model.log_lines.append("Análise de Vestígio revelou informação sobre %s." % [pos])
+				_model.log_lines.append("%s (Análise de Vestígio) revelou informação sobre %s." % [agent.display_name, pos])
 				_ets_used.append(et_id)
 				_log_et_used(et_id)
 			else:
@@ -229,13 +306,13 @@ func _apply_et_at(et_id: String, pos: Vector2i) -> bool:
 	return false
 
 
-func _use_selagem_parcial() -> void:
+func _use_selagem_parcial(agent) -> void:
 	var upgrade_level: int = SliceState.et_upgrade_level(ET_SELAGEM)
 	var result := _model.apply_selagem_parcial(upgrade_level)
 	_instability = max(_instability - result["delta"], 0)
 	_ets_used.append(ET_SELAGEM)
 	_log_et_used(ET_SELAGEM, result.get("quality", ""))
-	_et_used_this_round = true
+	agent.et_used_this_round = true
 	_after_action()
 
 
@@ -252,26 +329,38 @@ func _after_action() -> void:
 	log_label.text = "\n".join(_model.log_lines)
 	_update_status()
 	_render_grid()
+	_refresh_agent_buttons_text()
 	_update_action_buttons_enabled()
 	_check_end_conditions()
 
 
 func _update_action_buttons_enabled() -> void:
-	move_button.disabled = _finished or _move_used_this_round
+	var selected_agent = _agent_for_et(_selected_agent_et_id) if _selected_agent_et_id != "" else null
+	move_button.disabled = _finished or selected_agent == null or not selected_agent.is_alive() or selected_agent.move_used_this_round
+
 	for et_button in et_buttons_container.get_children():
-		et_button.disabled = _finished or _et_used_this_round
+		var et_id: String = et_button.get_meta("et_id")
+		var agent = _agent_for_et(et_id)
+		et_button.disabled = _finished or agent == null or not agent.is_alive() or agent.et_used_this_round
+
+	for agent_button in agent_buttons_container.get_children():
+		var et_id: String = agent_button.get_meta("et_id")
+		var agent = _agent_for_et(et_id)
+		agent_button.disabled = _finished or agent == null or not agent.is_alive()
 
 
 func _on_end_round_pressed() -> void:
 	if _finished:
 		return
 	_round += 1
-	_model.enemy_phase()
-	_move_used_this_round = false
-	_et_used_this_round = false
+	var pressure := _model.enemy_phase()
+	_instability += pressure
+	for agent in _model.agents:
+		agent.reset_round()
 	log_label.text = "\n".join(_model.log_lines)
 	_update_status()
 	_render_grid()
+	_refresh_agent_buttons_text()
 	_update_action_buttons_enabled()
 	_check_end_conditions()
 
@@ -279,16 +368,14 @@ func _on_end_round_pressed() -> void:
 func _check_end_conditions() -> void:
 	if _instability <= 0:
 		_finish_operation("sucesso")
-	elif _model.player_hp <= 0:
+	elif _model.all_agents_defeated():
 		_finish_operation("retirada forçada")
 	elif _round >= _max_rounds:
 		_finish_operation("estabilização parcial")
 
 
 func _update_status() -> void:
-	var text := "Rodada %d de %d — Instabilidade: %d — Vida: %d/%d" % [
-		_round, _max_rounds, _instability, _model.player_hp, GridCombatModel.PLAYER_MAX_HP,
-	]
+	var text := "Rodada %d de %d — Instabilidade: %d" % [_round, _max_rounds, _instability]
 	if _evidence_target > 0:
 		text += " — Vestígios: %d/%d" % [_evidence, _evidence_target]
 	status_label.text = text
@@ -298,6 +385,14 @@ func _finish_operation(outcome: String) -> void:
 	_finished = true
 	var operation_id: String = _operation.get("id", "")
 	var duration_ms := Time.get_ticks_msec() - _start_time_msec
+
+	var agents_hp: Array = []
+	var total_hp := 0
+	var total_max_hp := 0
+	for agent in _model.agents:
+		agents_hp.append({"name": agent.display_name, "hp": agent.hp, "max_hp": agent.max_hp})
+		total_hp += agent.hp
+		total_max_hp += agent.max_hp
 
 	var report_data := {
 		"operation_id": operation_id,
@@ -309,8 +404,9 @@ func _finish_operation(outcome: String) -> void:
 		"evidence_target": _evidence_target,
 		"enemies_defeated": _model.enemies_defeated_count(),
 		"enemies_total": _model.enemies.size(),
-		"player_hp_remaining": _model.player_hp,
-		"player_max_hp": GridCombatModel.PLAYER_MAX_HP,
+		"player_hp_remaining": total_hp,
+		"player_max_hp": total_max_hp,
+		"agents_hp": agents_hp,
 	}
 	SliceState.complete_operation(operation_id, report_data)
 	TelemetryLogger.log_event("operation_completed", {

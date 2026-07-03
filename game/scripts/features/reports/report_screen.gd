@@ -43,9 +43,17 @@ func _ready() -> void:
 		summary_text += "\nInimigos neutralizados: %d/%d" % [
 			_context.get("enemies_defeated", 0), _context.get("enemies_total", 0),
 		]
-		summary_text += "\nVida restante: %d/%d" % [
-			_context.get("player_hp_remaining", 0), _context.get("player_max_hp", 0),
-		]
+		if _context.has("agents_hp"):
+			var agent_lines: Array[String] = []
+			for agent_data in _context.get("agents_hp", []):
+				agent_lines.append("%s: %d/%d" % [
+					agent_data.get("name", ""), agent_data.get("hp", 0), agent_data.get("max_hp", 0),
+				])
+			summary_text += "\nAgentes:\n- %s" % "\n- ".join(agent_lines)
+		else:
+			summary_text += "\nVida restante: %d/%d" % [
+				_context.get("player_hp_remaining", 0), _context.get("player_max_hp", 0),
+			]
 	summary_label.text = summary_text
 
 	var rewards: Array = operation.get("rewards_guaranteed", [])

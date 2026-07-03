@@ -125,44 +125,91 @@ sem reescrever a arquitetura base (princípio 2.5 do Documento 06.1).
   combate tático. Varredura entrou depois, no mesmo pedido: como é a única
   operação `repetivel`, é o único jeito de re-testar o grid depois que as
   operações de campanha ficam `COMPLETED` e travam (`BL-020`). Grid 6x6
-  (`04.3 §6.1`), agente jogável único (HP 100 — `BL-009` já define agente
-  único, não os 3 personagens de `04.3 §15.1`, que é MVP completo), 2
-  inimigos "Criatura Deslocada" fixos no script (`04.3 §16.1`, espelha o
-  exemplo oficial de `04.3 §32.1`), turno por time (`04.3 §8.2`: mover
-  e/ou 1 ET, depois fase de inimigo). Cada ET tem efeito de campo distinto
-  usando o campo `role` de `data/ets/*.json` (existia desde `TK-M1-009`,
-  nunca tinha sido usado de fato): Selagem Parcial reduz Instabilidade;
-  Cristalização Controlada cria obstáculo/cobertura (reduz dano em 50% pra
-  quem está adjacente); Decomposição Dirigida dana inimigo adjacente;
-  Análise de Vestígio soma vestígio **só quando a operação define
-  `dual_objective_et`** (só Vestígio Discrepante) — em operações sem
-  objetivo duplo (Varredura), Análise de Vestígio reduz Instabilidade
-  como Selagem Parcial (`GridCombatModel.apply_analise_instabilidade`),
-  senão a ET ficaria sem nenhum efeito mecânico ali; o bônus da Lente de
-  Vestígio (evita "fraca") se aplica igual nos dois casos. Derrotar
-  inimigos não é obrigatório — o objetivo continua sendo Instabilidade ≤ 0,
-  inimigos são pressão tática (`04.3 §4`). Novo outcome `retirada forçada`
-  (vida a 0) ainda concede recompensa garantida (`04.3 §23.3`).
-  Simplificações explícitas: sem fog of war/linha de efeito, sem estados
-  de campo além do obstáculo, sem telegraphing visual dedicado, inimigos
-  hardcoded (não viraram tipo de conteúdo em `/data` — `06.1` não define
-  esse modelo, criar um formato novo pra 2 instâncias fixas seria
-  abstração prematura). Dois bugs reais de IA corrigidos durante a
-  validação: inimigo travava permanentemente atrás de obstáculo (só
+  (`04.3 §6.1`), turno por time (`04.3 §8.2`: mover e/ou 1 ET, depois fase
+  de inimigo). Cada ET tem efeito de campo distinto usando o campo `role`
+  de `data/ets/*.json` (existia desde `TK-M1-009`, nunca tinha sido usado
+  de fato): Selagem Parcial reduz Instabilidade; Cristalização Controlada
+  cria obstáculo/cobertura (reduz dano em 50% pra quem está adjacente);
+  Decomposição Dirigida dana inimigo adjacente; Análise de Vestígio soma
+  vestígio **só quando a operação define `dual_objective_et`** (só
+  Vestígio Discrepante) — em operações sem objetivo duplo (Varredura),
+  Análise de Vestígio reduz Instabilidade como Selagem Parcial
+  (`GridCombatModel.apply_analise_instabilidade`), senão a ET ficaria sem
+  nenhum efeito mecânico ali; o bônus da Lente de Vestígio (evita "fraca")
+  se aplica igual nos dois casos. Derrotar inimigos não é obrigatório — o
+  objetivo continua sendo Instabilidade ≤ 0, inimigos são pressão tática
+  (`04.3 §4`). Simplificações explícitas: sem fog of war/linha de efeito,
+  sem estados de campo além do obstáculo, sem telegraphing visual
+  dedicado. Dois bugs reais de IA corrigidos durante a validação
+  original: inimigo travava permanentemente atrás de obstáculo (só
   tentava os 2 passos "diretos"); a correção ingênua causava oscilação
   entre 2 células. Resolvido com busca gulosa entre todas as adjacentes
   livres + memória da célula anterior pra não retroceder. **Economia de
-  ação por rodada** (`_move_used_this_round`/`_et_used_this_round` em
-  `operation_grid_screen.gd`, botões desabilitados após o uso e
-  reabilitados só em "Terminar rodada"): o "1 movimento e/ou 1 ET por
-  rodada" descrito acima ficou só documentado, não implementado, na
-  primeira versão do grid — dava pra usar qualquer quantidade de ETs (ou
-  se mover várias vezes) antes de terminar a rodada, o que zerava
-  Instabilidade sem nunca enfrentar a fase de inimigo e contradizia
-  diretamente o motivo de existir o grid ("quero testar um combate
-  real"). Achado numa passada de regressão pedida pelo usuário depois de
-  fechar o suporte da Varredura; corrigido e revalidado end-to-end via
-  UI simulada (não só no model).
+  ação por rodada** (1 movimento e/ou 1 ET por agente por rodada, botões
+  desabilitados após o uso e reabilitados só em "Terminar rodada"): o
+  design original documentava essa regra mas não a implementava — dava
+  pra spammar ETs numa rodada só, zerando Instabilidade sem nunca
+  enfrentar a fase de inimigo, contradizendo o motivo de existir o grid.
+  Achado numa passada de regressão pedida pelo usuário e corrigido antes
+  da expansão para múltiplos agentes descrita abaixo.
+- **Múltiplos agentes jogáveis e variedade de inimigos** (reescrita de
+  `grid_combat_model.gd`/`operation_grid_screen.gd`, extensão de escopo
+  pós-M6 autorizada diretamente pelo usuário — ver "Pós-M6: transição
+  para escopo de MVP"): pesquisa em `/docs` antes de codar confirmou que
+  **não existem personagens jogáveis nomeados** (protagonista
+  explicitamente "fora de escopo" em `02.5`, linhas 137/1466/1493/1510)
+  — `04.3` §15 só recomenda "equipe de 3" por função tática (`04.3` §14),
+  sem nomes. Decisão de design pra entregar "múltiplos personagens" sem
+  inventar nada: **cada uma das 3 ETs do loadout ativo agora é um agente
+  jogável separado no grid**, travado à própria ET (Build de Investigação
+  → 3 agentes: "Análise de Vestígio", "Selagem Parcial", "Decomposição
+  Dirigida"). HP por agente: `60` (`AGENT_MAX_HP`, era `100` num agente
+  único). Cada agente seleciona-se implicitamente ao clicar no próprio
+  botão de ET (não precisa de passo de seleção separado); movimento
+  precisa de seleção explícita via novo `AgentButtons` (mostra
+  `"<nome>: <hp>/<max_hp>"`, clicar habilita "Mover" pra aquele agente).
+  Economia de ação por rodada migrou de bools no screen pra campos
+  (`move_used_this_round`/`et_used_this_round`) dentro da própria classe
+  `Agent` no model. `retirada forçada` agora exige `all_agents_defeated()`
+  (os 3, não só 1). Inimigo mira sempre o **agente vivo mais próximo por
+  distância Manhattan** (`_nearest_agent`) — regra nova, não existia com
+  agente único.
+  - **3 tipos de inimigo agora** (era 1, `Criatura Deslocada` repetida
+    2x), 1 de cada, grounded em `04.3` §16 (nenhum valor numérico definido
+    lá — HP/dano são decisão de implementação): **Criatura Deslocada**
+    (§16.1, sem mudança de comportamento, só passa a mirar o agente
+    certo); **Operador Hostil** (§16.3 "sabota contenção" — se não está
+    adjacente a nenhum agente e há obstáculo adjacente a ele, remove o
+    obstáculo em vez de se mover, tradução mecânica direta da sabotagem);
+    **Fenômeno de Campo** (§16.4 "ameaça sistêmica mesmo sem vida" —
+    estacionário, nunca ataca, soma Instabilidade a cada rodada em que
+    segue vivo, só some via Decomposição Dirigida). `enemy_phase()` mudou
+    de `-> void` pra `-> int` (retorna a pressão de Instabilidade gerada),
+    mantendo o padrão já existente de "o model nunca decrementa
+    `_instability` diretamente, sempre retorna delta pro screen aplicar".
+    Composição de inimigos é igual nas duas operações de grid — variar
+    por operação e adicionar Entidade Anômala/Guardião de Ruína (também
+    em `04.3` §16, não implementados ainda) é iteração futura, não parte
+    desta passada.
+  - Relatório (`report_screen.gd`) ganhou campo `agents_hp` (lista por
+    agente) — mudança aditiva, não reescrita: somar o HP dos 3 agentes
+    num único número escondia informação real (um agente inteiro morto
+    ainda mostraria "120/180", parecendo só "perdi 1/3"); Primeira
+    Fissura (sem grid) continua usando o formato antigo de soma única
+    via checagem condicional `_context.has("agents_hp")`.
+  - Cuidado de tipagem confirmado na validação: `_agent_for_et()` não tem
+    tipo de retorno declarado (evita expor `GridCombatModel.Agent` como
+    tipo externo, mesmo padrão já usado pra `Enemy`) — todo call-site
+    precisa usar `var agent = ...` (sem `:=`), porque `:=` com função sem
+    tipo de retorno declarado falha a inferência estática em GDScript 4 e
+    quebra o parse. Erro real encontrado e corrigido durante a validação
+    desta feature.
+  - Plano revisado por um segundo agente focado em riscos técnicos de
+    GDScript antes da implementação (arquivado em
+    `~/.claude/plans/piped-orbiting-narwhal.md`) — identificou a regra de
+    alvo mais próximo (faltava no design original) e o risco de
+    `.filter()`/`.map()` perder tipagem `Array[T]`, já historicamente
+    real neste projeto.
 - Relatório e recompensa (`scenes/reports/report_screen.tscn`, origem em
   M2 `BL-014`/`BL-006`, generalizado em M3 `BL-016`/`BL-018`): mostra
   resultado/rodadas/ETs usadas, evidência coletada vs. meta quando
