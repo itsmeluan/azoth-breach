@@ -1,16 +1,51 @@
 extends Control
 
 const CodexLoader = preload("res://scripts/services/codex_loader.gd")
+const RegionLoader = preload("res://scripts/services/region_loader.gd")
+const OperationLoader = preload("res://scripts/services/operation_loader.gd")
 
 signal navigate_to(scene_path: String, context: Dictionary)
 
-const REGION_MAP_SCENE := "res://scenes/hub/region_map_screen.tscn"
+const REGION_DETAIL_SCENE := "res://scenes/hub/region_detail_screen.tscn"
 const RESEARCH_SCENE := "res://scenes/research/research_screen.tscn"
+const LOADOUT_SCENE := "res://scenes/loadout/loadout_screen.tscn"
+const RESOURCES_SCENE := "res://scenes/hub/resources_screen.tscn"
+const SETTINGS_SCENE := "res://scenes/hub/settings_screen.tscn"
+const CAMPAIGN_TYPE := "campanha"
+
+# Demais regiões canônicas de Aletheia (docs/02_lore/AZOTH_02.9 cap. 4), ainda
+# sem conteúdo jogável — mostradas bloqueadas só para dar a sensação de que o
+# mundo é maior que o recorte inicial (05.1 §7.1, §19: placeholder aceitável,
+# "região no mapa ainda interditada"). Hardcoded porque é lista de flavor, não
+# conteúdo jogável — mesma lógica já aplicada aos inimigos fixos do grid.
+const OTHER_REGIONS := [
+	{"name": "Aurentum", "subtitle": "Aurentum e o Cinturão Auricário"},
+	{"name": "Lumenport", "subtitle": "Lumenport e as Costas Instáveis"},
+	{"name": "Viridessa", "subtitle": "Viridessa e as Selvas de Viriditas"},
+	{"name": "Noctíria", "subtitle": "Noctíria e as Cidades-Espelho"},
+	{"name": "Calx-Rama", "subtitle": "Calx-Rama e os Campos de Ruína"},
+	{"name": "Umbrafenda", "subtitle": "Umbrafenda e as Fronteiras de Breach"},
+	{"name": "Arquipélago de Nacre", "subtitle": "Arquipélago de Nacre"},
+]
+
+var _region: Dictionary = {}
 
 @onready var status_label: Label = $HubSubtitle
-@onready var map_button: Button = $ActionButtons/MapButton
-@onready var codex_button: Button = $ActionButtons/CodexButton
-@onready var research_button: Button = $ActionButtons/ResearchButton
+@onready var region_name_label: Label = $Content/RegionCard/RegionName
+@onready var region_subtitle_label: Label = $Content/RegionCard/RegionSubtitle
+@onready var region_academia_label: Label = $Content/RegionCard/RegionAcademia
+@onready var region_stability_label: Label = $Content/RegionCard/RegionStability
+@onready var region_codex_label: Label = $Content/RegionCard/RegionCodex
+@onready var region_repeatable_label: Label = $Content/RegionCard/RegionRepeatable
+@onready var enter_button: Button = $Content/RegionCard/EnterButton
+@onready var locked_regions_container: VBoxContainer = $Content/LockedRegionsList
+
+@onready var characters_button: Button = $LeftHudButtons/CharactersButton
+@onready var abilities_button: Button = $LeftHudButtons/AbilitiesButton
+@onready var resources_button: Button = $LeftHudButtons/ResourcesButton
+@onready var codex_button: Button = $RightHudButtons/CodexButton
+@onready var settings_button: Button = $RightHudButtons/SettingsButton
+
 @onready var codex_popup: PopupPanel = $CodexPopup
 @onready var codex_entries_container: VBoxContainer = $CodexPopup/CodexContent/CodexEntries
 @onready var codex_close_button: Button = $CodexPopup/CodexContent/CodexCloseButton
@@ -18,18 +53,102 @@ const RESEARCH_SCENE := "res://scenes/research/research_screen.tscn"
 
 func _ready() -> void:
 	status_label.text = "Recursos: %d" % SliceState.resources
-	map_button.pressed.connect(_on_map_pressed)
+
+	var regions := RegionLoader.load_all()
+	_region = regions[0] if not regions.is_empty() else {}
+	_populate_region_card()
+	_populate_locked_regions()
+	enter_button.pressed.connect(_on_enter_pressed)
+
+	characters_button.pressed.connect(_on_characters_pressed)
+	abilities_button.pressed.connect(_on_abilities_pressed)
+	resources_button.pressed.connect(_on_resources_pressed)
 	codex_button.pressed.connect(_on_codex_pressed)
-	research_button.pressed.connect(_on_research_pressed)
+	settings_button.pressed.connect(_on_settings_pressed)
 	codex_close_button.pressed.connect(func() -> void: codex_popup.hide())
 
 
-func _on_map_pressed() -> void:
-	navigate_to.emit(REGION_MAP_SCENE, {})
+func _populate_region_card() -> void:
+	region_name_label.text = _region.get("name", "")
+	region_subtitle_label.text = _region.get("subtitle", "")
+	region_academia_label.text = "Presença acadêmica: %s" % _region.get("academia", "")
+	region_stability_label.text = _stability_text()
+	region_codex_label.text = _codex_pendencies_text()
+	region_repeatable_label.text = "Operação repetível disponível." if SliceState.repeatable_unlocked else ""
 
 
-func _on_research_pressed() -> void:
+func _region_operations() -> Array[Dictionary]:
+	var region_id: String = _region.get("id", "")
+	var result: Array[Dictionary] = []
+	for operation in OperationLoader.load_all():
+		if operation.get("region_id", "") == region_id:
+			result.append(operation)
+	return result
+
+
+func _stability_text() -> String:
+	var campaign_operations := _region_operations().filter(
+		func(operation: Dictionary) -> bool: return operation.get("type", "") == CAMPAIGN_TYPE
+	)
+	var completed := 0
+	for operation in campaign_operations:
+		if SliceState.is_operation_completed(operation.get("id", "")):
+			completed += 1
+	var total := campaign_operations.size()
+	if completed == 0:
+		return "Estabilidade: instável — nenhuma operação de campanha concluída na região."
+	if completed < total:
+		return "Estabilidade: em recuperação — %d de %d operações de campanha concluídas." % [completed, total]
+	return "Estabilidade: relativamente estável — todas as operações de campanha concluídas."
+
+
+func _codex_pendencies_text() -> String:
+	var region_codex_ids: Array = []
+	for operation in _region_operations():
+		for codex_id in operation.get("codex_unlocks", []):
+			if not region_codex_ids.has(codex_id):
+				region_codex_ids.append(codex_id)
+
+	var unlocked := 0
+	for codex_id in region_codex_ids:
+		if SliceState.is_codex_unlocked(codex_id):
+			unlocked += 1
+
+	var total := region_codex_ids.size()
+	if total == 0:
+		return "Pendências de Codex: nenhuma registrada."
+	if unlocked >= total:
+		return "Pendências de Codex: nenhuma pendência — todos os registros da região analisados."
+	return "Pendências de Codex: %d de %d registros pendentes de análise." % [total - unlocked, total]
+
+
+func _populate_locked_regions() -> void:
+	for entry in OTHER_REGIONS:
+		var button := Button.new()
+		button.text = "%s (bloqueada)" % entry["name"]
+		button.tooltip_text = entry["subtitle"]
+		button.disabled = true
+		locked_regions_container.add_child(button)
+
+
+func _on_enter_pressed() -> void:
+	navigate_to.emit(REGION_DETAIL_SCENE, {"region_id": _region.get("id", "")})
+
+
+func _on_characters_pressed() -> void:
+	navigate_to.emit(LOADOUT_SCENE, {})
+
+
+func _on_abilities_pressed() -> void:
 	navigate_to.emit(RESEARCH_SCENE, {})
+
+
+func _on_resources_pressed() -> void:
+	navigate_to.emit(RESOURCES_SCENE, {})
+
+
+func _on_settings_pressed() -> void:
+	navigate_to.emit(SETTINGS_SCENE, {})
 
 
 func _on_codex_pressed() -> void:

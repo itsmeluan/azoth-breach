@@ -5,7 +5,7 @@ const RegionLoader = preload("res://scripts/services/region_loader.gd")
 signal navigate_to(scene_path: String, context: Dictionary)
 
 const BRIEFING_SCENE := "res://scenes/operations/briefing_screen.tscn"
-const REGION_MAP_SCENE := "res://scenes/hub/region_map_screen.tscn"
+const HUB_SCENE := "res://scenes/hub/hub_screen.tscn"
 
 var _region_id: String = ""
 
@@ -36,4 +36,4 @@ func _on_operation_selected(operation_id: String) -> void:
 
 
 func _on_back_pressed() -> void:
-	navigate_to.emit(REGION_MAP_SCENE, {})
+	navigate_to.emit(HUB_SCENE, {})

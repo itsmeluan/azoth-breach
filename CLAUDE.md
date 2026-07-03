@@ -446,20 +446,17 @@ percebido como decisão regional até agora.
   mesma lógica já aplicada aos inimigos fixos do grid — é lista de
   flavor sem conteúdo jogável por trás ainda, criar um formato de dados
   só pra isso seria abstração prematura.
-- **Navegação reestruturada**: `hub_screen.tscn` não embute mais
-  `OperationBoard` diretamente — ganhou um botão "Mapa de Aletheia" que
-  leva a `region_map_screen.tscn` (mostra o card de Ferrária + regiões
-  bloqueadas). Entrar em Ferrária leva a `region_detail_screen.tscn`,
-  que embute o mesmo `operation_board.tscn` reaproveitado sem alteração
-  (ainda lista todas as operações sem filtrar por região — com só 1
-  região existindo isso é correto por coincidência; filtrar por
-  `region_id` fica pra quando existir uma 2ª região de verdade, não
-  antes). Codex e Mesa de Pesquisa continuam como botões diretos do
-  Hub (funções de hub per `04.4` §5.1, não do mapa regional). Isso
-  implementa de fato a estrutura de 4 camadas de `04.4` §4 (Hub →
-  Mapa de Aletheia → Estrutura de Campo → Confronto Tático), que até
-  aqui só existia parcialmente (Hub → operação direta, sem camada
-  regional).
+- **Navegação original (superada, ver seção "Hub fundido com o Mapa" mais
+  abaixo)**: nesta primeira versão, `hub_screen.tscn` ganhou um botão
+  "Mapa de Aletheia" que levava a `region_map_screen.tscn` (tela
+  separada, um clique a mais a partir do Hub). Entrar em Ferrária leva a
+  `region_detail_screen.tscn`, que embute o mesmo `operation_board.tscn`
+  reaproveitado sem alteração (ainda lista todas as operações sem
+  filtrar por região — com só 1 região existindo isso é correto por
+  coincidência; filtrar por `region_id` fica pra quando existir uma 2ª
+  região de verdade, não antes). Isso implementou pela primeira vez a
+  estrutura de 4 camadas de `04.4` §4 (Hub → Mapa de Aletheia →
+  Estrutura de Campo → Confronto Tático).
 - **Divergência sinalizada, não resolvida**: `05.1` §15.2 pede "1
   mentor ou superior acadêmico" no MVP. A mentora canônica da campanha
   principal é **Lys Aurel** (`02.5` linha 584-591, confirmada em
@@ -525,6 +522,78 @@ desequipar (`catalyst_id` vazio) limpa o slot sem devolver ao inventário;
 fluxo completo via UI (selecionar no `OptionButton`) atualiza estado e
 texto da linha (`"+X catalisador"`) corretamente; regressão do fluxo
 canônico completo sem vazamento de nó.
+
+### Hub fundido com o Mapa + HUD de menus persistente
+
+Reestruturação de navegação pedida diretamente pelo usuário: "tela
+inicial = mapa do mundo", com HUD de botões redondos nas laterais
+(esquerda/direita) dando acesso a todos os menus de gestão do jogo, pra
+montar a **casca completa de navegação** do MVP antes de qualquer
+passada de arte e poder testar tudo de ponta a ponta num device iOS.
+Cruzado com `05.1` §16.2 ("Telas Obrigatórias" do MVP): mapa, hub,
+seleção de operação, preparo de equipe/loadout, combate, Codex,
+inventário básico e configurações mínimas já eram pedidos — faltavam só
+inventário/recursos e configurações como telas próprias; o resto já
+existia, só precisava ficar alcançável do lugar certo.
+
+- **`hub_screen.gd`/`.tscn` absorveu `region_map_screen.gd`/`.tscn`**
+  (apagado depois da migração) — o Mapa de Aletheia (card de Ferrária +
+  7 regiões bloqueadas) agora é a própria tela inicial, sem clique
+  extra a partir de um Hub separado. Escolha deliberada de manter o
+  **mesmo caminho de arquivo** (`res://scenes/hub/hub_screen.tscn`)
+  como destino da fusão: toda outra tela do jogo já usa esse caminho
+  como `HUB_SCENE`/"Voltar ao Hub" (Briefing, Loadout, Campo, Grid,
+  Relatório, Pesquisa) — fundir ali em vez de criar uma tela nova evitou
+  precisar tocar em nenhuma dessas telas. Só `region_detail_screen.gd`
+  mudou (botão "Voltar ao Mapa" agora aponta pra `HUB_SCENE` em vez do
+  caminho apagado de `region_map_screen`). Card da região ganhou uma
+  linha nova, "Operação repetível disponível.", visível quando
+  `SliceState.repeatable_unlocked` — a Varredura de Estabilização não
+  virou uma "zona" separada no mapa (já pertence a Ferrária via
+  `region_id`, inventar uma segunda região só pra ela contrariaria o
+  grounding em `/docs`), só ficou mais visível que existe.
+- **HUD de 5 botões redondos** (`LeftHudButtons`: Personagens,
+  Habilidades, Recursos; `RightHudButtons`: Codex, Configurações),
+  `custom_minimum_size` fixo + `StyleBoxFlat` com `corner_radius_*=50`
+  compartilhado entre os 5 — redondos mesmo sem ícone/arte ainda
+  (textura entra na passada de arte, usando o design system já
+  produzido nesta sessão). O HUD aparece **só** nessa tela — não durante
+  Briefing/Loadout/Combate/Relatório, que continuam telas de decisão
+  única (`05.8` §8.3), então não ganharam HUD nenhum.
+- **Personagens reaproveita `loadout_screen.gd`/`.tscn` sem tela nova** —
+  ganhou um modo standalone quando chamado sem `operation_id` (a partir
+  do HUD, não do Briefing): troca de build já salva na hora (como
+  sempre), mas "Confirmar" vira "Salvar build" e só volta pro Hub, em
+  vez de rotear pra uma cena de combate que não existiria contexto pra
+  montar. Modo normal (a partir do Briefing) continua idêntico.
+- **Recursos** (`resources_screen.gd`/`.tscn`, novo) mostra
+  `SliceState.resources` + catalisadores possuídos (mesma lógica de
+  `research_screen._build_owned_catalysts_text()`, sem duplicar) +
+  catalisadores **equipados** por ET — essa segunda lista não existia em
+  lugar nenhum antes, só dava pra inferir olhando ET por ET na Mesa de
+  Pesquisa.
+- **Configurações** (`settings_screen.gd`/`.tscn`, novo) é um stub
+  consciente: "Nenhuma configuração disponível ainda." — não existe
+  nada de fato configurável no jogo hoje (sem áudio, idioma ou
+  acessibilidade implementados), inventar opções falsas seria escopo
+  fantasma. O valor é só fechar a navegação: o botão existe e leva a
+  algum lugar coerente.
+- **Fora de escopo, registrado como lacuna consciente**: tutorial
+  inicial (também "Tela Obrigatória" de `05.1` §16.2) não entrou —
+  não foi pedido e não existe conteúdo/roteiro de tutorial definido em
+  lugar nenhum ainda.
+- **Sem trabalho novo de combate**: "um tipo de cada batalha, incluindo
+  a repetível" já estava coberto (Primeira Fissura simples, Vestígio
+  Discrepante grid, Varredura grid repetível) — confirmado no pedido,
+  não gerou nenhuma mudança de código de combate.
+
+Validado headless: tela inicial já mostra o mapa sem clique extra; os 5
+botões do HUD levam às telas certas e voltam sem vazamento de nó;
+Personagens alterna corretamente entre texto/comportamento standalone
+("Salvar build") e normal ("Confirmar e entrar em campo") dependendo de
+como foi chamado; nota de repetível aparece só depois de
+`repeatable_unlocked`; regressão do fluxo canônico completo (Primeira
+Fissura → Vestígio Discrepante → Varredura) sem quebra.
 
 ### Bug de navegação corrigido em M2
 

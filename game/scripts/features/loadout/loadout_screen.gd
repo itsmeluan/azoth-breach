@@ -32,6 +32,9 @@ func _ready() -> void:
 	_index_ets()
 	_build_style_buttons()
 	_display_loadout(SliceState.active_loadout)
+	if _operation_id == "":
+		confirm_button.text = "Salvar build"
+		cancel_button.text = "Voltar"
 	confirm_button.pressed.connect(_on_confirm_pressed)
 	cancel_button.pressed.connect(_on_cancel_pressed)
 
@@ -80,6 +83,9 @@ func _on_confirm_pressed() -> void:
 		"operation_id": _operation_id,
 		"loadout_id": SliceState.active_loadout,
 	})
+	if _operation_id == "":
+		navigate_to.emit(HUB_SCENE, {})
+		return
 	navigate_to.emit(_target_scene_for_operation(), {
 		"operation_id": _operation_id,
 		"loadout_id": SliceState.active_loadout,
@@ -96,8 +102,9 @@ func _target_scene_for_operation() -> String:
 
 
 func _on_cancel_pressed() -> void:
-	TelemetryLogger.log_event("operation_abandoned", {
-		"operation_id": _operation_id,
-		"stage": "loadout",
-	})
+	if _operation_id != "":
+		TelemetryLogger.log_event("operation_abandoned", {
+			"operation_id": _operation_id,
+			"stage": "loadout",
+		})
 	navigate_to.emit(HUB_SCENE, {})
