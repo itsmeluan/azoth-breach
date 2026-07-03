@@ -100,14 +100,37 @@ sem reescrever a arquitetura base (princípio 2.5 do Documento 06.1).
   trocar entre os três presets via botões dinâmicos — a troca atualiza
   `SliceState.active_loadout` imediatamente (sem estado local paralelo,
   aplicando o princípio de Estado Explícito de `06.1` §2.3). "Confirmar e
-  entrar em campo" navega para `scenes/operations/operation_entry_screen.tscn`
+  entrar em campo" navega para `scenes/operations/operation_field_screen.tscn`
   repassando `operation_id` e `loadout_id`.
-- Entrada em operação (`TK-M1-011`) identifica a operação e o loadout
-  escolhidos (nome, sublocal, loadout) via `OperationLoader`, e tem botão
-  "Retornar ao Hub" — fecha o loop de navegação hub → briefing → loadout →
-  operação → hub. Ainda é um stub de campo; sistema tático real (grid,
-  turnos, uso de ET, condição de encerramento) é `M2` (`BL-012`), fora do
-  escopo de `M1`.
+- Campo de operação (`BL-012`/`BL-013`/`BL-005`, M2,
+  `scenes/operations/operation_field_screen.tscn`) implementa um loop
+  **mínimo por rodadas** contra uma barra única de Instabilidade (início
+  `100`, máximo `4` rodadas) — deliberadamente sem grid, inimigos ou
+  catálogo de estados. `04.3` (Combate) descreve uma visão bem mais
+  ambiciosa (grid 6x6, movimento, fases de inimigo) que é escopo do MVP
+  completo, não da fatia vertical; `BL-012` pede explicitamente um sistema
+  "mínimo". Grid e combate real só entram quando `BL-007` (Operação 02)
+  pedir "combate tático real" de fato. Cada rodada: o jogador escolhe uma
+  ET do preset ativo, `scripts/services/et_resolution.gd` sorteia uma
+  qualidade de execução (fraca/normal/precisa/extraordinária — conceito
+  simplificado de `04.2 §11.2`, sem "falha" dura) e reduz a Instabilidade;
+  log de cada tentativa fica visível na tela. Encerra em sucesso
+  (Instabilidade chega a 0) ou estabilização parcial (rodadas esgotadas —
+  não é derrota; `04.3 §10.3` recomenda vitória parcial em vez de game
+  over). Navega para `scenes/reports/report_screen.tscn` com o resultado.
+- Relatório e recompensa (`BL-014`/`BL-006`, M2,
+  `scenes/reports/report_screen.tscn`): mostra resultado/rodadas/ETs
+  usadas e a lista de `rewards_guaranteed` da operação (sempre concedida,
+  independente do desfecho — `BL-014`: "nenhuma run termina sem
+  progresso"). Chama `SliceState.complete_operation(operation_id)`, que
+  marca a operação como concluída e aplica `unlocks_on_complete` — o
+  `OperationBoard` do Hub já lê isso dinamicamente, então a próxima
+  operação some desbloqueada automaticamente ao voltar. **Conflito
+  documental resolvido com o usuário:** `BL-006` lista `BL-015` (Mesa de
+  Pesquisa) como dependência, mas `05.12` só coloca `BL-015` em `M3` —
+  o item "notificação de melhoria disponível" virou um aviso textual
+  estático na tela, sem sistema funcional de pesquisa (isso é `M3` de
+  verdade).
 - Autoload `SliceState` (`scripts/state/slice_state.gd`, `TK-M1-005`) carrega
   `data/state_templates/slice_state_initial.json` no boot (antes do `_ready()`
   do App Shell) e expõe os campos mínimos de `06.1` 4.4. Estado inicial:
@@ -131,19 +154,38 @@ sem reescrever a arquitetura base (princípio 2.5 do Documento 06.1).
   foram criados — dados pessoais/de conta não estão documentados em `/docs`
   e não devem ser inventados. Configurar em Editor → Export quando necessário.
 
-## M1 — Primeira Build Navegável: fechado (`TK-M1-001` a `TK-M1-012`)
+## M1 e M2: fechados
 
-O milestone `M1` está completo e validado (`06.2` §5): projeto abre localmente,
-hub funciona, quadro de operações funciona, briefing funciona, loadout
-funciona, entrada em operação é alcançável, dados carregados por arquivos
-estruturados, e o fluxo hub → briefing → loadout → operação → hub se repete
-sem quebra (testado duas voltas seguidas, sem vazamento de nó em `ScreenHost`).
+`M1 — Primeira Build Navegável` (`TK-M1-001` a `TK-M1-012`, `06.2` §5):
+projeto abre localmente, hub funciona, quadro de operações funciona,
+briefing funciona, loadout funciona, entrada em operação é alcançável,
+dados carregados por arquivos estruturados, fluxo repetível sem vazamento
+de nó.
 
-Próximo é `M2 — Primeiro Loop Completo` (`05.12` §5): sistema mínimo de
-operação tática (`BL-012`), feedback de ET/risco/contenção (`BL-013`),
-fechamento real da Operação 01 (`BL-005`), recompensa (`BL-014`) e retorno
-com consequência (`BL-006`) — hoje a entrada em operação é só um stub que
-identifica a operação e devolve ao hub, sem jogar nada.
+`M2 — Primeiro Loop Completo` (`BL-012`, `BL-013`, `BL-005`, `BL-014`,
+`BL-006`, `05.12` §5): a Primeira Fissura já pode ser jogada de ponta a
+ponta (loop mínimo por rodadas, ver seção de Campo de Operação acima),
+gera relatório e recompensa reais, e o retorno ao hub já muda o estado do
+jogo de verdade — `op_vestigio_discrepante` aparece desbloqueada no quadro
+de operações automaticamente após concluir a Primeira Fissura, sem
+nenhuma mudança necessária no Hub/`OperationBoard` (já liam `SliceState`
+dinamicamente desde `TK-M1-007`).
+
+Próximo é `M3 — Progressão e Segunda Operação` (`05.12` §6): Mesa de
+Pesquisa (`BL-015`), presets de build com efeito real (`BL-010`),
+Operação 02 com combate tático de verdade (`BL-007`, primeira vez que
+grid/inimigos entram em cena), relatório com consequência (`BL-016`) e
+Codex com impacto prático (`BL-017`).
+
+### Bug de navegação corrigido em M2
+
+`AppShell.go_to_scene()` chamava `child.queue_free()` sem `remove_child()`
+antes — `queue_free()` só desanexa a criança no fim do frame, então por um
+frame a tela antiga e a nova coexistiam como filhas de `ScreenHost`. Não
+causava problema visível em uso manual, mas quebrava testes automatizados
+que checam qual tela está ativa logo após a transição, e é uma fragilidade
+real da primitiva de roteamento. Corrigido chamando `remove_child()`
+explicitamente antes do `queue_free()`.
 
 ### Regra de arquitetura descoberta em `TK-M1-012`
 
