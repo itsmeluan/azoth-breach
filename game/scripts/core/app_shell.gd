@@ -13,4 +13,7 @@ func go_to_scene(scene_path: String) -> void:
 	for child in screen_host.get_children():
 		child.queue_free()
 	var next_screen: PackedScene = load(scene_path)
-	screen_host.add_child(next_screen.instantiate())
+	var screen_instance := next_screen.instantiate()
+	screen_host.add_child(screen_instance)
+	if screen_instance.has_signal("navigate_to"):
+		screen_instance.navigate_to.connect(go_to_scene)

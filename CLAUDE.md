@@ -67,8 +67,17 @@ sem reescrever a arquitetura base (princípio 2.5 do Documento 06.1).
 - `run/main_scene`: `res://scenes/app/app_shell.tscn` — App Shell real
   (`TK-M1-004`). Faz roteamento básico (`go_to_scene`) via um container
   `ScreenHost` e abre o Hub (`scenes/hub/hub_screen.tscn`) como tela inicial.
-  O Hub ainda é um stub — quadro de operações, acesso a Codex e Mesa de
-  Pesquisa entram em tarefas posteriores (`TK-M1-006` em diante).
+  Qualquer tela filha pode emitir `navigate_to(scene_path)` para pedir
+  navegação — o App Shell conecta esse sinal automaticamente ao instanciar
+  a tela (padrão reaproveitável por Briefing, Loadout etc.).
+- Hub (`TK-M1-007`) embute um `OperationBoard` (`scenes/hub/operation_board.tscn`)
+  que lista as operações de `data/operations/*.json` via `OperationLoader`
+  (`scripts/services/operation_loader.gd`), diferenciando disponível/bloqueada
+  a partir de `SliceState.is_operation_unlocked`. Selecionar uma operação
+  disponível navega para `scenes/operations/briefing_screen.tscn` — hoje um
+  stub textual, conteúdo completo (objetivo, risco, recompensa, sublocal,
+  confirmação) entra em `TK-M1-008`. Acesso a Codex e Mesa de Pesquisa ainda
+  não existem no Hub — entram em tarefas de milestones posteriores (`M3`).
 - Autoload `SliceState` (`scripts/state/slice_state.gd`, `TK-M1-005`) carrega
   `data/state_templates/slice_state_initial.json` no boot (antes do `_ready()`
   do App Shell) e expõe os campos mínimos de `06.1` 4.4. Estado inicial:
