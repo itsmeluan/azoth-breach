@@ -121,8 +121,12 @@ sem reescrever a arquitetura base (princípio 2.5 do Documento 06.1).
 - `renderer/rendering_method`: `mobile` (compatível com Metal/iOS).
 - Viewport base: `1080x1920`, `window/handheld/orientation = portrait`,
   stretch `canvas_items` / `expand`.
-- Janela de desktop (debug): override `540x960` para caber confortavelmente
-  na tela durante iteração local.
+- Janela de desktop (debug): override `810x1440` (1.5× do viewport-base
+  em proporção 9:16) para ficar legível durante iteração local. O valor
+  original (`540x960`) ficava pequeno demais para enxergar texto/UI
+  confortavelmente; ajustado após feedback direto testando no editor.
+  É só conveniência de debug local — não afeta o build real em iOS
+  (viewport/stretch continuam os mesmos).
 - Presets de exportação (Team ID, bundle identifier, certificados) **não**
   foram criados — dados pessoais/de conta não estão documentados em `/docs`
   e não devem ser inventados. Configurar em Editor → Export quando necessário.
