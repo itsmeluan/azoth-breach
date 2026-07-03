@@ -64,8 +64,11 @@ sem reescrever a arquitetura base (princípio 2.5 do Documento 06.1).
 
 ## Configuração de projeto atual
 
-- `run/main_scene`: `res://scenes/app/main.tscn` — cena placeholder de bootstrap,
-  a ser substituída pelo App Shell real em `TK-M1-004`.
+- `run/main_scene`: `res://scenes/app/app_shell.tscn` — App Shell real
+  (`TK-M1-004`). Faz roteamento básico (`go_to_scene`) via um container
+  `ScreenHost` e abre o Hub (`scenes/hub/hub_screen.tscn`) como tela inicial.
+  O Hub ainda é um stub — quadro de operações, acesso a Codex e Mesa de
+  Pesquisa entram em tarefas posteriores (`TK-M1-005` em diante).
 - `renderer/rendering_method`: `mobile` (compatível com Metal/iOS).
 - Viewport base: `1080x1920`, `window/handheld/orientation = portrait`,
   stretch `canvas_items` / `expand`.

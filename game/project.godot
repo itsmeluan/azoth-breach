@@ -12,7 +12,7 @@ config_version=5
 
 config/name="AZOTH: BREACH"
 config/description="Vertical slice de AZOTH: BREACH — build local-first, iOS como plataforma prioritária."
-run/main_scene="res://scenes/app/main.tscn"
+run/main_scene="res://scenes/app/app_shell.tscn"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
@@ -29,5 +29,4 @@ window/handheld/orientation="portrait"
 [rendering]
 
 renderer/rendering_method="mobile"
-renderer/rendering_method.mobile="mobile"
 textures/vram_compression/import_etc2_astc=true
