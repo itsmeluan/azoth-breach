@@ -13,5 +13,10 @@
     "desbloqueio_operacao_repetivel"
   ],
   "rewards_chase": [],
-  "unlocks_on_complete": ["op_varredura_estabilizacao"]
+  "unlocks_on_complete": ["op_varredura_estabilizacao"],
+  "max_rounds": 5,
+  "dual_objective_et": "et_analise_vestigio",
+  "evidence_target": 2,
+  "codex_unlocks": ["codex_vestigio_discrepante"],
+  "recontextualization_notice": "Os vestígios coletados não correspondem à leitura institucional registrada para este tipo de incidente. A explicação acadêmica corrente já não é suficiente — e repetir operações na região começa a fazer sentido."
 }

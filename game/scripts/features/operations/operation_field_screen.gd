@@ -9,11 +9,16 @@ signal navigate_to(scene_path: String, context: Dictionary)
 
 const REPORT_SCENE := "res://scenes/reports/report_screen.tscn"
 const INITIAL_INSTABILITY := 100
-const MAX_ROUNDS := 4
+const DEFAULT_MAX_ROUNDS := 4
+const DUAL_OBJECTIVE_INSTABILITY_FACTOR := 0.8
 
 var _operation: Dictionary = {}
 var _ets_by_id: Dictionary = {}
+var _max_rounds: int = DEFAULT_MAX_ROUNDS
+var _dual_objective_et: String = ""
+var _evidence_target: int = 0
 var _instability: int = INITIAL_INSTABILITY
+var _evidence: int = 0
 var _round: int = 0
 var _log_lines: Array[String] = []
 var _ets_used: Array[String] = []
@@ -27,12 +32,15 @@ var _ets_used: Array[String] = []
 
 func set_context(context: Dictionary) -> void:
 	_operation = _find_operation(context.get("operation_id", ""))
+	_max_rounds = _operation.get("max_rounds", DEFAULT_MAX_ROUNDS)
+	_dual_objective_et = _operation.get("dual_objective_et", "")
+	_evidence_target = _operation.get("evidence_target", 0)
 
 
 func _ready() -> void:
 	operation_title_label.text = "%s — %s" % [_operation.get("name", ""), _operation.get("sublocal", "")]
-	objective_label.text = _operation.get("objective_primary", "")
 	_index_ets()
+	objective_label.text = _build_objective_text()
 	_build_et_buttons()
 	_update_status()
 
@@ -42,6 +50,14 @@ func _find_operation(operation_id: String) -> Dictionary:
 		if operation.get("id") == operation_id:
 			return operation
 	return {}
+
+
+func _build_objective_text() -> String:
+	var text: String = _operation.get("objective_primary", "")
+	if not _dual_objective_et.is_empty():
+		var et_name: String = _ets_by_id.get(_dual_objective_et, {}).get("name", _dual_objective_et)
+		text += "\nColetar %d vestígios com %s." % [_evidence_target, et_name]
+	return text
 
 
 func _index_ets() -> void:
@@ -66,39 +82,53 @@ func _build_et_buttons() -> void:
 
 
 func _on_et_selected(et_id: String) -> void:
-	if _round >= MAX_ROUNDS or _instability <= 0:
+	if _round >= _max_rounds or _instability <= 0:
 		return
 
 	_round += 1
-	var result := ETResolution.resolve_attempt()
+	var upgrade_level: int = SliceState.et_upgrade_level(et_id)
+	var result := ETResolution.resolve_attempt(upgrade_level)
 	var delta: int = result["delta"]
 	var quality: String = result["quality"]
+
+	var is_dual_attempt := et_id == _dual_objective_et
+	if is_dual_attempt:
+		delta = int(round(delta * DUAL_OBJECTIVE_INSTABILITY_FACTOR))
+		_evidence += 1
+
 	_instability = max(_instability - delta, 0)
 	_ets_used.append(et_id)
 
 	var et_name: String = _ets_by_id.get(et_id, {}).get("name", et_id)
-	_log_lines.append("Rodada %d — %s (%s): -%d Instabilidade (agora %d)" % [
+	var line := "Rodada %d — %s (%s): -%d Instabilidade (agora %d)" % [
 		_round, et_name, quality, delta, _instability,
-	])
+	]
+	if is_dual_attempt:
+		line += " | Vestígio coletado (%d/%d)" % [_evidence, _evidence_target]
+	_log_lines.append(line)
 	log_label.text = "\n".join(_log_lines)
 	_update_status()
 
-	if _instability <= 0 or _round >= MAX_ROUNDS:
+	if _instability <= 0 or _round >= _max_rounds:
 		_finish_operation()
 
 
 func _update_status() -> void:
-	status_label.text = "Rodada %d de %d — Instabilidade: %d" % [_round, MAX_ROUNDS, _instability]
+	status_label.text = "Rodada %d de %d — Instabilidade: %d" % [_round, _max_rounds, _instability]
 
 
 func _finish_operation() -> void:
 	var operation_id: String = _operation.get("id", "")
 	var outcome := "sucesso" if _instability <= 0 else "estabilização parcial"
-	SliceState.complete_operation(operation_id)
-	navigate_to.emit(REPORT_SCENE, {
+
+	var report_data := {
 		"operation_id": operation_id,
 		"rounds_used": _round,
 		"final_instability": _instability,
 		"outcome": outcome,
 		"ets_used": _ets_used,
-	})
+		"evidence_collected": _evidence,
+		"evidence_target": _evidence_target,
+	}
+	SliceState.complete_operation(operation_id, report_data)
+	navigate_to.emit(REPORT_SCENE, report_data)

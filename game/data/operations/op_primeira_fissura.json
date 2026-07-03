@@ -13,5 +13,7 @@
     "progresso_institucional_minimo"
   ],
   "rewards_chase": [],
-  "unlocks_on_complete": ["op_vestigio_discrepante"]
+  "unlocks_on_complete": ["op_vestigio_discrepante"],
+  "max_rounds": 4,
+  "codex_unlocks": ["codex_primeira_fissura"]
 }
