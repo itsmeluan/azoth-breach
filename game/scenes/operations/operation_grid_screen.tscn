@@ -1,0 +1,79 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/features/operations/operation_grid_screen.gd" id="1"]
+
+[node name="OperationGridScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1")
+
+[node name="Content" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 40.0
+offset_top = 60.0
+offset_right = -40.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="OperationTitle" type="Label" parent="Content"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+autowrap_mode = 3
+text = ""
+horizontal_alignment = 1
+
+[node name="ObjectiveLabel" type="Label" parent="Content"]
+layout_mode = 2
+autowrap_mode = 3
+text = ""
+horizontal_alignment = 1
+
+[node name="StatusLabel" type="Label" parent="Content"]
+layout_mode = 2
+autowrap_mode = 3
+text = ""
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="Content"]
+layout_mode = 2
+size_flags_horizontal = 4
+columns = 6
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 2
+
+[node name="EtButtons" type="HBoxContainer" parent="Content"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 8
+
+[node name="ActionButtons" type="HBoxContainer" parent="Content"]
+layout_mode = 2
+alignment = 1
+theme_override_constants/separation = 8
+
+[node name="MoveButton" type="Button" parent="Content/ActionButtons"]
+layout_mode = 2
+text = "Mover"
+
+[node name="EndRoundButton" type="Button" parent="Content/ActionButtons"]
+layout_mode = 2
+text = "Terminar rodada"
+
+[node name="LogLabel" type="Label" parent="Content"]
+layout_mode = 2
+autowrap_mode = 3
+text = ""
+horizontal_alignment = 0
+
+[node name="AbandonButton" type="Button" parent="Content"]
+layout_mode = 2
+text = "Abandonar operação"

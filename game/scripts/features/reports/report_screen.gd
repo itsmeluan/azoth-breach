@@ -39,6 +39,13 @@ func _ready() -> void:
 	var evidence_target: int = _context.get("evidence_target", 0)
 	if evidence_target > 0:
 		summary_text += "\nVestígios coletados: %d/%d" % [_context.get("evidence_collected", 0), evidence_target]
+	if _context.has("enemies_total"):
+		summary_text += "\nInimigos neutralizados: %d/%d" % [
+			_context.get("enemies_defeated", 0), _context.get("enemies_total", 0),
+		]
+		summary_text += "\nVida restante: %d/%d" % [
+			_context.get("player_hp_remaining", 0), _context.get("player_max_hp", 0),
+		]
 	summary_label.text = summary_text
 
 	var rewards: Array = operation.get("rewards_guaranteed", [])

@@ -2,11 +2,14 @@ extends Control
 
 const LoadoutLoader = preload("res://scripts/services/loadout_loader.gd")
 const ETLoader = preload("res://scripts/services/et_loader.gd")
+const OperationLoader = preload("res://scripts/services/operation_loader.gd")
 
 signal navigate_to(scene_path: String, context: Dictionary)
 
 const OPERATION_FIELD_SCENE := "res://scenes/operations/operation_field_screen.tscn"
+const OPERATION_GRID_SCENE := "res://scenes/operations/operation_grid_screen.tscn"
 const HUB_SCENE := "res://scenes/hub/hub_screen.tscn"
+const GRID_COMBAT_MODE := "grid"
 
 var _operation_id: String = ""
 var _loadouts: Array[Dictionary] = []
@@ -77,10 +80,19 @@ func _on_confirm_pressed() -> void:
 		"operation_id": _operation_id,
 		"loadout_id": SliceState.active_loadout,
 	})
-	navigate_to.emit(OPERATION_FIELD_SCENE, {
+	navigate_to.emit(_target_scene_for_operation(), {
 		"operation_id": _operation_id,
 		"loadout_id": SliceState.active_loadout,
 	})
+
+
+func _target_scene_for_operation() -> String:
+	for operation in OperationLoader.load_all():
+		if operation.get("id") == _operation_id:
+			if operation.get("combat_mode", "") == GRID_COMBAT_MODE:
+				return OPERATION_GRID_SCENE
+			break
+	return OPERATION_FIELD_SCENE
 
 
 func _on_cancel_pressed() -> void:
