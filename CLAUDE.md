@@ -94,9 +94,15 @@ sem reescrever a arquitetura base (princípio 2.5 do Documento 06.1).
   Contenção e Agressão) — tratada como utilidade cross-build. Loaders em
   `scripts/services/et_loader.gd` e `loadout_loader.gd`, ambos delegando a
   `json_directory_loader.gd` (extraído de `operation_loader.gd` para evitar
-  triplicar a mesma leitura de diretório). O stub de Loadout já lê o preset
-  ativo de `SliceState` e lista nomes/papéis das ETs — confirmação e troca
-  de preset completas entram em `TK-M1-010`.
+  triplicar a mesma leitura de diretório).
+- Loadout real (`TK-M1-010`, `scenes/loadout/loadout_screen.tscn`) exibe o
+  preset ativo (nome, papel/foco tático, ETs com nome+papel) e permite
+  trocar entre os três presets via botões dinâmicos — a troca atualiza
+  `SliceState.active_loadout` imediatamente (sem estado local paralelo,
+  aplicando o princípio de Estado Explícito de `06.1` §2.3). "Confirmar e
+  entrar em campo" navega para `scenes/operations/operation_entry_screen.tscn`
+  repassando `operation_id` e `loadout_id` — hoje um stub, conteúdo completo
+  entra em `TK-M1-011`.
 - Autoload `SliceState` (`scripts/state/slice_state.gd`, `TK-M1-005`) carrega
   `data/state_templates/slice_state_initial.json` no boot (antes do `_ready()`
   do App Shell) e expõe os campos mínimos de `06.1` 4.4. Estado inicial:
