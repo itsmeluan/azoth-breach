@@ -1,6 +1,6 @@
 extends RefCounted
-class_name OperationLoader
 
+const JsonDirectoryLoader = preload("res://scripts/services/json_directory_loader.gd")
 const OPERATIONS_DIR := "res://data/operations"
 
 

@@ -1,5 +1,7 @@
 extends VBoxContainer
 
+const OperationLoader = preload("res://scripts/services/operation_loader.gd")
+
 signal operation_selected(operation_id: String)
 
 

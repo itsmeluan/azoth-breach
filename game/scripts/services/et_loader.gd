@@ -1,6 +1,6 @@
 extends RefCounted
-class_name ETLoader
 
+const JsonDirectoryLoader = preload("res://scripts/services/json_directory_loader.gd")
 const ETS_DIR := "res://data/ets"
 
 

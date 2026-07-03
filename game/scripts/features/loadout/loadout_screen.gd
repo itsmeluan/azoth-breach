@@ -1,5 +1,8 @@
 extends Control
 
+const LoadoutLoader = preload("res://scripts/services/loadout_loader.gd")
+const ETLoader = preload("res://scripts/services/et_loader.gd")
+
 signal navigate_to(scene_path: String, context: Dictionary)
 
 const OPERATION_ENTRY_SCENE := "res://scenes/operations/operation_entry_screen.tscn"

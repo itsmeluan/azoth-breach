@@ -1,5 +1,4 @@
 extends RefCounted
-class_name JsonDirectoryLoader
 
 
 static func load_all(dir_path: String) -> Array[Dictionary]:

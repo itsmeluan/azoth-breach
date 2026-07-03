@@ -1,6 +1,6 @@
 extends RefCounted
-class_name LoadoutLoader
 
+const JsonDirectoryLoader = preload("res://scripts/services/json_directory_loader.gd")
 const LOADOUTS_DIR := "res://data/loadouts"
 
 

@@ -116,8 +116,8 @@ sem reescrever a arquitetura base (princípio 2.5 do Documento 06.1).
   Contenção escolhida como padrão por ser a primeira listada em `05.9`/`05.11`
   e tematicamente alinhada ao objetivo de estabilização de `BL-005` — não há
   padrão explícito nos documentos, decisão de implementação registrada aqui).
-  IDs de operação e loadout (`op_*`, `loadout_*_inicial`) devem ser
-  reaproveitados quando `TK-M1-006`/`TK-M1-009` criarem os dados reais.
+  IDs de operação e loadout (`op_*`, `loadout_*_inicial`) batem com os
+  dados reais criados em `TK-M1-006`/`TK-M1-009`.
 - `renderer/rendering_method`: `mobile` (compatível com Metal/iOS).
 - Viewport base: `1080x1920`, `window/handheld/orientation = portrait`,
   stretch `canvas_items` / `expand`.
@@ -126,6 +126,41 @@ sem reescrever a arquitetura base (princípio 2.5 do Documento 06.1).
 - Presets de exportação (Team ID, bundle identifier, certificados) **não**
   foram criados — dados pessoais/de conta não estão documentados em `/docs`
   e não devem ser inventados. Configurar em Editor → Export quando necessário.
+
+## M1 — Primeira Build Navegável: fechado (`TK-M1-001` a `TK-M1-012`)
+
+O milestone `M1` está completo e validado (`06.2` §5): projeto abre localmente,
+hub funciona, quadro de operações funciona, briefing funciona, loadout
+funciona, entrada em operação é alcançável, dados carregados por arquivos
+estruturados, e o fluxo hub → briefing → loadout → operação → hub se repete
+sem quebra (testado duas voltas seguidas, sem vazamento de nó em `ScreenHost`).
+
+Próximo é `M2 — Primeiro Loop Completo` (`05.12` §5): sistema mínimo de
+operação tática (`BL-012`), feedback de ET/risco/contenção (`BL-013`),
+fechamento real da Operação 01 (`BL-005`), recompensa (`BL-014`) e retorno
+com consequência (`BL-006`) — hoje a entrada em operação é só um stub que
+identifica a operação e devolve ao hub, sem jogar nada.
+
+### Regra de arquitetura descoberta em `TK-M1-012`
+
+Scripts utilitários sem estado (loaders em `scripts/services/`) usam
+`const X = preload("res://caminho/script.gd")` no arquivo que os consome,
+**não** `class_name` global. `class_name` só fica resolvível depois de o
+editor varrer o projeto pelo menos uma vez (cache de classes globais); rodar
+`godot --headless` puro num clone novo, sem nunca ter aberto o editor, falha
+com "Identifier not declared" para qualquer `class_name`. Autoloads
+(`SliceState`) não têm esse problema — são registrados explicitamente em
+`project.godot` `[autoload]`. Ao criar novo serviço/utilitário estático,
+seguir o padrão `preload`, não `class_name`.
+
+### Nota operacional (não é bug de código)
+
+Durante `TK-M1-012` uma instância do editor gráfico do Godot ficou aberta em
+paralelo às validações headless deste agente e ressuscitou em disco um
+`scenes/app/main.tscn` já deletado desde `TK-M1-004` (aba antiga ainda
+carregada na sessão gráfica). Se isso acontecer de novo: feche a aba/projeto
+no editor gráfico antes de rodar validação headless, ou simplesmente delete
+o arquivo de novo — ele não está no git e não faz parte da árvore atual.
 
 ## Rastreamento de trabalho
 
