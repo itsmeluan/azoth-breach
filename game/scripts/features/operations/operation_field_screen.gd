@@ -8,6 +8,7 @@ const ETResolution = preload("res://scripts/services/et_resolution.gd")
 signal navigate_to(scene_path: String, context: Dictionary)
 
 const REPORT_SCENE := "res://scenes/reports/report_screen.tscn"
+const HUB_SCENE := "res://scenes/hub/hub_screen.tscn"
 const INITIAL_INSTABILITY := 100
 const DEFAULT_MAX_ROUNDS := 4
 const DUAL_OBJECTIVE_INSTABILITY_FACTOR := 0.8
@@ -30,12 +31,15 @@ var _evidence: int = 0
 var _round: int = 0
 var _log_lines: Array[String] = []
 var _ets_used: Array[String] = []
+var _start_time_msec: int = 0
+var _finished: bool = false
 
 @onready var operation_title_label: Label = $Content/OperationTitle
 @onready var objective_label: Label = $Content/ObjectiveLabel
 @onready var status_label: Label = $Content/StatusLabel
 @onready var et_buttons_container: HBoxContainer = $Content/EtButtons
 @onready var log_label: Label = $Content/LogLabel
+@onready var abandon_button: Button = $Content/AbandonButton
 
 
 func set_context(context: Dictionary) -> void:
@@ -51,6 +55,10 @@ func _ready() -> void:
 	objective_label.text = _build_objective_text()
 	_build_et_buttons()
 	_update_status()
+	abandon_button.pressed.connect(_on_abandon_pressed)
+
+	_start_time_msec = Time.get_ticks_msec()
+	TelemetryLogger.log_event("operation_started", {"operation_id": _operation.get("id", "")})
 
 
 func _find_operation(operation_id: String) -> Dictionary:
@@ -108,6 +116,13 @@ func _on_et_selected(et_id: String) -> void:
 	_instability = max(_instability - delta, 0)
 	_ets_used.append(et_id)
 
+	TelemetryLogger.log_event("et_used", {
+		"operation_id": _operation.get("id", ""),
+		"et_id": et_id,
+		"quality": quality,
+		"round": _round,
+	})
+
 	var et_name: String = _ets_by_id.get(et_id, {}).get("name", et_id)
 	var line := "Rodada %d — %s (%s): -%d Instabilidade (agora %d)" % [
 		_round, et_name, quality, delta, _instability,
@@ -127,8 +142,10 @@ func _update_status() -> void:
 
 
 func _finish_operation() -> void:
+	_finished = true
 	var operation_id: String = _operation.get("id", "")
 	var outcome := "sucesso" if _instability <= 0 else "estabilização parcial"
+	var duration_ms := Time.get_ticks_msec() - _start_time_msec
 
 	var report_data := {
 		"operation_id": operation_id,
@@ -140,4 +157,22 @@ func _finish_operation() -> void:
 		"evidence_target": _evidence_target,
 	}
 	SliceState.complete_operation(operation_id, report_data)
+	TelemetryLogger.log_event("operation_completed", {
+		"operation_id": operation_id,
+		"outcome": outcome,
+		"rounds_used": _round,
+		"duration_ms": duration_ms,
+	})
 	navigate_to.emit(REPORT_SCENE, report_data)
+
+
+func _on_abandon_pressed() -> void:
+	if _finished:
+		return
+	TelemetryLogger.log_event("operation_abandoned", {
+		"operation_id": _operation.get("id", ""),
+		"stage": "field",
+		"rounds_played": _round,
+		"duration_ms": Time.get_ticks_msec() - _start_time_msec,
+	})
+	navigate_to.emit(HUB_SCENE, {})

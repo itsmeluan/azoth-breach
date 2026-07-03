@@ -6,6 +6,7 @@ const ETLoader = preload("res://scripts/services/et_loader.gd")
 signal navigate_to(scene_path: String, context: Dictionary)
 
 const OPERATION_FIELD_SCENE := "res://scenes/operations/operation_field_screen.tscn"
+const HUB_SCENE := "res://scenes/hub/hub_screen.tscn"
 
 var _operation_id: String = ""
 var _loadouts: Array[Dictionary] = []
@@ -16,6 +17,7 @@ var _ets_by_id: Dictionary = {}
 @onready var loadout_description_label: Label = $Content/LoadoutDescription
 @onready var ets_list_label: Label = $Content/EtsList
 @onready var confirm_button: Button = $Content/ConfirmButton
+@onready var cancel_button: Button = $Content/CancelButton
 
 
 func set_context(context: Dictionary) -> void:
@@ -28,6 +30,7 @@ func _ready() -> void:
 	_build_style_buttons()
 	_display_loadout(SliceState.active_loadout)
 	confirm_button.pressed.connect(_on_confirm_pressed)
+	cancel_button.pressed.connect(_on_cancel_pressed)
 
 
 func _index_ets() -> void:
@@ -70,7 +73,19 @@ func _find_loadout(loadout_id: String) -> Dictionary:
 
 
 func _on_confirm_pressed() -> void:
+	TelemetryLogger.log_event("loadout_selected", {
+		"operation_id": _operation_id,
+		"loadout_id": SliceState.active_loadout,
+	})
 	navigate_to.emit(OPERATION_FIELD_SCENE, {
 		"operation_id": _operation_id,
 		"loadout_id": SliceState.active_loadout,
 	})
+
+
+func _on_cancel_pressed() -> void:
+	TelemetryLogger.log_event("operation_abandoned", {
+		"operation_id": _operation_id,
+		"stage": "loadout",
+	})
+	navigate_to.emit(HUB_SCENE, {})

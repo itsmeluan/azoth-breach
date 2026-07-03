@@ -57,3 +57,7 @@ horizontal_alignment = 1
 [node name="ContinueButton" type="Button" parent="Content"]
 layout_mode = 2
 text = "Seguir"
+
+[node name="CancelButton" type="Button" parent="Content"]
+layout_mode = 2
+text = "Cancelar"

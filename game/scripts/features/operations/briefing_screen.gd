@@ -5,6 +5,7 @@ const OperationLoader = preload("res://scripts/services/operation_loader.gd")
 signal navigate_to(scene_path: String, context: Dictionary)
 
 const LOADOUT_SCENE := "res://scenes/loadout/loadout_screen.tscn"
+const HUB_SCENE := "res://scenes/hub/hub_screen.tscn"
 
 var _operation: Dictionary = {}
 
@@ -14,6 +15,7 @@ var _operation: Dictionary = {}
 @onready var risk_label: Label = $Content/RiskLabel
 @onready var rewards_label: Label = $Content/RewardsLabel
 @onready var continue_button: Button = $Content/ContinueButton
+@onready var cancel_button: Button = $Content/CancelButton
 
 
 func set_context(context: Dictionary) -> void:
@@ -27,6 +29,7 @@ func set_context(context: Dictionary) -> void:
 func _ready() -> void:
 	_populate()
 	continue_button.pressed.connect(_on_continue_pressed)
+	cancel_button.pressed.connect(_on_cancel_pressed)
 
 
 func _populate() -> void:
@@ -44,3 +47,11 @@ func _format_slug(slug: String) -> String:
 
 func _on_continue_pressed() -> void:
 	navigate_to.emit(LOADOUT_SCENE, {"operation_id": _operation.get("id", "")})
+
+
+func _on_cancel_pressed() -> void:
+	TelemetryLogger.log_event("operation_abandoned", {
+		"operation_id": _operation.get("id", ""),
+		"stage": "briefing",
+	})
+	navigate_to.emit(HUB_SCENE, {})
