@@ -1,0 +1,8 @@
+{
+  "id": "et_analise_vestigio",
+  "name": "Análise de Vestígio",
+  "role": "Investigação e vantagem contextual.",
+  "available_in_slice": true,
+  "loadout_tags": ["contencao", "investigacao"],
+  "upgrade_path_basic": "Resolução, legibilidade de evento ou redução de risco em análise."
+}

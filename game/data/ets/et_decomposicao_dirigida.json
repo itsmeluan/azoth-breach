@@ -1,0 +1,8 @@
+{
+  "id": "et_decomposicao_dirigida",
+  "name": "Decomposição Dirigida",
+  "role": "Dano/remoção com risco.",
+  "available_in_slice": true,
+  "loadout_tags": ["agressao", "investigacao"],
+  "upgrade_path_basic": "Alcance, concentração ou conversão de risco em impacto situacional."
+}

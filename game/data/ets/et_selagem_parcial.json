@@ -1,0 +1,8 @@
+{
+  "id": "et_selagem_parcial",
+  "name": "Selagem Parcial",
+  "role": "Contenção de Breach ou bloqueio de terreno.",
+  "available_in_slice": true,
+  "loadout_tags": ["contencao", "agressao", "investigacao"],
+  "upgrade_path_basic": "Aumento de estabilidade ou redução de risco em contenção."
+}

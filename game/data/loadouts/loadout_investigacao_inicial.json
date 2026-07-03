@@ -1,0 +1,7 @@
+{
+  "id": "loadout_investigacao_inicial",
+  "name": "Build de Investigação",
+  "style": "investigacao",
+  "ets": ["et_analise_vestigio", "et_selagem_parcial", "et_decomposicao_dirigida"],
+  "description_short": "Coleta, leitura contextual e vantagem por informação."
+}

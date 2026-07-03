@@ -1,0 +1,8 @@
+{
+  "id": "et_cristalizacao_controlada",
+  "name": "Cristalização Controlada",
+  "role": "Criação de obstáculo ou estado.",
+  "available_in_slice": true,
+  "loadout_tags": ["contencao", "agressao"],
+  "upgrade_path_basic": "Maior controle do estado criado, como alternativa de controle tanto em contenção quanto em agressão."
+}

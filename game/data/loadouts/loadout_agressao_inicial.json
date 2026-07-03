@@ -1,0 +1,7 @@
+{
+  "id": "loadout_agressao_inicial",
+  "name": "Build de Agressão",
+  "style": "agressao",
+  "ets": ["et_decomposicao_dirigida", "et_cristalizacao_controlada", "et_selagem_parcial"],
+  "description_short": "Remoção rápida de ameaça e abertura de espaço."
+}

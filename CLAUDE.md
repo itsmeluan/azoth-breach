@@ -82,8 +82,21 @@ sem reescrever a arquitetura base (princípio 2.5 do Documento 06.1).
   `operation_id` via `set_context`, busca a operação com `OperationLoader` e
   exibe nome, sublocal, objetivo, risco e recompensa prevista (`rewards_guaranteed`
   formatado). O botão "Seguir" navega para `scenes/loadout/loadout_screen.tscn`
-  repassando o mesmo `operation_id` — hoje um stub textual, conteúdo completo
-  (ETs equipadas, papel do build, troca/preset) entra em `TK-M1-010`.
+  repassando o mesmo `operation_id`.
+- Dados de ET e loadout (`TK-M1-009`) em `data/ets/*.json` (4 ETs-base,
+  `role` transcrito de `05.3` §"Biblioteca Base de ETs") e `data/loadouts/*.json`
+  (3 presets — Contenção/Agressão/Investigação, `ets` e `description_short`
+  de `05.9` §6.3-6.4). `upgrade_path_basic` por ET é decisão de implementação:
+  associei cada ET à "melhoria preferencial" do build onde ela aparece
+  primeiro listada como central (Selagem Parcial → Contenção, Decomposição
+  Dirigida → Agressão, Análise de Vestígio → Investigação); Cristalização
+  Controlada não tem build primária nos documentos (é secundária em
+  Contenção e Agressão) — tratada como utilidade cross-build. Loaders em
+  `scripts/services/et_loader.gd` e `loadout_loader.gd`, ambos delegando a
+  `json_directory_loader.gd` (extraído de `operation_loader.gd` para evitar
+  triplicar a mesma leitura de diretório). O stub de Loadout já lê o preset
+  ativo de `SliceState` e lista nomes/papéis das ETs — confirmação e troca
+  de preset completas entram em `TK-M1-010`.
 - Autoload `SliceState` (`scripts/state/slice_state.gd`, `TK-M1-005`) carrega
   `data/state_templates/slice_state_initial.json` no boot (antes do `_ready()`
   do App Shell) e expõe os campos mínimos de `06.1` 4.4. Estado inicial:

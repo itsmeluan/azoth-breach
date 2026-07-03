@@ -1,0 +1,7 @@
+{
+  "id": "loadout_contencao_inicial",
+  "name": "Build de Contenção",
+  "style": "contencao",
+  "ets": ["et_selagem_parcial", "et_cristalizacao_controlada", "et_analise_vestigio"],
+  "description_short": "Estabilizar, bloquear e controlar o avanço de Breach."
+}
