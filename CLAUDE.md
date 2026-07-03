@@ -101,8 +101,13 @@ sem reescrever a arquitetura base (princípio 2.5 do Documento 06.1).
   `SliceState.active_loadout` imediatamente (sem estado local paralelo,
   aplicando o princípio de Estado Explícito de `06.1` §2.3). "Confirmar e
   entrar em campo" navega para `scenes/operations/operation_entry_screen.tscn`
-  repassando `operation_id` e `loadout_id` — hoje um stub, conteúdo completo
-  entra em `TK-M1-011`.
+  repassando `operation_id` e `loadout_id`.
+- Entrada em operação (`TK-M1-011`) identifica a operação e o loadout
+  escolhidos (nome, sublocal, loadout) via `OperationLoader`, e tem botão
+  "Retornar ao Hub" — fecha o loop de navegação hub → briefing → loadout →
+  operação → hub. Ainda é um stub de campo; sistema tático real (grid,
+  turnos, uso de ET, condição de encerramento) é `M2` (`BL-012`), fora do
+  escopo de `M1`.
 - Autoload `SliceState` (`scripts/state/slice_state.gd`, `TK-M1-005`) carrega
   `data/state_templates/slice_state_initial.json` no boot (antes do `_ready()`
   do App Shell) e expõe os campos mínimos de `06.1` 4.4. Estado inicial:
