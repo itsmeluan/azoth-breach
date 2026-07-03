@@ -12,5 +12,6 @@
     "progresso_de_pesquisa_aplicavel"
   ],
   "rewards_chase": ["lente_de_vestigio"],
-  "unlocks_on_complete": []
+  "unlocks_on_complete": [],
+  "max_rounds": 3
 }

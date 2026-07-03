@@ -8,20 +8,30 @@ const QUALITY_TABLE := [
 ]
 
 const UPGRADE_ROLL_BONUS := 8
+const WEAK_QUALITY := "fraca"
 
 
-static func resolve_attempt(upgrade_level: int = 0) -> Dictionary:
+static func resolve_attempt(upgrade_level: int = 0, avoid_weak: bool = false) -> Dictionary:
+	var result := _roll(upgrade_level)
+	if avoid_weak and result["quality"] == WEAK_QUALITY:
+		result = _roll(upgrade_level)
+		if result["quality"] == WEAK_QUALITY:
+			result = _quality_result(QUALITY_TABLE[1])
+	return result
+
+
+static func _roll(upgrade_level: int) -> Dictionary:
 	var roll: int = clampi(randi_range(1, 100) + upgrade_level * UPGRADE_ROLL_BONUS, 1, 100)
 	var cumulative := 0
 	for entry in QUALITY_TABLE:
 		cumulative += entry["weight"]
 		if roll <= cumulative:
-			return {
-				"quality": entry["quality"],
-				"delta": randi_range(entry["min_delta"], entry["max_delta"]),
-			}
-	var last: Dictionary = QUALITY_TABLE[-1]
+			return _quality_result(entry)
+	return _quality_result(QUALITY_TABLE[-1])
+
+
+static func _quality_result(entry: Dictionary) -> Dictionary:
 	return {
-		"quality": last["quality"],
-		"delta": randi_range(last["min_delta"], last["max_delta"]),
+		"quality": entry["quality"],
+		"delta": randi_range(entry["min_delta"], entry["max_delta"]),
 	}

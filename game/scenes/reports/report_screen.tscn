@@ -45,6 +45,12 @@ autowrap_mode = 3
 text = ""
 horizontal_alignment = 1
 
+[node name="ChaseLootLabel" type="Label" parent="Content"]
+layout_mode = 2
+autowrap_mode = 3
+text = ""
+horizontal_alignment = 1
+
 [node name="CodexNoticeLabel" type="Label" parent="Content"]
 layout_mode = 2
 autowrap_mode = 3

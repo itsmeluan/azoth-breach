@@ -12,6 +12,14 @@ const INITIAL_INSTABILITY := 100
 const DEFAULT_MAX_ROUNDS := 4
 const DUAL_OBJECTIVE_INSTABILITY_FACTOR := 0.8
 
+# Lente de Vestígio (05.9 §9.2): "ampliar o valor prático de Análise de
+# Vestígio" e "reduzir risco em contexto específico de análise ou coleta" —
+# efeito distinto da melhoria de ET (05.9 §9.3 "não deve substituir
+# melhoria de ET"), por isso essa é uma regra própria, não outro nível de
+# upgrade_level.
+const CHASE_LOOT_ID := "lente_de_vestigio"
+const CHASE_LOOT_BONUS_ET := "et_analise_vestigio"
+
 var _operation: Dictionary = {}
 var _ets_by_id: Dictionary = {}
 var _max_rounds: int = DEFAULT_MAX_ROUNDS
@@ -87,7 +95,8 @@ func _on_et_selected(et_id: String) -> void:
 
 	_round += 1
 	var upgrade_level: int = SliceState.et_upgrade_level(et_id)
-	var result := ETResolution.resolve_attempt(upgrade_level)
+	var avoid_weak := et_id == CHASE_LOOT_BONUS_ET and SliceState.has_chase_loot(CHASE_LOOT_ID)
+	var result := ETResolution.resolve_attempt(upgrade_level, avoid_weak)
 	var delta: int = result["delta"]
 	var quality: String = result["quality"]
 

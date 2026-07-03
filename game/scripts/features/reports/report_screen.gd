@@ -12,6 +12,7 @@ var _context: Dictionary = {}
 @onready var title_label: Label = $Content/TitleLabel
 @onready var summary_label: Label = $Content/SummaryLabel
 @onready var rewards_label: Label = $Content/RewardsLabel
+@onready var chase_loot_label: Label = $Content/ChaseLootLabel
 @onready var codex_notice_label: Label = $Content/CodexNoticeLabel
 @onready var recontextualization_label: Label = $Content/RecontextualizationLabel
 @onready var research_notice_label: Label = $Content/ResearchNoticeLabel
@@ -43,11 +44,22 @@ func _ready() -> void:
 		", ".join(rewards.map(_format_slug)), SliceState.RESOURCE_GRANT_PER_OPERATION,
 	]
 
+	chase_loot_label.text = _build_chase_loot_notice()
 	codex_notice_label.text = _build_codex_notice(operation)
 	recontextualization_label.text = operation.get("recontextualization_notice", "")
 	research_notice_label.text = "Melhoria de ET disponível — acesse a Mesa de Pesquisa no Hub."
 
 	return_button.pressed.connect(_on_return_pressed)
+
+
+func _build_chase_loot_notice() -> String:
+	var chase_loot_this_run: Array = _context.get("chase_loot_this_run", [])
+	if chase_loot_this_run.is_empty():
+		return ""
+	var names: Array[String] = []
+	for chase_id in chase_loot_this_run:
+		names.append(_format_slug(chase_id).capitalize())
+	return "Loot raro obtido: %s!" % ", ".join(names)
 
 
 func _build_codex_notice(operation: Dictionary) -> String:
